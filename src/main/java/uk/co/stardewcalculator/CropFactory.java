@@ -1,5 +1,7 @@
 package uk.co.stardewcalculator;
 
+import uk.co.stardewcalculator.crop.*;
+
 public class CropFactory {
     public Crop assignCrop(String cropType) {
         Crop crop;

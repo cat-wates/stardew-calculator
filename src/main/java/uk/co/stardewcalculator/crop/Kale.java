@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator;
+package uk.co.stardewcalculator.crop;
 
 public class Kale extends Crop {
     public Kale() {

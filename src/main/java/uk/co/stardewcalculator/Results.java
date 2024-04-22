@@ -1,5 +1,7 @@
 package uk.co.stardewcalculator;
 
+import uk.co.stardewcalculator.crop.Crop;
+
 public class Results {
     public void printResults(String cropType, int seedCount) {
         Calculator calculator = new Calculator();
