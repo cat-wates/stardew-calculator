@@ -5,4 +5,9 @@ public class Kale extends Crop {
         costPerSeed = 70;
         sellingPrice = 110;
     }
+
+    @Override
+    public String toString() {
+        return "Kale";
+    }
 }
