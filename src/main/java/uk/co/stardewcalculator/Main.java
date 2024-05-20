@@ -1,5 +1,7 @@
 package uk.co.stardewcalculator;
 
+import uk.co.stardewcalculator.crop.Crop;
+
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +13,11 @@ public class Main {
         int seedCount = Integer.parseInt(sc.nextLine());
         System.out.println("Which crop? ");
         String cropType = sc.nextLine().toLowerCase();
-        Results results = new Results();
-        results.printResults(cropType, seedCount);
+        CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory
+        Crop finalCrop = cropfactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
+        Calculator calc = new Calculator();
+        int profit = calc.calculateProfit(seedCount, finalCrop);
+        Results results = new Results(finalCrop, seedCount, profit);
+        results.printResults(finalCrop, seedCount);
     }
 }

@@ -3,8 +3,12 @@ package uk.co.stardewcalculator;
 import uk.co.stardewcalculator.crop.Crop;
 
 public class Calculator {
-    public int calculateProfit(int seedCount, Crop crop) {
-        return (seedCount * crop.sellingPrice) - (seedCount * crop.costPerSeed);
+
+    int profit;
+
+    public int calculateProfit(int seedCount, Crop finalCrop) {
+        profit = (seedCount * finalCrop.sellingPrice) - (seedCount * finalCrop.costPerSeed);
+        return profit;
     }
 
 
