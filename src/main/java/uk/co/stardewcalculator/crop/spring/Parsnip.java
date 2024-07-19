@@ -1,4 +1,6 @@
-package uk.co.stardewcalculator.crop;
+package uk.co.stardewcalculator.crop.spring;
+
+import uk.co.stardewcalculator.crop.Crop;
 
 public class Parsnip extends Crop {
     public Parsnip() {
