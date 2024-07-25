@@ -4,11 +4,15 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class Calculator {
 
-    int profit;
+    int balance;
 
-    public int calculateProfit(int seedCount, Crop finalCrop) {
-        profit = (seedCount * finalCrop.sellingPrice) - (seedCount * finalCrop.costPerSeed);
-        return profit;
+    public Calculator(int balance) {
+        this.balance = balance;
+    }
+
+    public int calculateNewBalance(int seedCount, Crop finalCrop) {
+        int newBalance =  (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * finalCrop.sellingPrice);
+        return newBalance;
     }
 
 

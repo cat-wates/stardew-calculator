@@ -7,9 +7,11 @@ public class Player {
     public int farmingLevel;
     public boolean isTiller = false; //level 5
     public boolean isAgriculturist = false; //level 10
+    public int balance;
 
-    public Player(int farmingLevel) {
+    public Player(int farmingLevel, int balance) {
         this.farmingLevel = farmingLevel;
+        this.balance = balance;
     }
 
     public void defineProfessions(int farmingLevel) {

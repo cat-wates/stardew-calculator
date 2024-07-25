@@ -9,8 +9,9 @@ public class PlayerTest {
     public void shouldNotAssignProfessionsBasedOnFarmingLevelInput() {
 //        Given
         int farmingLevel = 0;
+        int balance = 100;
 //        When
-        Player player = new Player(farmingLevel);
+        Player player = new Player(farmingLevel, balance);
         player.defineProfessions(farmingLevel);
 //        Then
         assertFalse(player.isTiller);
