@@ -5,7 +5,7 @@ import uk.co.stardewcalculator.crop.Crop;
 public class GreenBean extends Crop {
     public GreenBean() {
         costPerSeed = 60;
-        sellingPrice = 40; //this continues to produce after maturity
+        basicSellingPrice = 40; //this continues to produce after maturity
     }
 
     @Override

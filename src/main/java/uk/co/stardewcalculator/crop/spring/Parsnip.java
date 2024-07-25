@@ -5,7 +5,10 @@ import uk.co.stardewcalculator.crop.Crop;
 public class Parsnip extends Crop {
     public Parsnip() {
         costPerSeed = 20;
-        sellingPrice = 35;
+        basicSellingPrice = 35;
+        silverSellingPrice = 43;
+        goldSellingPrice = 52;
+        iridiumSellingPrice = 70;
     }
 
     @Override

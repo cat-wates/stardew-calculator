@@ -5,7 +5,7 @@ import uk.co.stardewcalculator.crop.Crop;
 public class Garlic extends Crop {
     public Garlic() {
         costPerSeed = 40;
-        sellingPrice = 60;
+        basicSellingPrice = 60;
     }
 
     @Override

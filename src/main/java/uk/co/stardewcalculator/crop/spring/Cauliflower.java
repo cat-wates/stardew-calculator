@@ -5,7 +5,7 @@ import uk.co.stardewcalculator.crop.Crop;
 public class Cauliflower extends Crop {
     public Cauliflower() {
         costPerSeed = 80;
-        sellingPrice = 175;
+        basicSellingPrice = 175;
     }
 
     @Override

@@ -5,7 +5,7 @@ import uk.co.stardewcalculator.crop.Crop;
 public class CoffeeBean extends Crop {
     public CoffeeBean() {
         costPerSeed = 2500;
-        sellingPrice = 15;
+        basicSellingPrice = 15;
     }
 
     @Override

@@ -19,7 +19,7 @@ public class Results {
         System.out.println("Crop: " + finalCrop);
         System.out.println("Seed amount: " + seedCount);
         System.out.println("Buying price: " + finalCrop.costPerSeed + "g");
-        System.out.println("Selling price: " + finalCrop.sellingPrice + "g");
+        System.out.println("Selling price: " + finalCrop.basicSellingPrice + "g");
         System.out.println("Old balance: " + balance + "g");
         System.out.println("New balance: " + newBalance + "g");
     }

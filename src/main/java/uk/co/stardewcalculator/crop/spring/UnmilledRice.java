@@ -5,7 +5,7 @@ import uk.co.stardewcalculator.crop.Crop;
 public class UnmilledRice extends Crop {
     public UnmilledRice() {
         costPerSeed = 40;
-        sellingPrice = 30;
+        basicSellingPrice = 30;
     }
 
     @Override

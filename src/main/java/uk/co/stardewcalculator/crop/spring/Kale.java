@@ -5,7 +5,7 @@ import uk.co.stardewcalculator.crop.Crop;
 public class Kale extends Crop {
     public Kale() {
         costPerSeed = 70;
-        sellingPrice = 110;
+        basicSellingPrice = 110;
     }
 
     @Override
