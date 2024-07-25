@@ -9,7 +9,11 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to the Stardew Valley profit calculator!");
         Scanner sc = new Scanner(System.in);
-        System.out.print("How many seeds do you want to buy? ");
+        System.out.println("What is your farming level? ");
+        int farmingLevel = Integer.parseInt(sc.nextLine());
+        Player player = new Player(farmingLevel);
+        player.defineProfessions(farmingLevel);
+        System.out.print("How many tiles do you have to fill? ");
         int seedCount = Integer.parseInt(sc.nextLine());
         System.out.println("Which crop? ");
         String cropType = sc.nextLine().toLowerCase();
