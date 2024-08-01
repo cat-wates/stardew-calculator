@@ -8,33 +8,12 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Welcome to the Stardew Valley profit calculator!");
-        Scanner sc = new Scanner(System.in);
-        System.out.println("What is your current balance? ");
-        int balance = Integer.parseInt(sc.nextLine());
-        System.out.println("What is your farming level? ");
-        double farmingLevel = Integer.parseInt(sc.nextLine());
+        PlayerPrompt pp = new PlayerPrompt();
+        int balance = pp.setBalance();
+        double farmingLevel = pp.setFarmingLevel();
         Player player = new Player(farmingLevel, balance);
         player.defineProfessions(farmingLevel);
-        System.out.println("How many tiles do you have to fill? ");
-        int seedCount = Integer.parseInt(sc.nextLine());
-        int i = 0;
-        while (i < 1) {
-            System.out.println("Which crop? ");
-            String cropType = sc.nextLine().toLowerCase();
-            CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory
-            Crop finalCrop = cropfactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
-            Calculator calc = new Calculator(balance, farmingLevel);
-            calc.setProbabilities(farmingLevel);
-            int minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
-            int potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
-            Results results = new Results(finalCrop, seedCount, balance, minimumBalance, potentialBalance);
-            results.printResults(finalCrop, seedCount);
-            System.out.println("Try another crop? (Y/N) ");
-            if (sc.nextLine().equals("y")) {
-                continue;
-            } else {
-                i +=1;
-            }
-        }
+        int seedCount = pp.setSeedCount();
+        pp.setCropAndCalculateStats(balance, farmingLevel, seedCount);
     }
 }
