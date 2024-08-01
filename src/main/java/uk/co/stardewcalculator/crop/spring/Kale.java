@@ -6,6 +6,9 @@ public class Kale extends Crop {
     public Kale() {
         costPerSeed = 70;
         basicSellingPrice = 110;
+        silverSellingPrice = 137;
+        goldSellingPrice = 165;
+        iridiumSellingPrice = 220;
     }
 
     @Override

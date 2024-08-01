@@ -6,6 +6,9 @@ public class UnmilledRice extends Crop {
     public UnmilledRice() {
         costPerSeed = 40;
         basicSellingPrice = 30;
+        silverSellingPrice = 37;
+        goldSellingPrice = 45;
+        iridiumSellingPrice = 60;
     }
 
     @Override

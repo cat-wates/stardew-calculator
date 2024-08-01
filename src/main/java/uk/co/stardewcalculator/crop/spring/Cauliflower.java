@@ -6,6 +6,9 @@ public class Cauliflower extends Crop {
     public Cauliflower() {
         costPerSeed = 80;
         basicSellingPrice = 175;
+        silverSellingPrice = 218;
+        goldSellingPrice = 262;
+        iridiumSellingPrice = 350;
     }
 
     @Override

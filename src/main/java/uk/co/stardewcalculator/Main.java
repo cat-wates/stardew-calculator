@@ -19,7 +19,6 @@ public class Main {
         int seedCount = Integer.parseInt(sc.nextLine());
         int i = 0;
         while (i < 1) {
-            //while loop
             System.out.println("Which crop? ");
             String cropType = sc.nextLine().toLowerCase();
             CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory

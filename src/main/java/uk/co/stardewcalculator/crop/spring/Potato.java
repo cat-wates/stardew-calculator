@@ -6,6 +6,9 @@ public class Potato extends Crop {
     public Potato() {
         costPerSeed = 50;
         basicSellingPrice = 80;
+        silverSellingPrice = 100;
+        goldSellingPrice = 120;
+        iridiumSellingPrice = 160;
     }
 
     @Override

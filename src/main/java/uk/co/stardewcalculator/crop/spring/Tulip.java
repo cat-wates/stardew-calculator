@@ -6,6 +6,9 @@ public class Tulip extends Crop {
     public Tulip() {
         costPerSeed = 20;
         basicSellingPrice = 30;
+        silverSellingPrice = 37;
+        goldSellingPrice = 45;
+        iridiumSellingPrice = 60;
     }
 
     @Override

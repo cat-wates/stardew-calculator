@@ -6,6 +6,9 @@ public class Garlic extends Crop {
     public Garlic() {
         costPerSeed = 40;
         basicSellingPrice = 60;
+        silverSellingPrice = 75;
+        goldSellingPrice = 90;
+        iridiumSellingPrice = 120;
     }
 
     @Override

@@ -6,6 +6,9 @@ public class CoffeeBean extends Crop {
     public CoffeeBean() {
         costPerSeed = 2500;
         basicSellingPrice = 15;
+        silverSellingPrice = 18;
+        goldSellingPrice = 22;
+        iridiumSellingPrice = 30;
     }
 
     @Override
