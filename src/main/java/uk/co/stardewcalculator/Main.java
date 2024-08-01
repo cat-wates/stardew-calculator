@@ -17,13 +17,16 @@ public class Main {
         player.defineProfessions(farmingLevel);
         System.out.println("How many tiles do you have to fill? ");
         int seedCount = Integer.parseInt(sc.nextLine());
+        //while loop
         System.out.println("Which crop? ");
         String cropType = sc.nextLine().toLowerCase();
         CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory
         Crop finalCrop = cropfactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
         Calculator calc = new Calculator(balance, farmingLevel);
-        int newBalance = calc.calculateNewBalance(seedCount, finalCrop);
-        Results results = new Results(finalCrop, seedCount, balance, newBalance);
+        calc.setProbabilities(farmingLevel);
+        int minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
+        int potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+        Results results = new Results(finalCrop, seedCount, balance, minimumBalance, potentialBalance);
         results.printResults(finalCrop, seedCount);
     }
 }
