@@ -24,7 +24,7 @@ public class PlayerPrompt {
         return Integer.parseInt(sc.nextLine()); //seedCount
     }
 
-    public void setCropAndCalculateStats(int balance, double farmingLevel, int seedCount) {
+    public void setCropAndCalculateStats(int balance, double farmingLevel, int seedCount, boolean isTiller) {
         Scanner sc = new Scanner(System.in);
         int i = 0;
         while (i < 1) {
@@ -32,14 +32,14 @@ public class PlayerPrompt {
             String cropType = sc.nextLine().toLowerCase();
             CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory
             Crop finalCrop = cropfactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
-            Calculator calc = new Calculator(balance, farmingLevel);
+            Calculator calc = new Calculator(balance, farmingLevel, isTiller);
             calc.setProbabilities(farmingLevel);
             int minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
             int potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
             Results results = new Results(finalCrop, seedCount, balance, minimumBalance, potentialBalance);
             results.printResults(finalCrop, seedCount);
             System.out.println("Try another crop? (Y/N) ");
-            if (sc.nextLine().equals("y")) {
+            if (sc.nextLine().equalsIgnoreCase("y")) {
                 continue;
             } else {
                 i +=1;

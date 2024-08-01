@@ -14,8 +14,9 @@ public class CalculatorTest {
         int balance = 100;
         int seedCount = 1;
         int farmingLevel = 5;
+        boolean isTiller = false;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel);
+        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
         double minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(115);
@@ -28,8 +29,9 @@ public class CalculatorTest {
         int balance = 100;
         int seedCount = 1;
         double farmingLevel = 5;
+        boolean isTiller = false;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel);
+        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
         calc.setProbabilities(farmingLevel);
         double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
 //        Then
@@ -43,12 +45,45 @@ public class CalculatorTest {
         int balance = 100;
         int seedCount = 1;
         double farmingLevel = 5;
+        boolean isTiller = false;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel);
+        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
         calc.setProbabilities(farmingLevel);
         int potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(120);
+    }
+
+    @Test
+    public void shouldTakeVariablesAndReturnMinimumBalanceIncludingTillerVariable() {
+//        Given
+        Crop finalCrop = new Parsnip();
+        int balance = 100;
+        int seedCount = 1;
+        double farmingLevel = 5;
+        boolean isTiller = true;
+//        When
+        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
+        calc.setProbabilities(farmingLevel);
+        double minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
+//        Then
+        assertThat(minimumBalance).isEqualTo(118);
+    }
+
+    @Test
+    public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariable() {
+//        Given
+        Crop finalCrop = new Parsnip();
+        int balance = 100;
+        int seedCount = 1;
+        double farmingLevel = 5;
+        boolean isTiller = true;
+//        When
+        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
+        calc.setProbabilities(farmingLevel);
+        double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+//        Then
+        assertThat(potentialBalance).isEqualTo(124);
     }
 
 

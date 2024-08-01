@@ -19,7 +19,7 @@ public class Player {
         Scanner sc = new Scanner(System.in);
         if (farmingLevel > 4) {
             System.out.println("Have you chosen the tiller profession? ");
-            if (sc.nextLine().equals("y")) {
+            if (sc.nextLine().equalsIgnoreCase("y")) {
                 isTiller = true;
             } else {
                 isTiller = false;
@@ -27,7 +27,7 @@ public class Player {
         }
         if (farmingLevel == 10) {
             System.out.println("Have you chosen the agriculturist profession? ");
-            if (sc.nextLine().equals("y")) {
+            if (sc.nextLine().equalsIgnoreCase("y")) {
                 isAgriculturist = true;
             } else {
                 isAgriculturist = false;
