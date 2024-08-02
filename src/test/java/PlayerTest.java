@@ -1,7 +1,8 @@
 import org.junit.jupiter.api.Test;
 import uk.co.stardewcalculator.Player;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Java6Assertions.assertThat;
+
 
 public class PlayerTest {
 
@@ -14,22 +15,23 @@ public class PlayerTest {
         Player player = new Player(farmingLevel, balance);
         player.defineProfessions(farmingLevel);
 //        Then
-        assertFalse(player.isTiller);
-        assertFalse(player.isAgriculturist);
-        assertEquals(player.farmingLevel, 0);
+        assertThat(player.isTiller).isFalse();
+        assertThat(player.isAgriculturist).isFalse();
+        assertThat(player.farmingLevel).isEqualTo(0);
     }
 
 //    @Test
 //    public void shouldAssignOneProfessionBasedOnFarmingLevelInput() {
 ////        Given
-//        int farmingLevel = 6;
+//        double farmingLevel = 6;
+//        int balance = 100;
 ////        When
-//        Player player = new Player(farmingLevel);
+//        Player player = new Player(farmingLevel, balance);
 //        player.defineProfessions(farmingLevel);
 ////        Then
-//        assertTrue(player.isTiller);
-//        assertFalse(player.isAgriculturist);
-//        assertEquals(player.farmingLevel, 6);
+//        assertThat(player.isTiller).isTrue();
+//        assertThat(player.isAgriculturist).isFalse();
+//        assertThat(player.farmingLevel).isEqualTo(6);
 //    }
 }
 

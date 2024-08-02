@@ -18,7 +18,7 @@ public class Player {
     public void defineProfessions(double farmingLevel) {
         Scanner sc = new Scanner(System.in);
         if (farmingLevel > 4) {
-            System.out.println("Have you chosen the tiller profession? ");
+            System.out.println("Have you chosen the tiller profession? (Y/N) ");
             if (sc.nextLine().equalsIgnoreCase("y")) {
                 isTiller = true;
             } else {
@@ -26,7 +26,7 @@ public class Player {
             }
         }
         if (farmingLevel == 10) {
-            System.out.println("Have you chosen the agriculturist profession? ");
+            System.out.println("Have you chosen the agriculturist profession? (Y/N) ");
             if (sc.nextLine().equalsIgnoreCase("y")) {
                 isAgriculturist = true;
             } else {
