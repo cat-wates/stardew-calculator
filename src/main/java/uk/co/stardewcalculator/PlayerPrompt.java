@@ -5,27 +5,42 @@ import uk.co.stardewcalculator.crop.Crop;
 import java.util.Scanner;
 
 public class PlayerPrompt {
+    private final Scanner sc;
+
+    public PlayerPrompt(Scanner sc) {
+        this.sc = sc;
+    }
 
     public int setBalance() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("What is your current balance? ");
         return Integer.parseInt(sc.nextLine()); //balance
     }
 
     public double setFarmingLevel() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("What is your farming level? ");
         return Integer.parseInt(sc.nextLine()); //farmingLevel
     }
 
+    public boolean setTillerChoice(double farmingLevel) {
+        if (farmingLevel >= 5) {
+            System.out.println("Have you chosen the tiller profession? (Y/N) ");
+        }
+        return sc.nextLine().equalsIgnoreCase("y");
+    }
+
+    public boolean setAgriculturalistChoice(double farmingLevel) {
+        if (farmingLevel == 10) {
+        System.out.println("Have you chosen the agriculturalist profession? (Y/N) ");
+        }
+        return sc.nextLine().equalsIgnoreCase("y");
+    }
+
     public int setSeedCount() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("How many tiles do you have to fill? ");
         return Integer.parseInt(sc.nextLine()); //seedCount
     }
 
     public void setCropAndCalculateStats(int balance, double farmingLevel, int seedCount, boolean isTiller) {
-        Scanner sc = new Scanner(System.in);
         int i = 0;
         while (i < 1) {
             System.out.println("Which crop? ");
