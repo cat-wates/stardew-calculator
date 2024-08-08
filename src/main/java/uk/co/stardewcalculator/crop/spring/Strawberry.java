@@ -9,6 +9,9 @@ public class Strawberry extends Crop {
         silverSellingPrice = 150;
         goldSellingPrice = 180;
         iridiumSellingPrice = 240;
+        timeToMaturity = 8;
+        isReproducing = true;
+        timeToRegrow = 4;
     }
 
     @Override

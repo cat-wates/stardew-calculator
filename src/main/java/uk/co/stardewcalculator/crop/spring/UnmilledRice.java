@@ -9,6 +9,8 @@ public class UnmilledRice extends Crop {
         silverSellingPrice = 37;
         goldSellingPrice = 45;
         iridiumSellingPrice = 60;
+        timeToMaturity = 6; //irrigated
+        isReproducing = false;
     }
 
     @Override

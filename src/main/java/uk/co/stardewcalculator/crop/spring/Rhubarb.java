@@ -9,6 +9,8 @@ public class Rhubarb extends Crop {
         silverSellingPrice = 275;
         goldSellingPrice = 330;
         iridiumSellingPrice = 440;
+        timeToMaturity = 13;
+        isReproducing = false;
     }
 
     @Override

@@ -9,6 +9,8 @@ public class Kale extends Crop {
         silverSellingPrice = 137;
         goldSellingPrice = 165;
         iridiumSellingPrice = 220;
+        timeToMaturity = 6;
+        isReproducing = false;
     }
 
     @Override

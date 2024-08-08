@@ -9,6 +9,8 @@ public class BlueJazz extends Crop {
         silverSellingPrice = 62;
         goldSellingPrice = 75;
         iridiumSellingPrice = 100;
+        timeToMaturity = 7;
+        isReproducing = false;
     }
 
     @Override

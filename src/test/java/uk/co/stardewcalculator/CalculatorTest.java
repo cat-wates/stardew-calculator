@@ -11,7 +11,7 @@ public class CalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalance() {
 //        Given
-        Crop finalCrop = new Parsnip();
+        Crop finalCrop = new Parsnip(); //growth rate = 4
         int balance = 100;
         int seedCount = 1;
         int farmingLevel = 5;
@@ -20,7 +20,7 @@ public class CalculatorTest {
         Calculator calc = new Calculator(balance, farmingLevel, isTiller);
         double minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
 //        Then
-        assertThat(minimumBalance).isEqualTo(115);
+        assertThat(minimumBalance).isEqualTo(205);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class CalculatorTest {
         calc.setProbabilities(farmingLevel);
         double minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
 //        Then
-        assertThat(minimumBalance).isEqualTo(118);
+        assertThat(minimumBalance).isEqualTo(229);
     }
 
     @Test

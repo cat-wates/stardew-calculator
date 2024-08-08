@@ -6,7 +6,9 @@ public class Crop {
     public int silverSellingPrice;
     public int goldSellingPrice;
     public int iridiumSellingPrice;
-    public int timeToMaturity;
+    public int timeToMaturity; //how long it takes for the plant to grow from initial planting of seed
+    public boolean isReproducing;
+    public int timeToRegrow; //if the crop reproduces after maturity, how long does this take?
 
     public Crop() {
         costPerSeed = 0;
@@ -15,6 +17,8 @@ public class Crop {
         goldSellingPrice = 0;
         iridiumSellingPrice = 0;
         timeToMaturity = 0;
+        isReproducing = false;
+        timeToRegrow = 0;
     }
 
     @Override

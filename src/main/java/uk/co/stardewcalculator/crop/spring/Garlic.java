@@ -9,6 +9,8 @@ public class Garlic extends Crop {
         silverSellingPrice = 75;
         goldSellingPrice = 90;
         iridiumSellingPrice = 120;
+        timeToMaturity = 4;
+        isReproducing = false;
     }
 
     @Override

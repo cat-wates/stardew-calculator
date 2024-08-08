@@ -8,7 +8,7 @@ public class Calculator {
     double farmingLevel;
     boolean isTiller;
     double goldProbability; //fertilizer level currently 0;
-    double silverProbability; //max 0.75 - work out how to incorporate this
+    double silverProbability; //max 0.75
     double iridiumProbability;
     double basicProbability;
 
@@ -30,11 +30,22 @@ public class Calculator {
 
     public int calculateMinimumBalance(int seedCount, Crop finalCrop) {
         double doubleMinimumBalance;
-        if (isTiller) {
-            doubleMinimumBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * finalCrop.basicSellingPrice * 1.1); //10% value increase with tiller profession
-        } else {
-            doubleMinimumBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * finalCrop.basicSellingPrice);
-
+        double tillerMultiplier = 1.1;
+        if (finalCrop.isReproducing) { //need to test
+            int reproducingMultiplier = ((28 - finalCrop.timeToMaturity) / finalCrop.timeToRegrow) + 1; //how many times can the reproducing crop produce a harvest in a season?
+            if (isTiller) {
+                doubleMinimumBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * finalCrop.basicSellingPrice * tillerMultiplier * reproducingMultiplier); //10% value increase with tiller profession
+            } else {
+                doubleMinimumBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * finalCrop.basicSellingPrice * reproducingMultiplier);
+            }
+        }
+        else { //tested
+            int nonReproducingMultiplier = 28 / finalCrop.timeToMaturity; //how many times can the non-reproducing crop grow and produce a harvest in a season?
+            if (isTiller) {
+                doubleMinimumBalance = (balance - (seedCount * finalCrop.costPerSeed * nonReproducingMultiplier)) + (seedCount * finalCrop.basicSellingPrice * tillerMultiplier * nonReproducingMultiplier); //10% value increase with tiller profession
+            } else {
+                doubleMinimumBalance = (balance - (seedCount * finalCrop.costPerSeed * nonReproducingMultiplier)) + (seedCount * finalCrop.basicSellingPrice * nonReproducingMultiplier);
+            }
         }
         return (int)doubleMinimumBalance;
     }

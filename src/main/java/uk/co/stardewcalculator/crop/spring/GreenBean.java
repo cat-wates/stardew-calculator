@@ -9,6 +9,9 @@ public class GreenBean extends Crop {
         silverSellingPrice = 50;
         goldSellingPrice = 60;
         iridiumSellingPrice = 80;
+        timeToMaturity = 10;
+        isReproducing = true;
+        timeToRegrow = 3;
     }
 
     @Override

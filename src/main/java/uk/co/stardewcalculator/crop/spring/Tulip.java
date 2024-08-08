@@ -9,6 +9,8 @@ public class Tulip extends Crop {
         silverSellingPrice = 37;
         goldSellingPrice = 45;
         iridiumSellingPrice = 60;
+        timeToMaturity = 6;
+        isReproducing = false;
     }
 
     @Override

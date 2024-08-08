@@ -9,6 +9,9 @@ public class CoffeeBean extends Crop {
         silverSellingPrice = 18;
         goldSellingPrice = 22;
         iridiumSellingPrice = 30;
+        timeToMaturity = 10;
+        isReproducing = true;
+        timeToRegrow = 2;
     }
 
     @Override

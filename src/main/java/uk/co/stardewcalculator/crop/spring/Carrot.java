@@ -9,6 +9,8 @@ public class Carrot extends Crop {
         silverSellingPrice = 43;
         goldSellingPrice = 52;
         iridiumSellingPrice = 70;
+        timeToMaturity = 3;
+        isReproducing = false;
     }
 
     @Override

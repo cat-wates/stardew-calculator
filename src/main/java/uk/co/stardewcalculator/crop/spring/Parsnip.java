@@ -9,6 +9,8 @@ public class Parsnip extends Crop {
         silverSellingPrice = 43;
         goldSellingPrice = 52;
         iridiumSellingPrice = 70;
+        timeToMaturity = 4;
+        isReproducing = false;
     }
 
     @Override

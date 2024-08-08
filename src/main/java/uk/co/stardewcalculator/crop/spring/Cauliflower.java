@@ -9,6 +9,8 @@ public class Cauliflower extends Crop {
         silverSellingPrice = 218;
         goldSellingPrice = 262;
         iridiumSellingPrice = 350;
+        timeToMaturity = 12;
+        isReproducing = false;
     }
 
     @Override
