@@ -41,8 +41,8 @@ public class PlayerPrompt {
     }
 
     public void setCropAndCalculateStats(int balance, double farmingLevel, int seedCount, boolean isTiller) {
-        int i = 0;
-        while (i < 1) {
+        boolean cont = true;
+        while (cont) {
             System.out.println("Which crop? ");
             String cropType = sc.nextLine().toLowerCase();
             CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory
@@ -57,12 +57,8 @@ public class PlayerPrompt {
             if (sc.nextLine().equalsIgnoreCase("y")) {
                 continue;
             } else {
-                i +=1;
+                cont = false;
             }
         }
     }
-
-
-
-
 }

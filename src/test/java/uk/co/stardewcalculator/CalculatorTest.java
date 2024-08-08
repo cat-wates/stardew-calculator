@@ -1,5 +1,6 @@
+package uk.co.stardewcalculator;
+
 import org.junit.jupiter.api.Test;
-import uk.co.stardewcalculator.Calculator;
 import uk.co.stardewcalculator.crop.Crop;
 import uk.co.stardewcalculator.crop.spring.Parsnip;
 

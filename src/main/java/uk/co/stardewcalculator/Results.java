@@ -17,6 +17,7 @@ public class Results {
         this.minimumBalance = minimumBalance;
         this.potentialBalance = potentialBalance;
     }
+
     public void printResults(Crop finalCrop, int seedCount) {
         System.out.println("Crop: " + finalCrop);
         System.out.println("Seed amount: " + seedCount);
@@ -27,6 +28,6 @@ public class Results {
         System.out.println("Iridium selling price: " + finalCrop.iridiumSellingPrice + "g");
         System.out.println("Old balance: " + balance + "g");
         System.out.println("Minimum new balance: " + minimumBalance + "g");
-        System.out.println("Potential new balance: " + potentialBalance + "g");
+        System.out.println("Potential new balance (based on crop quality probability): " + potentialBalance + "g");
     }
 }

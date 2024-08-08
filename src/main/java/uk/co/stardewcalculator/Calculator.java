@@ -23,6 +23,9 @@ public class Calculator {
         silverProbability = 2 * goldProbability;
         iridiumProbability = goldProbability / 2;
         basicProbability = 1 - (silverProbability + goldProbability + iridiumProbability);
+        if (silverProbability > 0.75) {
+            silverProbability = 0.75;
+        }
     }
 
     public int calculateMinimumBalance(int seedCount, Crop finalCrop) {
