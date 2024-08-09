@@ -11,6 +11,7 @@ public class Calculator {
     double silverProbability; //max 0.75
     double iridiumProbability;
     double basicProbability;
+    double tillerMultiplier = 1.1;
 
     public Calculator(int balance, double farmingLevel, boolean isTiller) {
         this.balance = balance;
@@ -30,8 +31,7 @@ public class Calculator {
 
     public int calculateMinimumBalance(int seedCount, Crop finalCrop) {
         double doubleMinimumBalance;
-        double tillerMultiplier = 1.1;
-        if (finalCrop.isReproducing) { //need to test
+        if (finalCrop.isReproducing) { //tested
             int reproducingMultiplier = ((28 - finalCrop.timeToMaturity) / finalCrop.timeToRegrow) + 1; //how many times can the reproducing crop produce a harvest in a season?
             if (isTiller) {
                 doubleMinimumBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * finalCrop.basicSellingPrice * tillerMultiplier * reproducingMultiplier); //10% value increase with tiller profession
@@ -52,10 +52,21 @@ public class Calculator {
 
     public int calculatePotentialBalance(int seedCount, Crop finalCrop) {
         double doublePotentialBalance;
-        if (isTiller) {
-            doublePotentialBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * basicProbability * finalCrop.basicSellingPrice * 1.1) + (seedCount * silverProbability * finalCrop.silverSellingPrice * 1.1) + (seedCount * goldProbability * finalCrop.goldSellingPrice * 1.1) + (seedCount * iridiumProbability * finalCrop.iridiumSellingPrice * 1.1);
-        } else {
-            doublePotentialBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * basicProbability * finalCrop.basicSellingPrice) + (seedCount * silverProbability * finalCrop.silverSellingPrice) + (seedCount * goldProbability * finalCrop.goldSellingPrice) + (seedCount * iridiumProbability * finalCrop.iridiumSellingPrice);
+        if (finalCrop.isReproducing) {
+            int reproducingMultiplier = ((28 - finalCrop.timeToMaturity) / finalCrop.timeToRegrow) + 1;
+            if (isTiller) {
+                doublePotentialBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * basicProbability * finalCrop.basicSellingPrice * tillerMultiplier * reproducingMultiplier) + (seedCount * silverProbability * finalCrop.silverSellingPrice * tillerMultiplier * reproducingMultiplier) + (seedCount * goldProbability * finalCrop.goldSellingPrice * tillerMultiplier * reproducingMultiplier) + (seedCount * iridiumProbability * finalCrop.iridiumSellingPrice * tillerMultiplier * reproducingMultiplier);
+            } else {
+                doublePotentialBalance = (balance - (seedCount * finalCrop.costPerSeed)) + (seedCount * basicProbability * finalCrop.basicSellingPrice * reproducingMultiplier) + (seedCount * silverProbability * finalCrop.silverSellingPrice * reproducingMultiplier) + (seedCount * goldProbability * finalCrop.goldSellingPrice * reproducingMultiplier) + (seedCount * iridiumProbability * finalCrop.iridiumSellingPrice * reproducingMultiplier);
+            }
+        }
+        else {
+            int nonReproducingMultiplier = 28 / finalCrop.timeToMaturity;
+            if (isTiller) {
+                doublePotentialBalance = (balance - (seedCount * finalCrop.costPerSeed * nonReproducingMultiplier)) + (seedCount * basicProbability * finalCrop.basicSellingPrice * tillerMultiplier * nonReproducingMultiplier) + (seedCount * silverProbability * finalCrop.silverSellingPrice * tillerMultiplier * nonReproducingMultiplier) + (seedCount * goldProbability * finalCrop.goldSellingPrice * tillerMultiplier * nonReproducingMultiplier) + (seedCount * iridiumProbability * finalCrop.iridiumSellingPrice * tillerMultiplier * nonReproducingMultiplier);
+            } else {
+                doublePotentialBalance = (balance - (seedCount * finalCrop.costPerSeed * nonReproducingMultiplier)) + (seedCount * basicProbability * finalCrop.basicSellingPrice * nonReproducingMultiplier) + (seedCount * silverProbability * finalCrop.silverSellingPrice * nonReproducingMultiplier) + (seedCount * goldProbability * finalCrop.goldSellingPrice * nonReproducingMultiplier) + (seedCount * iridiumProbability * finalCrop.iridiumSellingPrice * nonReproducingMultiplier);
+            }
         }
         return (int)doublePotentialBalance; //rounds down
     }
