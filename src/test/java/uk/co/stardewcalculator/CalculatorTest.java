@@ -73,8 +73,9 @@ public class CalculatorTest {
         assertThat(minimumBalance).isEqualTo(-2235);
     }
 
+    //potential balance non-reproducing
     @Test
-    public void shouldTakeVariablesAndReturnPotentialBalance() {
+    public void shouldTakeVariablesAndReturnPotentialBalanceForNonReproducingPlant() {
 //        Given
         Crop finalCrop = new Parsnip();
         int balance = 100;
@@ -86,27 +87,11 @@ public class CalculatorTest {
         calc.setProbabilities(farmingLevel);
         double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
 //        Then
-        assertThat(potentialBalance).isEqualTo(120.555);
+        assertThat(potentialBalance).isEqualTo(243);
     }
 
     @Test
-    public void shouldTakeADoubleAndConvertToAnInt() {
-//        Given
-        Crop finalCrop = new Parsnip();
-        int balance = 100;
-        int seedCount = 1;
-        double farmingLevel = 5;
-        boolean isTiller = false;
-//        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        calc.setProbabilities(farmingLevel);
-        int potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
-//        Then
-        assertThat(potentialBalance).isEqualTo(120);
-    }
-
-    @Test
-    public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariable() {
+    public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariableForNonReproducingPlant() {
 //        Given
         Crop finalCrop = new Parsnip();
         int balance = 100;
@@ -118,8 +103,38 @@ public class CalculatorTest {
         calc.setProbabilities(farmingLevel);
         double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
 //        Then
-        assertThat(potentialBalance).isEqualTo(124);
+        assertThat(potentialBalance).isEqualTo(272);
     }
 
+    @Test
+    public void shouldTakeVariablesAndReturnPotentialBalanceForReproducingPlant() {
+//        Given
+        Crop finalCrop = new CoffeeBean();
+        int balance = 100;
+        int seedCount = 1;
+        double farmingLevel = 5;
+        boolean isTiller = false;
+//        When
+        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
+        calc.setProbabilities(farmingLevel);
+        double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+//        Then
+        assertThat(potentialBalance).isEqualTo(-2227);
+    }
 
+    @Test
+    public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariableForReproducingPlant() {
+//        Given
+        Crop finalCrop = new CoffeeBean();
+        int balance = 100;
+        int seedCount = 1;
+        double farmingLevel = 5;
+        boolean isTiller = true;
+//        When
+        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
+        calc.setProbabilities(farmingLevel);
+        double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+//        Then
+        assertThat(potentialBalance).isEqualTo(-2210);
+    }
 }
