@@ -47,10 +47,9 @@ public class PlayerPrompt {
             String cropType = sc.nextLine().toLowerCase();
             CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory
             Crop finalCrop = cropfactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
-            Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-            calc.setProbabilities(farmingLevel);
-            int minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
-            int potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+            Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+            int minimumBalance = calc.calculateMinimumBalance();
+            int potentialBalance = calc.calculatePotentialBalance();
             Results results = new Results(finalCrop, seedCount, balance, minimumBalance, potentialBalance);
             results.printResults(finalCrop, seedCount);
             System.out.println("Try another crop? (Y/N) ");

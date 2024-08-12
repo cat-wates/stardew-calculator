@@ -19,8 +19,8 @@ public class CalculatorTest {
         int farmingLevel = 5;
         boolean isTiller = false;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        double minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
+        Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+        double minimumBalance = calc.calculateMinimumBalance();
 //        Then
         assertThat(minimumBalance).isEqualTo(205);
     }
@@ -34,9 +34,8 @@ public class CalculatorTest {
         double farmingLevel = 5;
         boolean isTiller = true;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        calc.setProbabilities(farmingLevel);
-        double minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
+        Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+        double minimumBalance = calc.calculateMinimumBalance();
 //        Then
         assertThat(minimumBalance).isEqualTo(229);
     }
@@ -51,8 +50,8 @@ public class CalculatorTest {
         int farmingLevel = 5;
         boolean isTiller = false;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        double minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
+        Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+        double minimumBalance = calc.calculateMinimumBalance();
 //        Then
         assertThat(minimumBalance).isEqualTo(-2250);
     }
@@ -66,9 +65,8 @@ public class CalculatorTest {
         double farmingLevel = 5;
         boolean isTiller = true;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        calc.setProbabilities(farmingLevel);
-        double minimumBalance = calc.calculateMinimumBalance(seedCount, finalCrop);
+        Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+        double minimumBalance = calc.calculateMinimumBalance();
 //        Then
         assertThat(minimumBalance).isEqualTo(-2235);
     }
@@ -83,9 +81,8 @@ public class CalculatorTest {
         double farmingLevel = 5;
         boolean isTiller = false;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        calc.setProbabilities(farmingLevel);
-        double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+        Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+        double potentialBalance = calc.calculatePotentialBalance();
 //        Then
         assertThat(potentialBalance).isEqualTo(243);
     }
@@ -99,9 +96,8 @@ public class CalculatorTest {
         double farmingLevel = 5;
         boolean isTiller = true;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        calc.setProbabilities(farmingLevel);
-        double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+        Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+        double potentialBalance = calc.calculatePotentialBalance();
 //        Then
         assertThat(potentialBalance).isEqualTo(272);
     }
@@ -115,9 +111,8 @@ public class CalculatorTest {
         double farmingLevel = 5;
         boolean isTiller = false;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        calc.setProbabilities(farmingLevel);
-        double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+        Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+        double potentialBalance = calc.calculatePotentialBalance();
 //        Then
         assertThat(potentialBalance).isEqualTo(-2227);
     }
@@ -131,9 +126,8 @@ public class CalculatorTest {
         double farmingLevel = 5;
         boolean isTiller = true;
 //        When
-        Calculator calc = new Calculator(balance, farmingLevel, isTiller);
-        calc.setProbabilities(farmingLevel);
-        double potentialBalance = calc.calculatePotentialBalance(seedCount, finalCrop);
+        Calculator calc = new Calculator(balance, seedCount, farmingLevel, isTiller, finalCrop);
+        double potentialBalance = calc.calculatePotentialBalance();
 //        Then
         assertThat(potentialBalance).isEqualTo(-2210);
     }
