@@ -15,6 +15,6 @@ public class Main {
         boolean isAgriculturist = pp.setAgriculturalistChoice(farmingLevel);
         Player player = new Player(farmingLevel, balance, isTiller, isAgriculturist);
         int seedCount = pp.setSeedCount();
-        pp.setCropAndCalculateStats(balance, farmingLevel, seedCount, player.isTiller);
+        pp.setCropAndCalculateStats(player, seedCount);
     }
 }
