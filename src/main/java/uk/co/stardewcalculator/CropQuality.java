@@ -9,9 +9,6 @@ public class CropQuality {
 
     public CropQuality(double farmingLevel) {
         this.farmingLevel = farmingLevel;
-    }
-
-    public void setProbabilities() {
         goldProbability = 0.2 * (farmingLevel / 10) + (0.2 * 0) * ((farmingLevel + 2) / 12) + 0.01;
         silverProbability = 2 * goldProbability;
         iridiumProbability = goldProbability / 2;

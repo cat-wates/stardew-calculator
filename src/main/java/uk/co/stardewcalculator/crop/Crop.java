@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.crop;
 
-public class Crop {
+public abstract class Crop {
     public int costPerSeed; //from Pierre
     public int basicSellingPrice; //base price
     public int silverSellingPrice;
@@ -10,15 +10,16 @@ public class Crop {
     public boolean isReproducing;
     public int timeToRegrow; //if the crop reproduces after maturity, how long does this take?
 
-    public Crop() {
-        costPerSeed = 0;
-        basicSellingPrice = 0;
-        silverSellingPrice = 0;
-        goldSellingPrice = 0;
-        iridiumSellingPrice = 0;
-        timeToMaturity = 0;
-        isReproducing = false;
-        timeToRegrow = 0;
+    public Crop() {}
+    public Crop(int costPerSeed, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, boolean isReproducing, int timeToRegrow) {
+        this.costPerSeed = costPerSeed;
+        this.basicSellingPrice = basicSellingPrice;
+        this.silverSellingPrice = silverSellingPrice;
+        this.goldSellingPrice = goldSellingPrice;
+        this.iridiumSellingPrice = iridiumSellingPrice;
+        this.timeToMaturity = timeToMaturity;
+        this.isReproducing = isReproducing;
+        this.timeToRegrow = timeToRegrow;
     }
 
     @Override

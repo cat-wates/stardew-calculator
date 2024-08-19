@@ -48,7 +48,6 @@ public class PlayerPrompt {
             CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory
             Crop finalCrop = cropfactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
             CropQuality cropQuality = new CropQuality(player.farmingLevel);
-            cropQuality.setProbabilities();
             CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
             Calculator calc = new Calculator(player, finalCrop, cropProfit);
             int minimumBalance = calc.calculateMinimumBalance();

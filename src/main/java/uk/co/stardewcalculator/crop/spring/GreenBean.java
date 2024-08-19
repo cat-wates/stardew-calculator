@@ -4,14 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class GreenBean extends Crop {
     public GreenBean() {
-        costPerSeed = 60;
-        basicSellingPrice = 40; //this continues to produce after maturity
-        silverSellingPrice = 50;
-        goldSellingPrice = 60;
-        iridiumSellingPrice = 80;
-        timeToMaturity = 10;
-        isReproducing = true;
-        timeToRegrow = 3;
+        super(60, 40, 50, 60, 80, 10, true, 3);
     }
 
     @Override

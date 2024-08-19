@@ -4,13 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class Rhubarb extends Crop {
     public Rhubarb() {
-        costPerSeed = 100;
-        basicSellingPrice = 220;
-        silverSellingPrice = 275;
-        goldSellingPrice = 330;
-        iridiumSellingPrice = 440;
-        timeToMaturity = 13;
-        isReproducing = false;
+        super(100, 220, 275, 330, 440, 13, false, 0);
     }
 
     @Override

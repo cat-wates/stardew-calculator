@@ -4,14 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class Strawberry extends Crop {
     public Strawberry() {
-        costPerSeed = 100;
-        basicSellingPrice = 120;
-        silverSellingPrice = 150;
-        goldSellingPrice = 180;
-        iridiumSellingPrice = 240;
-        timeToMaturity = 8;
-        isReproducing = true;
-        timeToRegrow = 4;
+        super(100, 120, 150, 180, 240, 8, true, 4);
     }
 
     @Override

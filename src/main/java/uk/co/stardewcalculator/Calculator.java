@@ -30,16 +30,16 @@ public class Calculator {
         setMultipliers();
         if (finalCrop.isReproducing) {
             if (player.isTiller) {
-                minimumBalance = (player.balance - cropProfit.setCost()) + (cropProfit.setMinimumBasicProfit() * TILLER_MULTIPLIER * reproducingMultiplier); //10% value increase with tiller profession
+                minimumBalance = (player.balance - cropProfit.getCost()) + (cropProfit.getMinimumBasicProfit() * TILLER_MULTIPLIER * reproducingMultiplier); //10% value increase with tiller profession
             } else {
-                minimumBalance = (player.balance - cropProfit.setCost()) + (cropProfit.setMinimumBasicProfit() * reproducingMultiplier);
+                minimumBalance = (player.balance - cropProfit.getCost()) + (cropProfit.getMinimumBasicProfit() * reproducingMultiplier);
             }
         }
         else {
             if (player.isTiller) {
-                minimumBalance = (player.balance - (cropProfit.setCost() * nonReproducingMultiplier)) + (cropProfit.setMinimumBasicProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier); //10% value increase with tiller profession
+                minimumBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getMinimumBasicProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier); //10% value increase with tiller profession
             } else {
-                minimumBalance = (player.balance - (cropProfit.setCost() * nonReproducingMultiplier)) + (cropProfit.setMinimumBasicProfit() * nonReproducingMultiplier);
+                minimumBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getMinimumBasicProfit() * nonReproducingMultiplier);
             }
         }
         return (int)minimumBalance;
@@ -50,16 +50,16 @@ public class Calculator {
         setMultipliers();
         if (finalCrop.isReproducing) {
             if (player.isTiller) {
-                potentialBalance = (player.balance - (cropProfit.setCost())) + (cropProfit.setPotentialBasicProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.setPotentialSilverProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.setPotentialGoldProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.setPotentialIridiumProfit() * TILLER_MULTIPLIER * reproducingMultiplier);
+                potentialBalance = (player.balance - (cropProfit.getCost())) + (cropProfit.getPotentialBasicProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.getPotentialSilverProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.getPotentialGoldProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.getPotentialIridiumProfit() * TILLER_MULTIPLIER * reproducingMultiplier);
             } else {
-                potentialBalance = (player.balance - (cropProfit.setCost())) + (cropProfit.setPotentialBasicProfit() * reproducingMultiplier) + (cropProfit.setPotentialSilverProfit() * reproducingMultiplier) + (cropProfit.setPotentialGoldProfit() * reproducingMultiplier) + (cropProfit.setPotentialIridiumProfit() * reproducingMultiplier);
+                potentialBalance = (player.balance - (cropProfit.getCost())) + (cropProfit.getPotentialBasicProfit() * reproducingMultiplier) + (cropProfit.getPotentialSilverProfit() * reproducingMultiplier) + (cropProfit.getPotentialGoldProfit() * reproducingMultiplier) + (cropProfit.getPotentialIridiumProfit() * reproducingMultiplier);
             }
         }
         else {
             if (player.isTiller) {
-                potentialBalance = (player.balance - (cropProfit.setCost() * nonReproducingMultiplier)) + (cropProfit.setPotentialBasicProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.setPotentialSilverProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.setPotentialGoldProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.setPotentialIridiumProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier);
+                potentialBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getPotentialBasicProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.getPotentialSilverProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.getPotentialGoldProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.getPotentialIridiumProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier);
             } else {
-                potentialBalance = (player.balance - (cropProfit.setCost() * nonReproducingMultiplier)) + (cropProfit.setPotentialBasicProfit() * nonReproducingMultiplier) + (cropProfit.setPotentialSilverProfit() * nonReproducingMultiplier) + (cropProfit.setPotentialGoldProfit() * nonReproducingMultiplier) + (cropProfit.setPotentialIridiumProfit() * nonReproducingMultiplier);
+                potentialBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getPotentialBasicProfit() * nonReproducingMultiplier) + (cropProfit.getPotentialSilverProfit() * nonReproducingMultiplier) + (cropProfit.getPotentialGoldProfit() * nonReproducingMultiplier) + (cropProfit.getPotentialIridiumProfit() * nonReproducingMultiplier);
             }
         }
         return (int)potentialBalance; //rounds down

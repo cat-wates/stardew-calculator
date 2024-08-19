@@ -10,9 +10,8 @@ class CropQualityTest {
     public void shouldReassignInstanceVariablesWithCorrectProbabilities() {
 //        Given
         int farmingLevel = 0;
-        CropQuality cq = new CropQuality(farmingLevel);
 //        When
-        cq.setProbabilities();
+        CropQuality cq = new CropQuality(farmingLevel);
 //        Then
         assertThat(cq.getBasicProbability()).isEqualTo(0.965);
         assertThat(cq.getSilverProbability()).isEqualTo(0.02);

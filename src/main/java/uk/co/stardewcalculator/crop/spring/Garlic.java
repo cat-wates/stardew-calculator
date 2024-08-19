@@ -4,13 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class Garlic extends Crop {
     public Garlic() {
-        costPerSeed = 40;
-        basicSellingPrice = 60;
-        silverSellingPrice = 75;
-        goldSellingPrice = 90;
-        iridiumSellingPrice = 120;
-        timeToMaturity = 4;
-        isReproducing = false;
+        super(40, 60, 75, 90, 120, 4, false, 0);
     }
 
     @Override

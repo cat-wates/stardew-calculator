@@ -4,13 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class BlueJazz extends Crop {
     public BlueJazz() {
-        costPerSeed = 30;
-        basicSellingPrice = 50;
-        silverSellingPrice = 62;
-        goldSellingPrice = 75;
-        iridiumSellingPrice = 100;
-        timeToMaturity = 7;
-        isReproducing = false;
+        super(30, 50, 62, 75, 100, 7, false, 0);
     }
 
     @Override

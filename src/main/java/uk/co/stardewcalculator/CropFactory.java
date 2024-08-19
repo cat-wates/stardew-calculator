@@ -24,7 +24,7 @@ public class CropFactory {
             case "unmilled rice", "unmilledrice", "rice" -> crop = new UnmilledRice();
             default -> {
                 System.out.println("Crop not found!");
-                crop = new Crop();
+                crop = new Parsnip();
             }
         }
 

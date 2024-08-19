@@ -4,14 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class CoffeeBean extends Crop {
     public CoffeeBean() {
-        costPerSeed = 2500;
-        basicSellingPrice = 15;
-        silverSellingPrice = 18;
-        goldSellingPrice = 22;
-        iridiumSellingPrice = 30;
-        timeToMaturity = 10;
-        isReproducing = true;
-        timeToRegrow = 2;
+        super(2500, 15, 18, 22, 30, 10, true, 2);
     }
 
     @Override

@@ -17,7 +17,6 @@ public class CalculatorTest {
         int seedCount = 1;
         Player player = new Player(5, 100, false, false);
         CropQuality cropQuality = new CropQuality(player.farmingLevel);
-        cropQuality.setProbabilities();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -33,7 +32,6 @@ public class CalculatorTest {
         int seedCount = 1;
         Player player = new Player(5, 100, true, false);
         CropQuality cropQuality = new CropQuality(player.farmingLevel);
-        cropQuality.setProbabilities();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -50,7 +48,6 @@ public class CalculatorTest {
         int seedCount = 1;
         Player player = new Player(5, 100, false, false);
         CropQuality cropQuality = new CropQuality(player.farmingLevel);
-        cropQuality.setProbabilities();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -66,7 +63,6 @@ public class CalculatorTest {
         int seedCount = 1;
         Player player = new Player(5, 100, true, false);
         CropQuality cropQuality = new CropQuality(player.farmingLevel);
-        cropQuality.setProbabilities();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -83,7 +79,6 @@ public class CalculatorTest {
         int seedCount = 1;
         Player player = new Player(5, 100, false, false);
         CropQuality cropQuality = new CropQuality(player.farmingLevel);
-        cropQuality.setProbabilities();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -99,7 +94,6 @@ public class CalculatorTest {
         int seedCount = 1;
         Player player = new Player(5, 100, true, false);
         CropQuality cropQuality = new CropQuality(player.farmingLevel);
-        cropQuality.setProbabilities();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -115,7 +109,6 @@ public class CalculatorTest {
         int seedCount = 1;
         Player player = new Player(5, 100, false, false);
         CropQuality cropQuality = new CropQuality(player.farmingLevel);
-        cropQuality.setProbabilities();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -131,7 +124,6 @@ public class CalculatorTest {
         int seedCount = 1;
         Player player = new Player(5, 100, true, false);
         CropQuality cropQuality = new CropQuality(player.farmingLevel);
-        cropQuality.setProbabilities();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);

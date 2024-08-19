@@ -4,13 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class Cauliflower extends Crop {
     public Cauliflower() {
-        costPerSeed = 80;
-        basicSellingPrice = 175;
-        silverSellingPrice = 218;
-        goldSellingPrice = 262;
-        iridiumSellingPrice = 350;
-        timeToMaturity = 12;
-        isReproducing = false;
+        super(80, 175, 218, 262, 350, 12, false, 0);
     }
 
     @Override
