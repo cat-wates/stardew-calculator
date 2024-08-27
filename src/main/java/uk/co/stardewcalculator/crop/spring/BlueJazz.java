@@ -4,7 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class BlueJazz extends Crop {
     public BlueJazz() {
-        super(30, 50, 62, 75, 100, 7, false, 0);
+        super(30, 50, 62, 75, 100, 7, false);
     }
 
     @Override

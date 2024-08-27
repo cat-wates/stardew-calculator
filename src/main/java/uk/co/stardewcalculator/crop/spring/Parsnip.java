@@ -4,7 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class Parsnip extends Crop {
     public Parsnip() {
-        super(20, 35, 43, 52, 70, 4, false, 0);
+        super(20, 35, 43, 52, 70, 4, false);
     }
 
     @Override

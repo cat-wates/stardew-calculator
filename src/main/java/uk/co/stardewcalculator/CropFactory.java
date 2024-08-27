@@ -4,7 +4,7 @@ import uk.co.stardewcalculator.crop.*;
 import uk.co.stardewcalculator.crop.spring.*;
 
 public class CropFactory {
-    public Crop assignCrop(String cropType) {
+    public Crop assignCrop(String cropType) throws IllegalArgumentException {
         Crop crop;
 
         switch (cropType) {
@@ -23,8 +23,7 @@ public class CropFactory {
             case "tulip" -> crop = new Tulip();
             case "unmilled rice", "unmilledrice", "rice" -> crop = new UnmilledRice();
             default -> {
-                System.out.println("Crop not found!");
-                crop = new Parsnip();
+                throw new IllegalArgumentException("Crop not found! Try again.");
             }
         }
 

@@ -1,6 +1,7 @@
 package uk.co.stardewcalculator;
 
 import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.ReproducingCrop;
 
 public class Calculator {
 
@@ -18,8 +19,8 @@ public class Calculator {
     }
 
     private void setMultipliers() {
-        if (finalCrop.isReproducing) {
-            reproducingMultiplier = ((28 - finalCrop.timeToMaturity) / finalCrop.timeToRegrow) + 1; //how many times can the reproducing crop produce a harvest in a season?
+        if (finalCrop instanceof ReproducingCrop) {
+            reproducingMultiplier = ((28 - finalCrop.timeToMaturity) / ((ReproducingCrop) finalCrop).timeToRegrow) + 1; //how many times can the reproducing crop produce a harvest in a season?
         } else {
             nonReproducingMultiplier = 28 / finalCrop.timeToMaturity; //how many times can the non-reproducing crop grow and produce a harvest in a season?
         }
@@ -50,16 +51,16 @@ public class Calculator {
         setMultipliers();
         if (finalCrop.isReproducing) {
             if (player.isTiller) {
-                potentialBalance = (player.balance - (cropProfit.getCost())) + (cropProfit.getPotentialBasicProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.getPotentialSilverProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.getPotentialGoldProfit() * TILLER_MULTIPLIER * reproducingMultiplier) + (cropProfit.getPotentialIridiumProfit() * TILLER_MULTIPLIER * reproducingMultiplier);
+                potentialBalance = (player.balance - (cropProfit.getCost())) + (cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit()) * TILLER_MULTIPLIER * reproducingMultiplier;
             } else {
-                potentialBalance = (player.balance - (cropProfit.getCost())) + (cropProfit.getPotentialBasicProfit() * reproducingMultiplier) + (cropProfit.getPotentialSilverProfit() * reproducingMultiplier) + (cropProfit.getPotentialGoldProfit() * reproducingMultiplier) + (cropProfit.getPotentialIridiumProfit() * reproducingMultiplier);
+                potentialBalance = (player.balance - (cropProfit.getCost())) + (cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit()) * reproducingMultiplier;
             }
         }
         else {
             if (player.isTiller) {
-                potentialBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getPotentialBasicProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.getPotentialSilverProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.getPotentialGoldProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier) + (cropProfit.getPotentialIridiumProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier);
+                potentialBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit()) * TILLER_MULTIPLIER * nonReproducingMultiplier;
             } else {
-                potentialBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getPotentialBasicProfit() * nonReproducingMultiplier) + (cropProfit.getPotentialSilverProfit() * nonReproducingMultiplier) + (cropProfit.getPotentialGoldProfit() * nonReproducingMultiplier) + (cropProfit.getPotentialIridiumProfit() * nonReproducingMultiplier);
+                potentialBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit()) * nonReproducingMultiplier;
             }
         }
         return (int)potentialBalance; //rounds down

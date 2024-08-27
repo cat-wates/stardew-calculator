@@ -4,7 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class UnmilledRice extends Crop {
     public UnmilledRice() {
-        super(40, 30, 37, 45, 60, 6, false, 0);
+        super(40, 30, 37, 45, 60, 6, false);
     }
 
     @Override

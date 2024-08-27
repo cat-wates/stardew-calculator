@@ -1,8 +1,9 @@
 package uk.co.stardewcalculator.crop.spring;
 
 import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.ReproducingCrop;
 
-public class GreenBean extends Crop {
+public class GreenBean extends ReproducingCrop {
     public GreenBean() {
         super(60, 40, 50, 60, 80, 10, true, 3);
     }
