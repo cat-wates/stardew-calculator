@@ -4,7 +4,7 @@ import uk.co.stardewcalculator.crop.Crop;
 
 public class Carrot extends Crop {
     public Carrot() {
-        super(0, 35, 43, 52, 70, 3, false);
+        super(0, 35, 43, 52, 70, 3);
     }
 
     @Override

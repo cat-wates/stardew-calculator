@@ -4,7 +4,7 @@ import uk.co.stardewcalculator.crop.ReproducingCrop;
 
 public class Strawberry extends ReproducingCrop {
     public Strawberry() {
-        super(100, 120, 150, 180, 240, 8, true, 4);
+        super(100, 120, 150, 180, 240, 8, 4);
     }
 
     @Override

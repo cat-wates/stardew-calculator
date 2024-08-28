@@ -8,8 +8,6 @@ public class Calculator {
     Player player;
     Crop finalCrop;
     CropProfit cropProfit;
-    int reproducingMultiplier;
-    int nonReproducingMultiplier;
     final double TILLER_MULTIPLIER = 1.1;
 
     public Calculator(Player player, Crop finalCrop, CropProfit cropProfit) {
@@ -18,53 +16,34 @@ public class Calculator {
         this.cropProfit = cropProfit;
     }
 
-    private void setMultipliers() {
+    private int calculateBalanceMinusCost() {
+        int balanceMinusCost;
         if (finalCrop instanceof ReproducingCrop) {
-            reproducingMultiplier = ((28 - finalCrop.timeToMaturity) / ((ReproducingCrop) finalCrop).timeToRegrow) + 1; //how many times can the reproducing crop produce a harvest in a season?
-        } else {
-            nonReproducingMultiplier = 28 / finalCrop.timeToMaturity; //how many times can the non-reproducing crop grow and produce a harvest in a season?
-        }
-    }
-
-    public int calculateMinimumBalance() {
-        double minimumBalance;
-        setMultipliers();
-        if (finalCrop.isReproducing) {
-            if (player.isTiller) {
-                minimumBalance = (player.balance - cropProfit.getCost()) + (cropProfit.getMinimumBasicProfit() * TILLER_MULTIPLIER * reproducingMultiplier); //10% value increase with tiller profession
-            } else {
-                minimumBalance = (player.balance - cropProfit.getCost()) + (cropProfit.getMinimumBasicProfit() * reproducingMultiplier);
-            }
+            balanceMinusCost = player.balance - cropProfit.getCost();
         }
         else {
-            if (player.isTiller) {
-                minimumBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getMinimumBasicProfit() * TILLER_MULTIPLIER * nonReproducingMultiplier); //10% value increase with tiller profession
-            } else {
-                minimumBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getMinimumBasicProfit() * nonReproducingMultiplier);
-            }
+            balanceMinusCost = player.balance - (cropProfit.getCost() * finalCrop.getHarvestsPerSeason());
         }
+        return balanceMinusCost;
+    }
+
+    private double calculateMultipliers() {
+        double professionMultiplier = 1;
+        if (player.isTiller) {
+           professionMultiplier =  TILLER_MULTIPLIER;
+        }
+        return finalCrop.getHarvestsPerSeason() * professionMultiplier;
+    }
+
+
+    public int calculateMinimumBalance() {
+        double minimumBalance = calculateBalanceMinusCost() + (cropProfit.getMinimumBasicProfit() * calculateMultipliers());
         return (int)minimumBalance;
     }
 
     public int calculatePotentialBalance() {
-        double potentialBalance;
-        setMultipliers();
-        if (finalCrop.isReproducing) {
-            if (player.isTiller) {
-                potentialBalance = (player.balance - (cropProfit.getCost())) + (cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit()) * TILLER_MULTIPLIER * reproducingMultiplier;
-            } else {
-                potentialBalance = (player.balance - (cropProfit.getCost())) + (cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit()) * reproducingMultiplier;
-            }
-        }
-        else {
-            if (player.isTiller) {
-                potentialBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit()) * TILLER_MULTIPLIER * nonReproducingMultiplier;
-            } else {
-                potentialBalance = (player.balance - (cropProfit.getCost() * nonReproducingMultiplier)) + (cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit()) * nonReproducingMultiplier;
-            }
-        }
+        double totalProfit = cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit();
+        double potentialBalance = calculateBalanceMinusCost() + (totalProfit * calculateMultipliers());
         return (int)potentialBalance; //rounds down
     }
-
-
 }
