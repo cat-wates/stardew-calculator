@@ -2,7 +2,7 @@ package uk.co.stardewcalculator.crop;
 
 public class ReproducingCrop extends Crop {
 
-    public final int timeToRegrow;
+    private final int timeToRegrow;
 
     public ReproducingCrop(int costPerSeed, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, int timeToRegrow) {
         super(costPerSeed, basicSellingPrice, silverSellingPrice, goldSellingPrice, iridiumSellingPrice, timeToMaturity);
@@ -11,7 +11,7 @@ public class ReproducingCrop extends Crop {
 
     @Override
     public int getHarvestsPerSeason() {
-        return ((28 - timeToMaturity) / timeToRegrow) + 1;
+        return ((28 - getTimeToMaturity()) / timeToRegrow) + 1;
     }
 
 }

@@ -2,11 +2,11 @@ package uk.co.stardewcalculator;
 
 public class Player {
 
-    public double farmingLevel;
-    public int fertilizerLevel = 0;
-    public boolean isTiller; //level 5
-    public boolean isAgriculturist; //level 10
-    public int balance;
+    private final double farmingLevel;
+    private final int fertilizerLevel = 0;
+    private final boolean isTiller; //level 5
+    private final boolean isAgriculturist; //level 10
+    private final int balance;
 
     public Player(double farmingLevel, int balance, boolean isTiller, boolean isAgriculturist) {
         this.farmingLevel = farmingLevel;
@@ -14,4 +14,25 @@ public class Player {
         this.isTiller = isTiller;
         this.isAgriculturist = isAgriculturist;
     }
+
+    public double getFarmingLevel() {
+        return farmingLevel;
+    }
+
+    public int getFertilizerLevel() {
+        return fertilizerLevel;
+    }
+
+    public boolean getTiller() {
+        return isTiller;
+    }
+
+    public boolean getAgriculturalist() {
+        return isAgriculturist;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
 }

@@ -2,10 +2,10 @@ package uk.co.stardewcalculator;
 
 public class CropQuality {
     double farmingLevel;
-    private double basicProbability;
+    private final double basicProbability;
     private double silverProbability;
-    private double goldProbability;
-    private double iridiumProbability;
+    private final double goldProbability;
+    private final double iridiumProbability;
 
     public CropQuality(double farmingLevel) {
         this.farmingLevel = farmingLevel;

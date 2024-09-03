@@ -15,29 +15,29 @@ public class CropProfit {
     }
 
     public int getCost() {
-        return seedCount * finalCrop.costPerSeed;
+        return seedCount * finalCrop.getCostPerSeed();
     }
 
     /* Minimum profit */
     public int getMinimumBasicProfit() {
-        return seedCount * finalCrop.basicSellingPrice;
+        return seedCount * finalCrop.getBasicSellingPrice();
     }
 
     /* Potential profit */
     public double getPotentialBasicProfit() {
-        return seedCount * finalCrop.basicSellingPrice * cropQuality.getBasicProbability();
+        return seedCount * finalCrop.getBasicSellingPrice() * cropQuality.getBasicProbability();
     }
 
     public double getPotentialSilverProfit() {
-        return seedCount * finalCrop.silverSellingPrice * cropQuality.getSilverProbability();
+        return seedCount * finalCrop.getSilverSellingPrice() * cropQuality.getSilverProbability();
     }
 
     public double getPotentialGoldProfit() {
-        return seedCount * finalCrop.goldSellingPrice * cropQuality.getGoldProbability();
+        return seedCount * finalCrop.getGoldSellingPrice() * cropQuality.getGoldProbability();
     }
 
     public double getPotentialIridiumProfit() {
-        return seedCount * finalCrop.iridiumSellingPrice * cropQuality.getIridiumProbability();
+        return seedCount * finalCrop.getIridiumSellingPrice() * cropQuality.getIridiumProbability();
     }
 
 

@@ -16,7 +16,7 @@ public class CalculatorTest {
         Crop finalCrop = new Parsnip(); //growth rate = 4
         int seedCount = 1;
         Player player = new Player(5, 100, false, false);
-        CropQuality cropQuality = new CropQuality(player.farmingLevel);
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -31,7 +31,7 @@ public class CalculatorTest {
         Crop finalCrop = new Parsnip(); //growth rate = 4
         int seedCount = 1;
         Player player = new Player(5, 100, true, false);
-        CropQuality cropQuality = new CropQuality(player.farmingLevel);
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -47,7 +47,7 @@ public class CalculatorTest {
         Crop finalCrop = new CoffeeBean();
         int seedCount = 1;
         Player player = new Player(5, 100, false, false);
-        CropQuality cropQuality = new CropQuality(player.farmingLevel);
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -62,7 +62,7 @@ public class CalculatorTest {
         Crop finalCrop = new CoffeeBean(); //growth rate = 4
         int seedCount = 1;
         Player player = new Player(5, 100, true, false);
-        CropQuality cropQuality = new CropQuality(player.farmingLevel);
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -78,7 +78,7 @@ public class CalculatorTest {
         Crop finalCrop = new Parsnip(); //growth rate = 4
         int seedCount = 1;
         Player player = new Player(5, 100, false, false);
-        CropQuality cropQuality = new CropQuality(player.farmingLevel);
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -93,7 +93,7 @@ public class CalculatorTest {
         Crop finalCrop = new Parsnip(); //growth rate = 4
         int seedCount = 1;
         Player player = new Player(5, 100, true, false);
-        CropQuality cropQuality = new CropQuality(player.farmingLevel);
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -108,7 +108,7 @@ public class CalculatorTest {
         Crop finalCrop = new CoffeeBean(); //growth rate = 4
         int seedCount = 1;
         Player player = new Player(5, 100, false, false);
-        CropQuality cropQuality = new CropQuality(player.farmingLevel);
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -123,7 +123,7 @@ public class CalculatorTest {
         Crop finalCrop = new CoffeeBean(); //growth rate = 4
         int seedCount = 1;
         Player player = new Player(5, 100, true, false);
-        CropQuality cropQuality = new CropQuality(player.farmingLevel);
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
         Calculator calc = new Calculator(player, finalCrop, cropProfit);

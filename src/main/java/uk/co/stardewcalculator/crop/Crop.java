@@ -1,12 +1,12 @@
 package uk.co.stardewcalculator.crop;
 
 public abstract class Crop {
-    public int costPerSeed; //from Pierre
-    public int basicSellingPrice; //base price
-    public int silverSellingPrice;
-    public int goldSellingPrice;
-    public int iridiumSellingPrice;
-    public int timeToMaturity; //how long it takes for the plant to grow from initial planting of seed
+    private int costPerSeed; //from Pierre
+    private int basicSellingPrice; //base price
+    private int silverSellingPrice;
+    private int goldSellingPrice;
+    private int iridiumSellingPrice;
+    private int timeToMaturity; //how long it takes for the plant to grow from initial planting of seed
 
     public Crop() {}
 
@@ -21,6 +21,30 @@ public abstract class Crop {
 
     public int getHarvestsPerSeason() {
         return 28 / timeToMaturity;
+    }
+
+    public int getCostPerSeed() {
+        return costPerSeed;
+    }
+
+    public int getBasicSellingPrice() {
+        return basicSellingPrice;
+    }
+
+    public int getSilverSellingPrice() {
+        return silverSellingPrice;
+    }
+
+    public int getGoldSellingPrice() {
+        return goldSellingPrice;
+    }
+
+    public int getIridiumSellingPrice() {
+        return iridiumSellingPrice;
+    }
+
+    public int getTimeToMaturity() {
+        return timeToMaturity;
     }
 
     @Override

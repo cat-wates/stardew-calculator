@@ -21,11 +21,11 @@ public class Results {
     public void printResults(Crop finalCrop, int seedCount) {
         System.out.println("Crop: " + finalCrop);
         System.out.println("Seed amount: " + seedCount);
-        System.out.println("Buying price: " + finalCrop.costPerSeed + "g");
-        System.out.println("Basic selling price: " + finalCrop.basicSellingPrice + "g");
-        System.out.println("Silver selling price: " + finalCrop.silverSellingPrice + "g");
-        System.out.println("Gold selling price: " + finalCrop.goldSellingPrice + "g");
-        System.out.println("Iridium selling price: " + finalCrop.iridiumSellingPrice + "g");
+        System.out.println("Buying price: " + finalCrop.getCostPerSeed() + "g");
+        System.out.println("Basic selling price: " + finalCrop.getBasicSellingPrice() + "g");
+        System.out.println("Silver selling price: " + finalCrop.getSilverSellingPrice() + "g");
+        System.out.println("Gold selling price: " + finalCrop.getGoldSellingPrice() + "g");
+        System.out.println("Iridium selling price: " + finalCrop.getIridiumSellingPrice() + "g");
         System.out.println("Old balance: " + balance + "g");
         System.out.println("Minimum new balance: " + minimumBalance + "g");
         System.out.println("Potential new balance (based on crop quality probability): " + potentialBalance + "g");

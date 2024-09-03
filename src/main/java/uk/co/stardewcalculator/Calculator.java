@@ -19,17 +19,17 @@ public class Calculator {
     private int calculateBalanceMinusCost() {
         int balanceMinusCost;
         if (finalCrop instanceof ReproducingCrop) {
-            balanceMinusCost = player.balance - cropProfit.getCost();
+            balanceMinusCost = player.getBalance() - cropProfit.getCost();
         }
         else {
-            balanceMinusCost = player.balance - (cropProfit.getCost() * finalCrop.getHarvestsPerSeason());
+            balanceMinusCost = player.getBalance() - (cropProfit.getCost() * finalCrop.getHarvestsPerSeason());
         }
         return balanceMinusCost;
     }
 
     private double calculateMultipliers() {
         double professionMultiplier = 1;
-        if (player.isTiller) {
+        if (player.getTiller()) {
            professionMultiplier =  TILLER_MULTIPLIER;
         }
         return finalCrop.getHarvestsPerSeason() * professionMultiplier;
