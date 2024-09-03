@@ -12,13 +12,31 @@ public class PlayerPrompt {
     }
 
     public int setBalance() {
-        System.out.println("What is your current balance? ");
-        return Integer.parseInt(sc.nextLine()); //balance
+        int balance;
+        try {
+            System.out.println("What is your current balance? ");
+            balance = Integer.parseInt(sc.nextLine()); //if the string doesn't contain a parseable integer, a NumberFormatException is thrown
+        }
+        catch(NumberFormatException nfe) {
+            System.out.println("Invalid input - try again.");
+            System.out.println("What is your current balance? ");
+            balance = Integer.parseInt(sc.nextLine());
+        }
+        return balance;
     }
 
     public double setFarmingLevel() {
-        System.out.println("What is your farming level? ");
-        return Integer.parseInt(sc.nextLine()); //farmingLevel
+        int farmingLevel;
+        try {
+            System.out.println("What is your farming level? ");
+            farmingLevel = Integer.parseInt(sc.nextLine());
+        }
+        catch(NumberFormatException nfe) {
+            System.out.println("Invalid input - try again.");
+            System.out.println("What is your farming level?");
+            farmingLevel = Integer.parseInt(sc.nextLine());
+        }
+        return farmingLevel;
     }
 
     public boolean setTillerChoice(double farmingLevel) {
@@ -36,8 +54,17 @@ public class PlayerPrompt {
     }
 
     public int setSeedCount() {
-        System.out.println("How many tiles do you have to fill? ");
-        return Integer.parseInt(sc.nextLine()); //seedCount
+        int seedCount;
+        try {
+            System.out.println("How many tiles do you have to fill? ");
+            seedCount = Integer.parseInt(sc.nextLine());
+        }
+        catch (NumberFormatException nfe){
+            System.out.println("Invalid input - try again.");
+            System.out.println("How many tiles do you have to fill? ");
+            seedCount = Integer.parseInt(sc.nextLine());
+        }
+        return seedCount;
     }
 
     public void setCropAndCalculateStats(Player player, int seedCount) {

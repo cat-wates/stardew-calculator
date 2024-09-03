@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Scanner;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
@@ -12,7 +13,7 @@ import static org.mockito.Mockito.when;
 public class PlayerPromptTest {
 
     @Test
-    public void shouldCheckSetBalanceMethodBehavesAsExpected() {
+    public void shouldCheckSetBalanceMethodBehavesAsExpectedForAHappyPath() {
 //        Given
         Scanner sc = mock(Scanner.class);
         assertNotNull(sc);
@@ -25,7 +26,21 @@ public class PlayerPromptTest {
     }
 
     @Test
-    public void shouldCheckSetFarmingLevelMethodBehavesAsExpected() {
+    public void shouldCheckSetBalanceMethodBehavesAsExpectedForUnhappyPath() {
+//        Given
+        Scanner sc = mock(Scanner.class);
+        assertNotNull(sc);
+        when(sc.nextLine()).thenReturn("cat");
+//        When
+        PlayerPrompt pp = new PlayerPrompt(sc);
+//        Then
+        assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
+            pp.setBalance();
+        }).withMessageMatching("For input string: \"cat\""); //use \ for quotes in a string!
+    }
+
+    @Test
+    public void shouldCheckSetFarmingLevelMethodBehavesAsExpectedForAHappyPath() {
 //        Given
         Scanner sc = mock(Scanner.class);
         assertNotNull(sc);
@@ -35,6 +50,20 @@ public class PlayerPromptTest {
         double farmingLevel = pp.setFarmingLevel();
 //        Then
         assertThat(farmingLevel).isEqualTo(5.0);
+    }
+
+    @Test
+    public void shouldCheckSetFarmingLevelMethodBehavesAsExpectedForAnUnhappyPath() {
+//        Given
+        Scanner sc = mock(Scanner.class);
+        assertNotNull(sc);
+        when(sc.nextLine()).thenReturn("cat");
+//        When
+        PlayerPrompt pp = new PlayerPrompt(sc);
+//        Then
+        assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
+            pp.setFarmingLevel();
+        }).withMessageMatching("For input string: \"cat\"");
     }
 
     @Test
@@ -94,7 +123,7 @@ public class PlayerPromptTest {
     }
 
     @Test
-    public void shouldCheckSetSeedCountMethodBehavesAsExpected() {
+    public void shouldCheckSetSeedCountMethodBehavesAsExpectedForAHappyPath() {
 //        Given
         Scanner sc = mock(Scanner.class);
         assertNotNull(sc);
@@ -106,15 +135,17 @@ public class PlayerPromptTest {
         assertThat(seedCount).isEqualTo(100);
     }
 
-//    @Test
-//    public void shouldCheckSetCropAndCalculateStatsMethodBehavesAsExpected() {
-////        Given
-//        Scanner sc = mock(Scanner.class);
-//        assertNotNull(sc);
-//        when(sc.nextLine()).thenReturn("parsnip");
-////        When
-//        PlayerPrompt pp = new PlayerPrompt(sc);
-////        Then
-//        assertThat(pp.).isEqualTo(100);
-//    }
+    @Test
+    public void shouldCheckSetSeedCountMethodBehavesAsExpectedForAnUnhappyPath() {
+//        Given
+        Scanner sc = mock(Scanner.class);
+        assertNotNull(sc);
+        when(sc.nextLine()).thenReturn("cat");
+//        When
+        PlayerPrompt pp = new PlayerPrompt(sc);
+//        Then
+        assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
+            pp.setSeedCount();
+        }).withMessageMatching("For input string: \"cat\"");
+    }
 }
