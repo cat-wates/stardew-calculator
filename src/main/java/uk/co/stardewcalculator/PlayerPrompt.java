@@ -18,7 +18,7 @@ public class PlayerPrompt {
             balance = Integer.parseInt(sc.nextLine()); //if the string doesn't contain a parseable integer, a NumberFormatException is thrown
         }
         catch(NumberFormatException nfe) {
-            System.out.println("Invalid input - try again.");
+            System.err.println("Invalid input - try again.");
             System.out.println("What is your current balance? ");
             balance = Integer.parseInt(sc.nextLine());
         }
@@ -32,7 +32,7 @@ public class PlayerPrompt {
             farmingLevel = Integer.parseInt(sc.nextLine());
         }
         catch(NumberFormatException nfe) {
-            System.out.println("Invalid input - try again.");
+            System.err.println("Invalid input - try again.");
             System.out.println("What is your farming level?");
             farmingLevel = Integer.parseInt(sc.nextLine());
         }
@@ -60,7 +60,7 @@ public class PlayerPrompt {
             seedCount = Integer.parseInt(sc.nextLine());
         }
         catch (NumberFormatException nfe){
-            System.out.println("Invalid input - try again.");
+            System.err.println("Invalid input - try again.");
             System.out.println("How many tiles do you have to fill? ");
             seedCount = Integer.parseInt(sc.nextLine());
         }
@@ -71,9 +71,8 @@ public class PlayerPrompt {
         boolean cont = true;
         while (cont) {
             System.out.println("Which crop? ");
-            String cropType = sc.nextLine().toLowerCase();
-            CropFactory cropfactory = new CropFactory(); //new instance of CropFactory called cropfactory
-            Crop finalCrop = cropfactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
+            String cropType = sc.nextLine().toLowerCase();//new instance of CropFactory called cropfactory
+            Crop finalCrop = CropFactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
             CropQuality cropQuality = new CropQuality(player.farmingLevel);
             CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
             Calculator calc = new Calculator(player, finalCrop, cropProfit);
