@@ -148,4 +148,31 @@ public class PlayerPromptTest {
             pp.setSeedCount();
         }).withMessageMatching("For input string: \"cat\"");
     }
+
+    @Test
+    public void shouldCheckSetFertilizerLevelMethodBehavesAsExpectedForAHappyPath() {
+//        Given
+        Scanner sc = mock(Scanner.class);
+        assertNotNull(sc);
+        when(sc.nextLine()).thenReturn("0");
+//        When
+        PlayerPrompt pp = new PlayerPrompt(sc);
+        int seedCount = pp.setFertilizerLevel();
+//        Then
+        assertThat(seedCount).isEqualTo(0);
+    }
+
+    @Test
+    public void shouldCheckSetFertilizerLevelMethodBehavesAsExpectedForAnUnhappyPath() {
+//        Given
+        Scanner sc = mock(Scanner.class);
+        assertNotNull(sc);
+        when(sc.nextLine()).thenReturn("cat");
+//        When
+        PlayerPrompt pp = new PlayerPrompt(sc);
+//        Then
+        assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
+            pp.setFertilizerLevel();
+        }).withMessageMatching("For input string: \"cat\"");
+    }
 }

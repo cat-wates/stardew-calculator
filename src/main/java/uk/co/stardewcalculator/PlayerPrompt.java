@@ -67,13 +67,38 @@ public class PlayerPrompt {
         return seedCount;
     }
 
-    public void setCropAndCalculateStats(Player player, int seedCount) {
+    public int setFertilizerLevel() {
+        int fertilizerLevel;
+        try {
+            System.out.println("Which fertilizer do you use? (0 - 3) ");
+            System.out.println("0 - normal soil");
+            System.out.println("1 - basic fertilizer");
+            System.out.println("2 - quality fertilizer");
+            System.out.println("3 - deluxe fertilizer");
+            fertilizerLevel = Integer.parseInt(sc.nextLine());
+            if (fertilizerLevel < 0 || fertilizerLevel > 3) {
+                throw new NumberFormatException();
+            }
+        }
+        catch (NumberFormatException nfe) {
+            System.err.println("Invalid input - try again.");
+            System.out.println("Which fertilizer do you use? (0 - 3) ");
+            System.out.println("0 - normal soil");
+            System.out.println("1 - basic fertilizer");
+            System.out.println("2 - quality fertilizer");
+            System.out.println("3 - deluxe fertilizer");
+            fertilizerLevel = Integer.parseInt(sc.nextLine());
+        }
+        return fertilizerLevel;
+    }
+
+    public void setCropAndCalculateStats(Player player, int seedCount, int fertilizerLevel) {
         boolean cont = true;
         while (cont) {
             System.out.println("Which crop? ");
             String cropType = sc.nextLine().toLowerCase();//new instance of CropFactory called cropfactory
             Crop finalCrop = CropFactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
-            CropQuality cropQuality = new CropQuality(player.getFarmingLevel());
+            CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
             CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
             Calculator calc = new Calculator(player, finalCrop, cropProfit);
             int minimumBalance = calc.calculateMinimumBalance();
