@@ -92,12 +92,31 @@ public class PlayerPrompt {
         return fertilizerLevel;
     }
 
+    public Crop setCropChoice() {
+        Crop crop;
+        try {
+            System.out.println("Which crop? ");
+            String cropChoice = sc.nextLine().toLowerCase();
+            crop = CropFactory.assignCrop(cropChoice);
+        }
+        catch (IllegalArgumentException iae) {
+            System.err.println("Invalid input - try again.");
+            System.out.println("Which crop? ");
+            String cropChoice = sc.nextLine().toLowerCase();
+            crop = CropFactory.assignCrop(cropChoice);
+        }
+        return crop;
+    }
+
+    private String retryCropChoice() {
+        System.out.println("Try another crop? (Y/N) ");
+        return sc.nextLine();
+    }
+
     public void setCropAndCalculateStats(Player player, int seedCount, int fertilizerLevel) {
         boolean cont = true;
         while (cont) {
-            System.out.println("Which crop? ");
-            String cropType = sc.nextLine().toLowerCase();//new instance of CropFactory called cropfactory
-            Crop finalCrop = CropFactory.assignCrop(cropType); //finalCrop = crop (in cropfactory)
+            Crop finalCrop = setCropChoice();
             CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
             CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
             Calculator calc = new Calculator(player, finalCrop, cropProfit);
@@ -105,10 +124,8 @@ public class PlayerPrompt {
             int potentialBalance = calc.calculatePotentialBalance();
             Results results = new Results(finalCrop, seedCount, player.getBalance(), minimumBalance, potentialBalance);
             results.printResults(finalCrop, seedCount);
-            System.out.println("Try another crop? (Y/N) ");
-            if (sc.nextLine().equalsIgnoreCase("y")) {
-                continue;
-            } else {
+            String retry = retryCropChoice();
+            if (!retry.equalsIgnoreCase("y")) {
                 cont = false;
             }
         }

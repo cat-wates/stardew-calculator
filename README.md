@@ -8,7 +8,7 @@ Inputs from the user:
 - [x] Chosen professions based on farming level (tiller/agriculturalist)
 - [x] Number of tiles
 - [x] The crop they want to check
-- [ ] Whether they use a fertiliser (and the quality of it)
+- [x] Whether they use a fertiliser (and the quality of it)
 - [ ] Which season they're wanting to check
 
 Outputs in the console:
