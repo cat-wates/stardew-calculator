@@ -108,26 +108,8 @@ public class PlayerPrompt {
         return crop;
     }
 
-    private String retryCropChoice() {
+    public String retryCropChoice() {
         System.out.println("Try another crop? (Y/N) ");
         return sc.nextLine();
-    }
-
-    public void setCropAndCalculateStats(Player player, int seedCount, int fertilizerLevel) {
-        boolean cont = true;
-        while (cont) {
-            Crop finalCrop = setCropChoice();
-            CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
-            CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
-            Calculator calc = new Calculator(player, finalCrop, cropProfit);
-            int minimumBalance = calc.calculateMinimumBalance();
-            int potentialBalance = calc.calculatePotentialBalance();
-            Results results = new Results(finalCrop, seedCount, player.getBalance(), minimumBalance, potentialBalance);
-            results.printResults(finalCrop, seedCount);
-            String retry = retryCropChoice();
-            if (!retry.equalsIgnoreCase("y")) {
-                cont = false;
-            }
-        }
     }
 }

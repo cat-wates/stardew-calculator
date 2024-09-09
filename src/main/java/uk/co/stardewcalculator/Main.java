@@ -16,6 +16,7 @@ public class Main {
         Player player = new Player(farmingLevel, balance, isTiller, isAgriculturist);
         int seedCount = pp.setSeedCount();
         int fertilizerLevel = pp.setFertilizerLevel();
-        pp.setCropAndCalculateStats(player, seedCount, fertilizerLevel);
+        ResultsFactory rf = new ResultsFactory(player, seedCount, fertilizerLevel, sc);
+        rf.setCropAndCalculateStats(player, seedCount, fertilizerLevel);
     }
 }
