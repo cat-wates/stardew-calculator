@@ -18,7 +18,7 @@ public class ResultsFactory {
         this.sc = sc;
     }
 
-    public void setCropAndCalculateStats(Player player, int seedCount, int fertilizerLevel) {
+    public void setCropAndCalculateStats() {
         boolean cont = true;
         PlayerPrompt pp = new PlayerPrompt(sc);
         while (cont) {
