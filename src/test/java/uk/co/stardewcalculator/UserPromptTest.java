@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class PlayerPromptTest {
+public class UserPromptTest {
 
     @Test
     public void shouldCheckSetBalanceMethodBehavesAsExpectedForAHappyPath() {
@@ -19,7 +19,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("100");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
         int balance = pp.setBalance();
 //        Then
         assertThat(balance).isEqualTo(100);
@@ -32,7 +32,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("cat");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
 //        Then
         assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
             pp.setBalance();
@@ -46,7 +46,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("5");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
         double farmingLevel = pp.setFarmingLevel();
 //        Then
         assertThat(farmingLevel).isEqualTo(5.0);
@@ -59,7 +59,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("cat");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
 //        Then
         assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
             pp.setFarmingLevel();
@@ -73,7 +73,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("y");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
         double farmingLevel = 5;
         boolean isTiller = pp.setTillerChoice(farmingLevel);
 //        Then
@@ -87,7 +87,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("n");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
         double farmingLevel = 5;
         boolean isTiller = pp.setTillerChoice(farmingLevel);
 //        Then
@@ -101,7 +101,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("y");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
         double farmingLevel = 10;
         boolean isAgriculturalist = pp.setAgriculturalistChoice(farmingLevel);
 //        Then
@@ -115,7 +115,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("n");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
         double farmingLevel = 10;
         boolean isAgriculturalist = pp.setAgriculturalistChoice(farmingLevel);
 //        Then
@@ -129,7 +129,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("100");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
         int seedCount = pp.setSeedCount();
 //        Then
         assertThat(seedCount).isEqualTo(100);
@@ -142,7 +142,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("cat");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
 //        Then
         assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
             pp.setSeedCount();
@@ -156,7 +156,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("0");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
         int seedCount = pp.setFertilizerLevel();
 //        Then
         assertThat(seedCount).isEqualTo(0);
@@ -169,7 +169,7 @@ public class PlayerPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("cat");
 //        When
-        PlayerPrompt pp = new PlayerPrompt(sc);
+        UserPrompt pp = new UserPrompt(sc);
 //        Then
         assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
             pp.setFertilizerLevel();

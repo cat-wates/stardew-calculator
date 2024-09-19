@@ -4,10 +4,10 @@ import uk.co.stardewcalculator.crop.Crop;
 
 import java.util.Scanner;
 
-public class PlayerPrompt {
+public class UserPrompt {
     private final Scanner sc;
 
-    public PlayerPrompt(Scanner sc) {
+    public UserPrompt(Scanner sc) {
         this.sc = sc;
     }
 

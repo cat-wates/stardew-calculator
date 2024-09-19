@@ -12,7 +12,7 @@ public class UserInput {
     public UserInput() {
     }
 
-    public void promptRunner(PlayerPrompt pp) {
+    public void promptRunner(UserPrompt pp) {
         balance = pp.setBalance();
         farmingLevel = pp.setFarmingLevel();
         isTiller = pp.setTillerChoice(farmingLevel);
