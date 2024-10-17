@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import uk.co.stardewcalculator.crop.Crop;
 import uk.co.stardewcalculator.crop.spring.Parsnip;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
@@ -14,9 +17,9 @@ public class CropFactoryTest {
 //        Given
         String cropType = "parsnip";
 //        When
-        Crop finalCrop = CropFactory.assignCrop(cropType);
+        Optional<Crop> finalCrop = CropFactory.assignCrop(cropType);
 //        Then
-        assertThat(finalCrop).isInstanceOf(Parsnip.class);
+        assertThat(finalCrop.get()).isInstanceOf(Parsnip.class);
     }
 
     @Test
@@ -24,9 +27,8 @@ public class CropFactoryTest {
 //        Given
         String cropType = "cat";
 //        When
+        Optional<Crop> finalCrop = CropFactory.assignCrop(cropType);
 //        Then
-        assertThatExceptionOfType(IllegalArgumentException.class).isThrownBy(() -> {
-            CropFactory.assignCrop(cropType);
-        }).withMessageMatching("Crop not found! Start again.");
+        assertThat(finalCrop.isEmpty()).isTrue();
     }
 }

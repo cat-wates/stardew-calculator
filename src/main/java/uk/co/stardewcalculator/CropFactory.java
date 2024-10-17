@@ -3,9 +3,11 @@ package uk.co.stardewcalculator;
 import uk.co.stardewcalculator.crop.*;
 import uk.co.stardewcalculator.crop.spring.*;
 
+import java.util.Optional;
+
 public class CropFactory {
-    public static Crop assignCrop(String cropType) { //how do I do a try/catch here without it repeating?
-        Crop crop;
+    public static Optional<Crop> assignCrop(String cropType) {
+        Crop crop = null;
             switch (cropType) {
 //            spring
                 case "blue jazz", "bluejazz" -> crop = new BlueJazz();
@@ -21,11 +23,8 @@ public class CropFactory {
                 case "strawberry" -> crop = new Strawberry();
                 case "tulip" -> crop = new Tulip();
                 case "unmilled rice", "unmilledrice", "rice" -> crop = new UnmilledRice();
-                default -> {
-                    throw new IllegalArgumentException("Crop not found! Start again.");
-                }
             }
-        return crop;
+        return Optional.ofNullable(crop);
     }
 
 }
