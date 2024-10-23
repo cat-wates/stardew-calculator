@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class UserPromptTest {
+public class PlayerPromptTest {
 
     @Test
     public void shouldCheckSetBalanceMethodBehavesAsExpectedForAHappyPath() {
@@ -19,8 +19,8 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("100");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
-        int balance = pp.setBalance();
+        PlayerPrompt playerPrompt = new PlayerPrompt(sc);
+        int balance = playerPrompt.setBalance();
 //        Then
         assertThat(balance).isEqualTo(100);
     }
@@ -32,10 +32,10 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("cat");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
+        PlayerPrompt playerPrompt = new PlayerPrompt(sc);
 //        Then
         assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
-            pp.setBalance();
+            playerPrompt.setBalance();
         }).withMessageMatching("For input string: \"cat\""); //use \ for quotes in a string!
     }
 
@@ -46,8 +46,8 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("5");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
-        double farmingLevel = pp.setFarmingLevel();
+        PlayerPrompt playerPrompt = new PlayerPrompt(sc);
+        double farmingLevel = playerPrompt.setFarmingLevel();
 //        Then
         assertThat(farmingLevel).isEqualTo(5.0);
     }
@@ -59,10 +59,10 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("cat");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
+        PlayerPrompt playerPrompt = new PlayerPrompt(sc);
 //        Then
         assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
-            pp.setFarmingLevel();
+            playerPrompt.setFarmingLevel();
         }).withMessageMatching("For input string: \"cat\"");
     }
 
@@ -73,9 +73,9 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("y");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
+        PlayerPrompt playerPrompt = new PlayerPrompt(sc);
         double farmingLevel = 5;
-        boolean isTiller = pp.setTillerChoice(farmingLevel);
+        boolean isTiller = playerPrompt.setTillerChoice(farmingLevel);
 //        Then
         assertThat(isTiller).isTrue();
     }
@@ -87,9 +87,9 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("n");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
+        PlayerPrompt playerPrompt = new PlayerPrompt(sc);
         double farmingLevel = 5;
-        boolean isTiller = pp.setTillerChoice(farmingLevel);
+        boolean isTiller = playerPrompt.setTillerChoice(farmingLevel);
 //        Then
         assertThat(isTiller).isFalse();
     }
@@ -101,9 +101,9 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("y");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
+        PlayerPrompt playerPrompt = new PlayerPrompt(sc);
         double farmingLevel = 10;
-        boolean isAgriculturalist = pp.setAgriculturalistChoice(farmingLevel);
+        boolean isAgriculturalist = playerPrompt.setAgriculturalistChoice(farmingLevel);
 //        Then
         assertThat(isAgriculturalist).isTrue();
     }
@@ -115,9 +115,9 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("n");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
+        PlayerPrompt playerPrompt = new PlayerPrompt(sc);
         double farmingLevel = 10;
-        boolean isAgriculturalist = pp.setAgriculturalistChoice(farmingLevel);
+        boolean isAgriculturalist = playerPrompt.setAgriculturalistChoice(farmingLevel);
 //        Then
         assertThat(isAgriculturalist).isFalse();
     }
@@ -129,8 +129,8 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("100");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
-        int seedCount = pp.setSeedCount();
+        FarmPrompt farmPrompt = new FarmPrompt(sc);
+        int seedCount = farmPrompt.setSeedCount();
 //        Then
         assertThat(seedCount).isEqualTo(100);
     }
@@ -142,10 +142,10 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("cat");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
+        FarmPrompt farmPrompt = new FarmPrompt(sc);
 //        Then
         assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
-            pp.setSeedCount();
+            farmPrompt.setSeedCount();
         }).withMessageMatching("For input string: \"cat\"");
     }
 
@@ -156,8 +156,8 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("0");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
-        int seedCount = pp.setFertilizerLevel();
+        FarmPrompt farmPrompt = new FarmPrompt(sc);
+        int seedCount = farmPrompt.setFertilizerLevel();
 //        Then
         assertThat(seedCount).isEqualTo(0);
     }
@@ -169,10 +169,10 @@ public class UserPromptTest {
         assertNotNull(sc);
         when(sc.nextLine()).thenReturn("cat");
 //        When
-        UserPrompt pp = new UserPrompt(sc);
+        FarmPrompt farmPrompt = new FarmPrompt(sc);
 //        Then
         assertThatExceptionOfType(NumberFormatException.class).isThrownBy(() -> {
-            pp.setFertilizerLevel();
+            farmPrompt.setFertilizerLevel();
         }).withMessageMatching("For input string: \"cat\"");
     }
 }
