@@ -39,7 +39,4 @@ public class CropProfit {
     public double getPotentialIridiumProfit() {
         return seedCount * finalCrop.getIridiumSellingPrice() * cropQuality.getIridiumProbability();
     }
-
-
-
 }
