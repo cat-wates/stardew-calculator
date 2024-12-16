@@ -6,36 +6,44 @@ import java.util.Scanner;
 
 public class CommandLineInterface {
 
-    public CommandLineInterface() {
+    Scanner sc;
+    PlayerPromptRunner playerPromptRunner;
+    FarmPromptRunner farmPromptRunner;
+
+
+    public CommandLineInterface(Scanner sc, PlayerPromptRunner playerPromptRunner, FarmPromptRunner farmPromptRunner) {
+        this.sc = sc;
+        this.playerPromptRunner = playerPromptRunner;
+        this.farmPromptRunner = farmPromptRunner;
     }
 
-    public static void runProgram() {
+    public void runProgram() {
         System.out.println("Welcome to the Stardew Valley crop calculator!");
         System.out.println("Based on your farming level, current balance and amount of available tiles, this calculator will work out the profits you'll be able to make for a given crop. :)");
-        Scanner sc = new Scanner(System.in);
-        UserPrompt userPrompt = new UserPrompt(sc);
-        UserInput userInput = new UserInput();
-        userInput.promptRunner(userPrompt);
-        Player player = new Player(userInput.getFarmingLevel(), userInput.getBalance(), userInput.getTiller(), userInput.getAgriculturalist());
+        Player player = playerPromptRunner.run();
+        Farm farm = farmPromptRunner.run();
+        CropSelectionPrompt cropSelectionPrompt = new CropSelectionPrompt(sc);
+//      playerPromptRunner.run() -> Player
+//      While app is still running CropSelectionPrompt.run()
+//      Calculate profit summary - ProfitSummary.generate()
         boolean cont = true;
-        UserPrompt pp = new UserPrompt(sc);
         while (cont) {
-            Crop finalCrop = pp.setCropChoice();
-            Results results = getResults(userInput, finalCrop, player);
-            results.printResults(finalCrop, userInput.getSeedCount());
-            String retry = pp.retryCropChoice();
+            Crop finalCrop = cropSelectionPrompt.setCropChoice();
+            Results results = getResults(farm, finalCrop, player);
+            results.printResults(finalCrop, farm.getSeedCount());
+            String retry = cropSelectionPrompt.retryCropChoice();
             if (!retry.equalsIgnoreCase("y")) {
                 cont = false;
             }
         }
     }
 
-    private static Results getResults(UserInput userInput, Crop finalCrop, Player player) {
-        CropQuality cropQuality = new CropQuality(userInput.getFarmingLevel(), userInput.getFertilizerLevel());
-        CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, userInput.getSeedCount());
+    private static Results getResults(Farm farm, Crop finalCrop, Player player) {
+        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), farm.getFertilizerLevel());
+        CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, farm.getSeedCount());
         Calculator calc = new Calculator(player, finalCrop, cropProfit);
         int minimumBalance = calc.calculateMinimumBalance();
         int potentialBalance = calc.calculatePotentialBalance();
-        return new Results(finalCrop, userInput.getSeedCount(), player.getBalance(), minimumBalance, potentialBalance);
+        return new Results(finalCrop, farm.getSeedCount(), player.getBalance(), minimumBalance, potentialBalance);
     }
 }

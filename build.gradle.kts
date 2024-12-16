@@ -2,6 +2,12 @@ plugins {
     id("java")
 }
 
+tasks.named<Jar>("jar") {
+    manifest {
+        attributes["Main-Class"] = "uk.co.stardewcalculator.Main"
+    }
+}
+
 group = "org.example"
 version = "1.0-SNAPSHOT"
 

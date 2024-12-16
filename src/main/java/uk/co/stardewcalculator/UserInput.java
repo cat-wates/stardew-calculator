@@ -12,14 +12,14 @@ public class UserInput {
     public UserInput() {
     }
 
-    public void promptRunner(UserPrompt pp) {
-        balance = pp.setBalance();
-        farmingLevel = pp.setFarmingLevel();
-        isTiller = pp.setTillerChoice(farmingLevel);
-        isAgriculturalist = pp.setAgriculturalistChoice(farmingLevel);
-        seedCount = pp.setSeedCount();
-        fertilizerLevel = pp.setFertilizerLevel();
-    }
+//    public void promptRunner(PlayerPrompt pp) {
+//        balance = pp.setBalance();
+//        farmingLevel = pp.setFarmingLevel();
+//        isTiller = pp.setTillerChoice(farmingLevel);
+//        isAgriculturalist = pp.setAgriculturalistChoice(farmingLevel);
+//        seedCount = pp.setSeedCount();
+//        fertilizerLevel = pp.setFertilizerLevel();
+//    }
 
     public int getBalance() {
         return balance;
