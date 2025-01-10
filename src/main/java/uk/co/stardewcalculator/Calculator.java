@@ -1,7 +1,9 @@
 package uk.co.stardewcalculator;
 
-import uk.co.stardewcalculator.crop.Crop;
-import uk.co.stardewcalculator.crop.ReproducingCrop;
+import uk.co.stardewcalculator.crop.CropProfit;
+import uk.co.stardewcalculator.crop.types.Crop;
+import uk.co.stardewcalculator.crop.types.ReproducingCrop;
+import uk.co.stardewcalculator.player.Player;
 
 public class Calculator {
 

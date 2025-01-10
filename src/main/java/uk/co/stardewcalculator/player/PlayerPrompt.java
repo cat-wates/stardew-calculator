@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator;
+package uk.co.stardewcalculator.player;
 
 import java.util.Scanner;
 

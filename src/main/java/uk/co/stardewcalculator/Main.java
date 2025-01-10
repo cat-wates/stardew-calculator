@@ -1,5 +1,10 @@
 package uk.co.stardewcalculator;
 
+import uk.co.stardewcalculator.farm.FarmPrompt;
+import uk.co.stardewcalculator.farm.FarmPromptRunner;
+import uk.co.stardewcalculator.player.PlayerPrompt;
+import uk.co.stardewcalculator.player.PlayerPromptRunner;
+
 import java.util.Scanner;
 
 public class Main {
@@ -14,3 +19,8 @@ public class Main {
         cli.runProgram();
     }
 }
+
+/*
+Next steps:
+- 
+ */

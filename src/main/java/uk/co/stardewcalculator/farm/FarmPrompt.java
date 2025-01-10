@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator;
+package uk.co.stardewcalculator.farm;
 
 import java.util.Scanner;
 

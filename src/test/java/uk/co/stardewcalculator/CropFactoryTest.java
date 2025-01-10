@@ -1,13 +1,12 @@
 package uk.co.stardewcalculator;
 
 import org.junit.jupiter.api.Test;
-import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.CropFactory;
+import uk.co.stardewcalculator.crop.types.Crop;
 import uk.co.stardewcalculator.crop.spring.Parsnip;
 
-import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 
 public class CropFactoryTest {

@@ -1,7 +1,9 @@
 package uk.co.stardewcalculator;
 
 import org.junit.jupiter.api.Test;
-import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.CropProfit;
+import uk.co.stardewcalculator.crop.CropQuality;
+import uk.co.stardewcalculator.crop.types.Crop;
 import uk.co.stardewcalculator.crop.spring.Parsnip;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;

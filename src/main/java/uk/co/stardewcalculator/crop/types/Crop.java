@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator.crop;
+package uk.co.stardewcalculator.crop.types;
 
 public abstract class Crop {
     private int costPerSeed; //from Pierre

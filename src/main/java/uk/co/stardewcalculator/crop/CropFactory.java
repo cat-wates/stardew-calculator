@@ -1,7 +1,7 @@
-package uk.co.stardewcalculator;
+package uk.co.stardewcalculator.crop;
 
-import uk.co.stardewcalculator.crop.*;
 import uk.co.stardewcalculator.crop.spring.*;
+import uk.co.stardewcalculator.crop.types.Crop;
 
 import java.util.Optional;
 

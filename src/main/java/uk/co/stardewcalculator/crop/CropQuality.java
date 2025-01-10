@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator;
+package uk.co.stardewcalculator.crop;
 
 public class CropQuality {
     private final double basicProbability;

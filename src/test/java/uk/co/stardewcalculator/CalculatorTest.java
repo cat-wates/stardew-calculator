@@ -1,12 +1,12 @@
 package uk.co.stardewcalculator;
 
 import org.junit.jupiter.api.Test;
-import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.CropProfit;
+import uk.co.stardewcalculator.crop.CropQuality;
+import uk.co.stardewcalculator.crop.types.Crop;
 import uk.co.stardewcalculator.crop.spring.CoffeeBean;
 import uk.co.stardewcalculator.crop.spring.Parsnip;
-
-import java.util.HashMap;
-import java.util.Map;
+import uk.co.stardewcalculator.player.Player;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

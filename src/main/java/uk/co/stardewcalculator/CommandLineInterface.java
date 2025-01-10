@@ -1,6 +1,13 @@
 package uk.co.stardewcalculator;
 
-import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.CropProfit;
+import uk.co.stardewcalculator.crop.CropQuality;
+import uk.co.stardewcalculator.crop.CropSelectionPrompt;
+import uk.co.stardewcalculator.crop.types.Crop;
+import uk.co.stardewcalculator.farm.Farm;
+import uk.co.stardewcalculator.farm.FarmPromptRunner;
+import uk.co.stardewcalculator.player.Player;
+import uk.co.stardewcalculator.player.PlayerPromptRunner;
 
 import java.util.Scanner;
 

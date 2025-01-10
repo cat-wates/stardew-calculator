@@ -1,4 +1,6 @@
-package uk.co.stardewcalculator.crop;
+package uk.co.stardewcalculator.crop.types;
+
+import uk.co.stardewcalculator.crop.types.Crop;
 
 public class ReproducingCrop extends Crop {
 

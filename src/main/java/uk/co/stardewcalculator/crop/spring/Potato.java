@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.crop.spring;
 
-import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.types.Crop;
 
 public class Potato extends Crop {
     public Potato() {

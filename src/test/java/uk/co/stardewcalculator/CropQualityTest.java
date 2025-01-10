@@ -1,6 +1,7 @@
 package uk.co.stardewcalculator;
 
 import org.junit.jupiter.api.Test;
+import uk.co.stardewcalculator.crop.CropQuality;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
 

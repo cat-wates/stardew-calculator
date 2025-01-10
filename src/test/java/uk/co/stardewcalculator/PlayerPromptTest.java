@@ -1,6 +1,8 @@
 package uk.co.stardewcalculator;
 
 import org.junit.jupiter.api.Test;
+import uk.co.stardewcalculator.farm.FarmPrompt;
+import uk.co.stardewcalculator.player.PlayerPrompt;
 
 import java.util.Scanner;
 

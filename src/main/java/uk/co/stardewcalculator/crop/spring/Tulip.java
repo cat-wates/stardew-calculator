@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.crop.spring;
 
-import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.types.Crop;
 
 public class Tulip extends Crop {
     public Tulip() {

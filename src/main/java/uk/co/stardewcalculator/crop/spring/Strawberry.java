@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.crop.spring;
 
-import uk.co.stardewcalculator.crop.ReproducingCrop;
+import uk.co.stardewcalculator.crop.types.ReproducingCrop;
 
 public class Strawberry extends ReproducingCrop {
     public Strawberry() {

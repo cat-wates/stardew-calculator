@@ -1,4 +1,7 @@
-package uk.co.stardewcalculator;
+package uk.co.stardewcalculator.farm;
+
+import uk.co.stardewcalculator.farm.Farm;
+import uk.co.stardewcalculator.farm.FarmPrompt;
 
 public class FarmPromptRunner {
 

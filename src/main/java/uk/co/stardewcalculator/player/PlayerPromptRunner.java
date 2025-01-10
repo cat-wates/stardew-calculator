@@ -1,4 +1,7 @@
-package uk.co.stardewcalculator;
+package uk.co.stardewcalculator.player;
+
+import uk.co.stardewcalculator.player.Player;
+import uk.co.stardewcalculator.player.PlayerPrompt;
 
 public class PlayerPromptRunner {
 

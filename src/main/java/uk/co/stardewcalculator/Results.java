@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator;
 
-import uk.co.stardewcalculator.crop.Crop;
+import uk.co.stardewcalculator.crop.types.Crop;
 
 public class Results {
 
