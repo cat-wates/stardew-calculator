@@ -8,6 +8,47 @@ public class Results {
     int seedCount;
     int balance;
     int minimumBalance;
+
+    public Crop getFinalCrop() {
+        return finalCrop;
+    }
+
+    public void setFinalCrop(Crop finalCrop) {
+        this.finalCrop = finalCrop;
+    }
+
+    public int getSeedCount() {
+        return seedCount;
+    }
+
+    public void setSeedCount(int seedCount) {
+        this.seedCount = seedCount;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public int getMinimumBalance() {
+        return minimumBalance;
+    }
+
+    public void setMinimumBalance(int minimumBalance) {
+        this.minimumBalance = minimumBalance;
+    }
+
+    public int getPotentialBalance() {
+        return potentialBalance;
+    }
+
+    public void setPotentialBalance(int potentialBalance) {
+        this.potentialBalance = potentialBalance;
+    }
+
     int potentialBalance;
 
     public Results(Crop finalCrop, int seedCount, int balance, int minimumBalance, int potentialBalance) {

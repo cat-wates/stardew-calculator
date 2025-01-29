@@ -25,6 +25,9 @@ dependencies {
 
     //Mockito
     testImplementation("org.mockito:mockito-core:5.12.0")
+
+    //Spring-Web
+    implementation("org.springframework.boot:spring-boot-starter-web:3.4.2")
 }
 
 tasks.test {
