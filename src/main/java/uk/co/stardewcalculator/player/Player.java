@@ -1,11 +1,13 @@
 package uk.co.stardewcalculator.player;
 
-public class Player {
+import java.io.Serializable;
 
-    private final double farmingLevel;
-    private final boolean isTiller; //level 5
-    private final boolean isAgriculturist; //level 10
-    private final int balance;
+public class Player implements Serializable {
+
+    private double farmingLevel;
+    private boolean isTiller; //level 5
+    private boolean isAgriculturist; //level 10
+    private int balance;
 
     public Player(double farmingLevel, int balance, boolean isTiller, boolean isAgriculturist) {
         this.farmingLevel = farmingLevel;
@@ -14,8 +16,14 @@ public class Player {
         this.isAgriculturist = isAgriculturist;
     }
 
+    public Player() {}
+
     public double getFarmingLevel() {
         return farmingLevel;
+    }
+
+    public int getBalance() {
+        return balance;
     }
 
     public boolean getTiller() {
@@ -26,8 +34,19 @@ public class Player {
         return isAgriculturist;
     }
 
-    public int getBalance() {
-        return balance;
+    public void setFarmingLevel(double farmingLevel) {
+        this.farmingLevel = farmingLevel;
     }
 
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+    public void setTiller(boolean isTiller) {
+        this.isTiller = isTiller;
+    }
+
+    public void setAgriculturist(boolean isAgriculturist) {
+        this.isAgriculturist = isAgriculturist;
+    }
 }
