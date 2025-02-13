@@ -97,7 +97,7 @@ public class PlayerPromptTest {
     }
 
     @Test
-    public void shouldCheckSetAgriculturalistChoiceBehavesAsExpectedWhenUserIsAgriculturalist() {
+    public void shouldCheckSetAgriculturistChoiceBehavesAsExpectedWhenUserIsAgriculturist() {
 //        Given
         Scanner sc = mock(Scanner.class);
         assertNotNull(sc);
@@ -105,13 +105,13 @@ public class PlayerPromptTest {
 //        When
         PlayerPrompt playerPrompt = new PlayerPrompt(sc);
         double farmingLevel = 10;
-        boolean isAgriculturalist = playerPrompt.setAgriculturalistChoice(farmingLevel);
+        boolean isAgriculturist = playerPrompt.setAgriculturistChoice(farmingLevel);
 //        Then
-        assertThat(isAgriculturalist).isTrue();
+        assertThat(isAgriculturist).isTrue();
     }
 
     @Test
-    public void shouldCheckSetAgriculturalistChoiceBehavesAsExpectedWhenUserIsNotAgriculturalist() {
+    public void shouldCheckSetAgriculturistChoiceBehavesAsExpectedWhenUserIsNotAgriculturist() {
 //        Given
         Scanner sc = mock(Scanner.class);
         assertNotNull(sc);
@@ -119,9 +119,9 @@ public class PlayerPromptTest {
 //        When
         PlayerPrompt playerPrompt = new PlayerPrompt(sc);
         double farmingLevel = 10;
-        boolean isAgriculturalist = playerPrompt.setAgriculturalistChoice(farmingLevel);
+        boolean isAgriculturist = playerPrompt.setAgriculturistChoice(farmingLevel);
 //        Then
-        assertThat(isAgriculturalist).isFalse();
+        assertThat(isAgriculturist).isFalse();
     }
 
     @Test

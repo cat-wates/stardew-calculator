@@ -1,13 +1,17 @@
 package uk.co.stardewcalculator.player;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 public class Player implements Serializable {
 
     private double farmingLevel;
-    private boolean isTiller; //level 5
-    private boolean isAgriculturist; //level 10
     private int balance;
+    @JsonProperty
+    private boolean isTiller; //level 5
+    @JsonProperty
+    private boolean isAgriculturist; //level 10
 
     public Player(double farmingLevel, int balance, boolean isTiller, boolean isAgriculturist) {
         this.farmingLevel = farmingLevel;
@@ -30,7 +34,7 @@ public class Player implements Serializable {
         return isTiller;
     }
 
-    public boolean getAgriculturalist() {
+    public boolean getAgriculturist() {
         return isAgriculturist;
     }
 

@@ -44,9 +44,9 @@ public class PlayerPrompt {
         return sc.nextLine().equalsIgnoreCase("y");
     }
 
-    public boolean setAgriculturalistChoice(double farmingLevel) {
+    public boolean setAgriculturistChoice(double farmingLevel) {
         if (farmingLevel == 10) {
-        System.out.println("Have you chosen the agriculturalist profession? (Y/N) ");
+        System.out.println("Have you chosen the agriculturist profession? (Y/N) ");
         }
         return sc.nextLine().equalsIgnoreCase("y");
     }

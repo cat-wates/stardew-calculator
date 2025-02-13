@@ -23,8 +23,14 @@ public class Controller {
     public ResponseEntity test(@RequestBody CropSummaryRequest cropSummaryRequest) {
         String crop = cropSummaryRequest.crop();
         Optional<Crop> crop1 = CropFactory.assignCrop(crop);
-        Farm farm = cropSummaryRequest.farm();
         Player player = cropSummaryRequest.player();
+        Farm farm = cropSummaryRequest.farm();
+        if (player.getFarmingLevel() < 5 && player.getTiller()) {
+            player.setTiller(false);
+        }
+        if (player.getFarmingLevel() < 10 && player.getAgriculturist()) {
+            player.setAgriculturist(false);
+        }
         if (crop1.isPresent()) {
             return ResponseEntity.ok(Controller.getResults(farm, crop1.get(), player));
         } else {

@@ -15,7 +15,7 @@ public class PlayerPromptRunner {
         double farmingLevel = playerPrompt.setFarmingLevel();
         int balance = playerPrompt.setBalance();
         boolean isTiller = playerPrompt.setTillerChoice(farmingLevel);
-        boolean isAgriculturalist = playerPrompt.setAgriculturalistChoice(farmingLevel);
-        return new Player(farmingLevel, balance, isTiller, isAgriculturalist);
+        boolean isAgriculturist = playerPrompt.setAgriculturistChoice(farmingLevel);
+        return new Player(farmingLevel, balance, isTiller, isAgriculturist);
     }
 }

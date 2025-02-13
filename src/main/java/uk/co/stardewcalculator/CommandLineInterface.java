@@ -30,9 +30,6 @@ public class CommandLineInterface {
         Player player = playerPromptRunner.run();
         Farm farm = farmPromptRunner.run();
         CropSelectionPrompt cropSelectionPrompt = new CropSelectionPrompt(sc);
-//      playerPromptRunner.run() -> Player
-//      While app is still running CropSelectionPrompt.run()
-//      Calculate profit summary - ProfitSummary.generate()
         boolean cont = true;
         while (cont) {
             Crop finalCrop = cropSelectionPrompt.setCropChoice();

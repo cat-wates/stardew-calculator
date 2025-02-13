@@ -8,7 +8,7 @@ This program is to help a Stardew Valley player understand how much profit they 
   
   🌽 Farming level
   
-  🍅 Chosen professions based on farming level (tiller/agriculturalist)
+  🍅 Chosen professions based on farming level (tiller/agriculturist)
   
   🍇 Number of tiles
   
