@@ -1,9 +1,9 @@
 package uk.co.stardewcalculator;
 
 import org.junit.jupiter.api.Test;
-import uk.co.stardewcalculator.crop.CropFactory;
-import uk.co.stardewcalculator.crop.types.Crop;
-import uk.co.stardewcalculator.crop.season.spring.Parsnip;
+import uk.co.stardewcalculator.service.CropFactory;
+import uk.co.stardewcalculator.domain.types.Crop;
+import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 
 import java.util.Optional;
 

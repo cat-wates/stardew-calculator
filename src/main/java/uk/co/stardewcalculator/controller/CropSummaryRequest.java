@@ -1,7 +1,7 @@
 package uk.co.stardewcalculator.controller;
 
-import uk.co.stardewcalculator.farm.Farm;
-import uk.co.stardewcalculator.player.Player;
+import uk.co.stardewcalculator.domain.Farm;
+import uk.co.stardewcalculator.domain.Player;
 
 //{
 //    "crop": "parsnip",
