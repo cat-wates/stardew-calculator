@@ -63,5 +63,12 @@ public class Controller {
         playerService.addNewPlayer(player);
     }
 
+    @PostMapping
+    public void registerNewFarm(@RequestBody Farm farm) {
+        farmService.addNewFarm(farm);
+    }
+
+//    https://www.baeldung.com/spring-data-crud-repository-save
+
 
 }

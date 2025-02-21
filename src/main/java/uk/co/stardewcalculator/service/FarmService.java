@@ -20,4 +20,8 @@ public class FarmService {
     public List<Farm> getFarms() {
         return farmRepository.findAll();
     }
+
+    public void addNewFarm(Farm farm) {
+        farmRepository.save(farm);
+    }
 }
