@@ -1,5 +1,6 @@
 package uk.co.stardewcalculator.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +11,19 @@ import uk.co.stardewcalculator.service.CropFactory;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.Farm;
 import uk.co.stardewcalculator.domain.Player;
+import uk.co.stardewcalculator.service.PlayerService;
 
 import java.util.Optional;
 
 @RestController
 public class Controller {
+
+    public PlayerService playerService;
+
+    @Autowired
+    public Controller(PlayerService playerService) {
+        this.playerService = playerService;
+    }
 
     @GetMapping(value = "/")
     public ResponseEntity test(@RequestBody CropSummaryRequest cropSummaryRequest) {
@@ -33,6 +42,11 @@ public class Controller {
         } else {
             return new ResponseEntity<>("Invalid crop", HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping(value = "/players")
+    public ResponseEntity playerTest() {
+        return ResponseEntity.ok(playerService.getPlayers());
     }
 
 

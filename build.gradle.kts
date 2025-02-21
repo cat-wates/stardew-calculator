@@ -28,6 +28,12 @@ dependencies {
 
     //Spring-Web
     implementation("org.springframework.boot:spring-boot-starter-web:3.4.2")
+
+    //Spring-Data
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    //PostgreSQL
+    implementation("org.postgresql:postgresql:42.7.5")
 }
 
 tasks.test {

@@ -1,11 +1,26 @@
 package uk.co.stardewcalculator.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
+@Entity
+@Table
 public class Player implements Serializable {
 
+    @Id
+    @SequenceGenerator(
+        name = "player_sequence",
+        sequenceName = "player_sequence",
+        allocationSize = 1)
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "player_sequence"
+    )
+
+    private long id;
     private double farmingLevel;
     private int balance;
     @JsonProperty
