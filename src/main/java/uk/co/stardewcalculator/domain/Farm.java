@@ -9,15 +9,7 @@ import java.io.Serializable;
 public class Farm implements Serializable {
 
     @Id
-    @SequenceGenerator(
-            name = "farm_sequence",
-            sequenceName = "farm_sequence",
-            allocationSize = 1)
-
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "farm_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
     private int seedCount;

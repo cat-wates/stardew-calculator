@@ -10,15 +10,7 @@ import java.io.Serializable;
 public class Player implements Serializable {
 
     @Id
-    @SequenceGenerator(
-        name = "player_sequence",
-        sequenceName = "player_sequence",
-        allocationSize = 1)
-
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "player_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
     private double farmingLevel;
