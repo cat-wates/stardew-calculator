@@ -11,6 +11,7 @@ import uk.co.stardewcalculator.service.CropFactory;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.Farm;
 import uk.co.stardewcalculator.domain.Player;
+import uk.co.stardewcalculator.service.FarmService;
 import uk.co.stardewcalculator.service.PlayerService;
 
 import java.util.Optional;
@@ -19,10 +20,12 @@ import java.util.Optional;
 public class Controller {
 
     public PlayerService playerService;
+    public FarmService farmService;
 
     @Autowired
-    public Controller(PlayerService playerService) {
+    public Controller(PlayerService playerService, FarmService farmService) {
         this.playerService = playerService;
+        this.farmService = farmService;
     }
 
     @GetMapping(value = "/")
@@ -47,6 +50,11 @@ public class Controller {
     @GetMapping(value = "/players")
     public ResponseEntity playerTest() {
         return ResponseEntity.ok(playerService.getPlayers());
+    }
+
+    @GetMapping(value = "/farms")
+    public ResponseEntity farmTest() {
+        return ResponseEntity.ok(farmService.getFarms());
     }
 
 

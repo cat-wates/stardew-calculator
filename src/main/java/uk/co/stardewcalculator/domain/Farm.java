@@ -1,9 +1,25 @@
 package uk.co.stardewcalculator.domain;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 
+@Entity
+@Table
 public class Farm implements Serializable {
 
+    @Id
+    @SequenceGenerator(
+            name = "farm_sequence",
+            sequenceName = "farm_sequence",
+            allocationSize = 1)
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "farm_sequence"
+    )
+
+    private long id;
     private int seedCount;
     private int fertilizerLevel;
 
