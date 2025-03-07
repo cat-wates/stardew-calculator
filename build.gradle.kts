@@ -30,7 +30,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web:3.4.2")
 
     //Spring-Data
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.4.2")
 
     //PostgreSQL
     implementation("org.postgresql:postgresql:42.7.5")
