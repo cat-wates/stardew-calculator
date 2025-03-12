@@ -13,6 +13,7 @@ public class Player implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
+    private String username;
     private double farmingLevel;
     private int balance;
     @JsonProperty
@@ -20,7 +21,12 @@ public class Player implements Serializable {
     @JsonProperty
     private boolean isAgriculturist; //level 10
 
-    public Player(double farmingLevel, int balance, boolean isTiller, boolean isAgriculturist) {
+    @OneToOne
+    @JoinColumn(name = "farm_id")
+    private Farm farm;
+
+    public Player(String username, double farmingLevel, int balance, boolean isTiller, boolean isAgriculturist) {
+        this.username = username;
         this.farmingLevel = farmingLevel;
         this.balance = balance;
         this.isTiller = isTiller;
@@ -28,6 +34,10 @@ public class Player implements Serializable {
     }
 
     public Player() {}
+
+    public String getUsername() {
+        return username;
+    }
 
     public double getFarmingLevel() {
         return farmingLevel;
@@ -43,6 +53,10 @@ public class Player implements Serializable {
 
     public boolean getAgriculturist() {
         return isAgriculturist;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setFarmingLevel(double farmingLevel) {

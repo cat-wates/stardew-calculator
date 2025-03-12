@@ -9,6 +9,11 @@ public class PlayerPrompt {
         this.sc = sc;
     }
 
+    public String setUsername() {
+        System.out.println("Enter your username: ");
+        return sc.nextLine().toLowerCase();
+    }
+
     public int setBalance() {
         int balance;
         try {

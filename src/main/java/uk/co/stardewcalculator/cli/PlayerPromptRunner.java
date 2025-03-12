@@ -11,10 +11,11 @@ public class PlayerPromptRunner {
     }
 
     public Player run() {
+        String username = playerPrompt.setUsername();
         double farmingLevel = playerPrompt.setFarmingLevel();
         int balance = playerPrompt.setBalance();
         boolean isTiller = playerPrompt.setTillerChoice(farmingLevel);
         boolean isAgriculturist = playerPrompt.setAgriculturistChoice(farmingLevel);
-        return new Player(farmingLevel, balance, isTiller, isAgriculturist);
+        return new Player(username, farmingLevel, balance, isTiller, isAgriculturist);
     }
 }

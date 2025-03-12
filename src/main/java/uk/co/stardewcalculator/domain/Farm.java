@@ -15,6 +15,9 @@ public class Farm implements Serializable {
     private int seedCount;
     private int fertilizerLevel;
 
+    @OneToOne(mappedBy = "farm")
+    private Player player;
+
     public Farm(int seedCount, int fertilizerLevel) {
         this.seedCount = seedCount;
         this.fertilizerLevel = fertilizerLevel;

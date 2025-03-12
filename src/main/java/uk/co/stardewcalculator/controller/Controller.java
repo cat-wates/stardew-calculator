@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 import uk.co.stardewcalculator.service.BalanceSummaryService;
 import uk.co.stardewcalculator.service.CropFactory;
 import uk.co.stardewcalculator.domain.types.Crop;
@@ -58,12 +59,12 @@ public class Controller {
         return ResponseEntity.ok(farmService.getFarms());
     }
 
-    @PostMapping
+    @PostMapping(value = "/add-player")
     public void registerNewPlayer(@RequestBody Player player) {
         playerService.addNewPlayer(player);
     }
 
-    @PostMapping
+    @PostMapping(value = "/add-farm")
     public void registerNewFarm(@RequestBody Farm farm) {
         farmService.addNewFarm(farm);
     }
