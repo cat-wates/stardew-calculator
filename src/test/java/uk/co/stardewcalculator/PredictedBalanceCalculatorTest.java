@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PredictedBalanceCalculatorTest {
 
-    Farm farm = new Farm(0, 1);
+    Farm farm = new Farm(1, 1);
     Player playerWithoutTiller = new Player("tangykitkat", 5, 100, false, false, farm);
     Player playerWithTiller = new Player("tangykitkat", 5, 100, true, false, farm);
 
