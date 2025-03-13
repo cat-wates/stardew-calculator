@@ -17,10 +17,10 @@ class CropProfitTest {
         int seedCount = 1;
         CropQuality cq = new CropQuality();
 //        When
-        CropProfit cp = new CropProfit(cq, crop, seedCount);
+        CropProfit cp = new CropProfit(cq);
 //        Then
-        assertThat(cp.getCost()).isEqualTo(20);
-        assertThat(cp.getMinimumBasicProfit()).isEqualTo(35);
+        assertThat(cp.getCost(crop, seedCount)).isEqualTo(20);
+        assertThat(cp.getMinimumBasicProfit(crop, seedCount)).isEqualTo(35);
     }
 
     @Test
@@ -32,12 +32,12 @@ class CropProfitTest {
         int seedCount = 1;
         CropQuality cq = new CropQuality();
 //        When
-        CropProfit cp = new CropProfit(cq, crop, seedCount);
+        CropProfit cp = new CropProfit(cq);
 //        Then
-        assertThat(cp.getPotentialBasicProfit(farmingLevel, fertilizerLevel)).isEqualTo(29.69166666666667);
-        assertThat(cp.getPotentialSilverProfit(farmingLevel, fertilizerLevel)).isEqualTo(3.7266666666666666);
-        assertThat(cp.getPotentialGoldProfit(farmingLevel, fertilizerLevel)).isEqualTo(2.2533333333333334);
-        assertThat(cp.getPotentialIridiumProfit(farmingLevel, fertilizerLevel)).isEqualTo(1.51666666666666663);
+        assertThat(cp.getPotentialBasicProfit(farmingLevel, fertilizerLevel, crop, seedCount)).isEqualTo(29.69166666666667);
+        assertThat(cp.getPotentialSilverProfit(farmingLevel, fertilizerLevel, crop, seedCount)).isEqualTo(3.7266666666666666);
+        assertThat(cp.getPotentialGoldProfit(farmingLevel, fertilizerLevel, crop, seedCount)).isEqualTo(2.2533333333333334);
+        assertThat(cp.getPotentialIridiumProfit(farmingLevel, fertilizerLevel, crop, seedCount)).isEqualTo(1.51666666666666663);
     }
 
 }
