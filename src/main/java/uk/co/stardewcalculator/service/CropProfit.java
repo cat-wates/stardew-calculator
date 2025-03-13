@@ -25,19 +25,19 @@ public class CropProfit {
     }
 
     /* Potential profit */
-    public double getPotentialBasicProfit() {
-        return seedCount * finalCrop.getBasicSellingPrice() * cropQuality.getBasicProbability();
+    public double getPotentialBasicProfit(double farmingLevel, int fertilizerLevel) {
+        return seedCount * finalCrop.getBasicSellingPrice() * cropQuality.getBasicProbability(farmingLevel, fertilizerLevel);
     }
 
-    public double getPotentialSilverProfit() {
-        return seedCount * finalCrop.getSilverSellingPrice() * cropQuality.getSilverProbability();
+    public double getPotentialSilverProfit(double farmingLevel, int fertilizerLevel) {
+        return seedCount * finalCrop.getSilverSellingPrice() * cropQuality.getSilverProbability(farmingLevel, fertilizerLevel);
     }
 
-    public double getPotentialGoldProfit() {
-        return seedCount * finalCrop.getGoldSellingPrice() * cropQuality.getGoldProbability();
+    public double getPotentialGoldProfit(double farmingLevel, int fertilizerLevel) {
+        return seedCount * finalCrop.getGoldSellingPrice() * cropQuality.getGoldProbability(farmingLevel, fertilizerLevel);
     }
 
-    public double getPotentialIridiumProfit() {
-        return seedCount * finalCrop.getIridiumSellingPrice() * cropQuality.getIridiumProbability();
+    public double getPotentialIridiumProfit(double farmingLevel, int fertilizerLevel) {
+        return seedCount * finalCrop.getIridiumSellingPrice() * cropQuality.getIridiumProbability(farmingLevel, fertilizerLevel);
     }
 }

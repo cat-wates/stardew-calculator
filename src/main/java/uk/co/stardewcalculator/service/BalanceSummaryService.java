@@ -7,11 +7,11 @@ import uk.co.stardewcalculator.domain.types.Crop;
 
 public class BalanceSummaryService {
     public static BalanceSummaryResponse getResults(Farm farm, Crop finalCrop, Player player) {
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), farm.getFertilizerLevel());
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, farm.getSeedCount());
         PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
         int minimumBalance = calc.calculateMinimumBalance();
-        int potentialBalance = calc.calculatePotentialBalance();
+        int potentialBalance = calc.calculatePotentialBalance(player.getFarmingLevel(), farm.getFertilizerLevel());
         return new BalanceSummaryResponse(finalCrop, farm.getSeedCount(), player.getBalance(), minimumBalance, potentialBalance);
     }
 }

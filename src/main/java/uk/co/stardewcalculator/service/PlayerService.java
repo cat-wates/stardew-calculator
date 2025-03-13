@@ -22,6 +22,12 @@ public class PlayerService {
     }
 
     public void addNewPlayer(Player player) {
+        if (player.getFarmingLevel() < 5 && player.getTiller()) {
+            player.setTiller(false);
+        }
+        if (player.getFarmingLevel() < 10 && player.getAgriculturist()) {
+            player.setAgriculturist(false);
+        }
         playerRepository.save(player);
     }
 }

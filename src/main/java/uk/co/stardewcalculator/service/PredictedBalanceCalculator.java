@@ -42,8 +42,8 @@ public class PredictedBalanceCalculator {
         return (int)minimumBalance;
     }
 
-    public int calculatePotentialBalance() {
-        double totalProfit = cropProfit.getPotentialBasicProfit() + cropProfit.getPotentialSilverProfit() + cropProfit.getPotentialGoldProfit() + cropProfit.getPotentialIridiumProfit();
+    public int calculatePotentialBalance(double farmingLevel, int fertilizerLevel) {
+        double totalProfit = cropProfit.getPotentialBasicProfit(farmingLevel, fertilizerLevel) + cropProfit.getPotentialSilverProfit(farmingLevel, fertilizerLevel) + cropProfit.getPotentialGoldProfit(farmingLevel, fertilizerLevel) + cropProfit.getPotentialIridiumProfit(farmingLevel, fertilizerLevel);
         double potentialBalance = calculateBalanceMinusCost() + (totalProfit * calculateMultipliers());
         return (int)potentialBalance; //rounds down
     }

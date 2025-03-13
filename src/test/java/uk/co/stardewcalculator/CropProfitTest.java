@@ -14,10 +14,8 @@ class CropProfitTest {
     public void shouldCalculateMinimumProfitAndCostFromQualityAndSeedCountForAGivenCrop() {
 //        Given
         Crop crop = new Parsnip();
-        int farmingLevel = 0;
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        CropQuality cq = new CropQuality(farmingLevel, fertilizerLevel);
+        CropQuality cq = new CropQuality();
 //        When
         CropProfit cp = new CropProfit(cq, crop, seedCount);
 //        Then
@@ -32,14 +30,14 @@ class CropProfitTest {
         int farmingLevel = 0;
         int fertilizerLevel = 1;
         int seedCount = 1;
-        CropQuality cq = new CropQuality(farmingLevel, fertilizerLevel);
+        CropQuality cq = new CropQuality();
 //        When
         CropProfit cp = new CropProfit(cq, crop, seedCount);
 //        Then
-        assertThat(cp.getPotentialBasicProfit()).isEqualTo(29.69166666666667);
-        assertThat(cp.getPotentialSilverProfit()).isEqualTo(3.7266666666666666);
-        assertThat(cp.getPotentialGoldProfit()).isEqualTo(2.2533333333333334);
-        assertThat(cp.getPotentialIridiumProfit()).isEqualTo(1.51666666666666663);
+        assertThat(cp.getPotentialBasicProfit(farmingLevel, fertilizerLevel)).isEqualTo(29.69166666666667);
+        assertThat(cp.getPotentialSilverProfit(farmingLevel, fertilizerLevel)).isEqualTo(3.7266666666666666);
+        assertThat(cp.getPotentialGoldProfit(farmingLevel, fertilizerLevel)).isEqualTo(2.2533333333333334);
+        assertThat(cp.getPotentialIridiumProfit(farmingLevel, fertilizerLevel)).isEqualTo(1.51666666666666663);
     }
 
 }

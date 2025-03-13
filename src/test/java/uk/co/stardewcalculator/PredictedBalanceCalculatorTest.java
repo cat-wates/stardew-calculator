@@ -1,6 +1,7 @@
 package uk.co.stardewcalculator;
 
 import org.junit.jupiter.api.Test;
+import uk.co.stardewcalculator.domain.Farm;
 import uk.co.stardewcalculator.service.PredictedBalanceCalculator;
 import uk.co.stardewcalculator.service.CropProfit;
 import uk.co.stardewcalculator.service.CropQuality;
@@ -13,18 +14,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PredictedBalanceCalculatorTest {
 
+    Farm farm = new Farm(0, 1);
+    Player playerWithoutTiller = new Player("tangykitkat", 5, 100, false, false, farm);
+    Player playerWithTiller = new Player("tangykitkat", 5, 100, true, false, farm);
+
     //min balance non-reproducing
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceForNonReproducingPlant() {
 //        Given
         Crop finalCrop = new Parsnip(); //growth rate = 4
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        Player player = new Player(5, 100, false, false);
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
-        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
+        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(playerWithoutTiller, finalCrop, cropProfit);
         double minimumBalance = calc.calculateMinimumBalance();
 //        Then
         assertThat(minimumBalance).isEqualTo(205);
@@ -34,13 +37,11 @@ public class PredictedBalanceCalculatorTest {
     public void shouldTakeVariablesAndReturnMinimumBalanceIncludingTillerVariableForNonReproducingPlant() {
 //        Given
         Crop finalCrop = new Parsnip(); //growth rate = 4
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        Player player = new Player(5, 100, true, false);
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
-        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
+        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(playerWithTiller, finalCrop, cropProfit);
         double minimumBalance = calc.calculateMinimumBalance();
 //        Then
         assertThat(minimumBalance).isEqualTo(229);
@@ -51,13 +52,11 @@ public class PredictedBalanceCalculatorTest {
     public void shouldTakeVariablesAndReturnMinimumBalanceForReproducingPlant() {
 //        Given
         Crop finalCrop = new CoffeeBean();
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        Player player = new Player(5, 100, false, false);
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
-        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
+        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(playerWithoutTiller, finalCrop, cropProfit);
         double minimumBalance = calc.calculateMinimumBalance();
 //        Then
         assertThat(minimumBalance).isEqualTo(-2250);
@@ -67,13 +66,11 @@ public class PredictedBalanceCalculatorTest {
     public void shouldTakeVariablesAndReturnMinimumBalanceIncludingTillerVariableForReproducingPlant() {
 //        Given
         Crop finalCrop = new CoffeeBean(); //growth rate = 4
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        Player player = new Player(5, 100, true, false);
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
-        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
+        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(playerWithTiller, finalCrop, cropProfit);
         double minimumBalance = calc.calculateMinimumBalance();
 //        Then
         assertThat(minimumBalance).isEqualTo(-2235);
@@ -84,14 +81,12 @@ public class PredictedBalanceCalculatorTest {
     public void shouldTakeVariablesAndReturnPotentialBalanceForNonReproducingPlant() {
 //        Given
         Crop finalCrop = new Parsnip(); //growth rate = 4
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        Player player = new Player(5, 100, false, false);
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
-        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
-        double potentialBalance = calc.calculatePotentialBalance();
+        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(playerWithoutTiller, finalCrop, cropProfit);
+        double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller.getFarmingLevel(), farm.getFertilizerLevel());
 //        Then
         assertThat(potentialBalance).isEqualTo(285);
     }
@@ -100,14 +95,12 @@ public class PredictedBalanceCalculatorTest {
     public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariableForNonReproducingPlant() {
 //        Given
         Crop finalCrop = new Parsnip(); //growth rate = 4
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        Player player = new Player(5, 100, true, false);
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
-        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
-        double potentialBalance = calc.calculatePotentialBalance();
+        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(playerWithTiller, finalCrop, cropProfit);
+        double potentialBalance = calc.calculatePotentialBalance(playerWithTiller.getFarmingLevel(), farm.getFertilizerLevel());
 //        Then
         assertThat(potentialBalance).isEqualTo(317);
     }
@@ -116,14 +109,12 @@ public class PredictedBalanceCalculatorTest {
     public void shouldTakeVariablesAndReturnPotentialBalanceForReproducingPlant() {
 //        Given
         Crop finalCrop = new CoffeeBean(); //growth rate = 4
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        Player player = new Player(5, 100, false, false);
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
-        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
-        double potentialBalance = calc.calculatePotentialBalance();
+        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(playerWithoutTiller, finalCrop, cropProfit);
+        double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller.getFarmingLevel(), farm.getFertilizerLevel());
 //        Then
         assertThat(potentialBalance).isEqualTo(-2203);
     }
@@ -132,14 +123,12 @@ public class PredictedBalanceCalculatorTest {
     public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariableForReproducingPlant() {
 //        Given
         Crop finalCrop = new CoffeeBean(); //growth rate = 4
-        int fertilizerLevel = 1;
         int seedCount = 1;
-        Player player = new Player(5, 100, true, false);
-        CropQuality cropQuality = new CropQuality(player.getFarmingLevel(), fertilizerLevel);
+        CropQuality cropQuality = new CropQuality();
         CropProfit cropProfit = new CropProfit(cropQuality, finalCrop, seedCount);
 //        When
-        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(player, finalCrop, cropProfit);
-        double potentialBalance = calc.calculatePotentialBalance();
+        PredictedBalanceCalculator calc = new PredictedBalanceCalculator(playerWithTiller, finalCrop, cropProfit);
+        double potentialBalance = calc.calculatePotentialBalance(playerWithTiller.getFarmingLevel(), farm.getFertilizerLevel());
 //        Then
         assertThat(potentialBalance).isEqualTo(-2183);
     }

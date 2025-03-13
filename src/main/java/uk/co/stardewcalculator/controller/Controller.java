@@ -36,12 +36,6 @@ public class Controller {
         Optional<Crop> crop1 = CropFactory.assignCrop(crop);
         Player player = cropSummaryRequest.player();
         Farm farm = cropSummaryRequest.farm();
-        if (player.getFarmingLevel() < 5 && player.getTiller()) {
-            player.setTiller(false);
-        }
-        if (player.getFarmingLevel() < 10 && player.getAgriculturist()) {
-            player.setAgriculturist(false);
-        }
         if (crop1.isPresent()) {
             return ResponseEntity.ok(BalanceSummaryService.getResults(farm, crop1.get(), player));
         } else {
@@ -67,6 +61,11 @@ public class Controller {
     @PostMapping(value = "/add-farm")
     public void registerNewFarm(@RequestBody Farm farm) {
         farmService.addNewFarm(farm);
+    }
+
+    @PostMapping(value = "/crop")
+    public void cropRequest(@RequestBody Crop crop) {
+
     }
 
 //    https://www.baeldung.com/spring-data-crud-repository-save
