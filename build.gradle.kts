@@ -32,6 +32,9 @@ dependencies {
     //Spring-Data
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.4.2")
 
+    //DataJPATest
+    implementation("org.springframework.boot:spring-boot-starter-test:3.4.2")
+
     //PostgreSQL
     implementation("org.postgresql:postgresql:42.7.5")
 }

@@ -38,6 +38,8 @@ public class Player implements Serializable {
 
     public Player() {}
 
+    public Long getId() { return id; }
+
     public String getUsername() {
         return username;
     }
@@ -85,4 +87,5 @@ public class Player implements Serializable {
     public void setFarm(Farm farm) {
         this.farm = farm;
     }
+
 }
