@@ -1,8 +1,11 @@
 package uk.co.stardewcalculator.service;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CropQuality {
 
-    private final double silverProbabilityLimit = 0.75;
+    private final double SILVER_PROBABILITY_LIMIT = 0.75;
 
     public CropQuality() {
     }
@@ -17,8 +20,8 @@ public class CropQuality {
     public double getSilverProbability(double farmingLevel, int fertilizerLevel) {
         double goldProbability = getGoldProbability(farmingLevel, fertilizerLevel);
         double silverProbability = 2 * goldProbability;
-        if (silverProbability > silverProbabilityLimit) {
-            silverProbability = silverProbabilityLimit;
+        if (silverProbability > SILVER_PROBABILITY_LIMIT) {
+            silverProbability = SILVER_PROBABILITY_LIMIT;
         }
         return silverProbability;
     }

@@ -1,11 +1,15 @@
 package uk.co.stardewcalculator.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import uk.co.stardewcalculator.domain.types.Crop;
 
+@Component
 public class CropProfit {
 
     CropQuality cropQuality;
 
+    @Autowired
     public CropProfit(CropQuality cropQuality) {
         this.cropQuality = cropQuality;
     }

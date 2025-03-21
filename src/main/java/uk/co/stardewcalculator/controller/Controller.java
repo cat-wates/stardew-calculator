@@ -23,11 +23,13 @@ public class Controller {
 
     public PlayerService playerService;
     public FarmService farmService;
+    public BalanceSummaryService balanceSummaryService;
 
     @Autowired
-    public Controller(PlayerService playerService, FarmService farmService) {
+    public Controller(PlayerService playerService, FarmService farmService, BalanceSummaryService balanceSummaryService) {
         this.playerService = playerService;
         this.farmService = farmService;
+        this.balanceSummaryService = balanceSummaryService;
     }
 
     @GetMapping(value = "/")
@@ -37,7 +39,7 @@ public class Controller {
         Player player = cropSummaryRequest.player();
         Farm farm = cropSummaryRequest.farm();
         if (crop1.isPresent()) {
-            return ResponseEntity.ok(BalanceSummaryService.getResults(farm, crop1.get(), player));
+            return ResponseEntity.ok(balanceSummaryService.getResults(farm, crop1.get(), player));
         } else {
             return new ResponseEntity<>("Invalid crop", HttpStatus.BAD_REQUEST);
         }
