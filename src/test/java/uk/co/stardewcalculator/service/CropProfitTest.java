@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 class CropProfitTest {
 

@@ -6,7 +6,8 @@ import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 
 import java.util.Optional;
 
-import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class CropFactoryTest {
 
