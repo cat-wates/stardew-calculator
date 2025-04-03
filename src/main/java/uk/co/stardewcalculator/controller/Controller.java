@@ -39,7 +39,7 @@ public class Controller {
         Player player = cropSummaryRequest.player();
         Farm farm = cropSummaryRequest.farm();
         if (crop1.isPresent()) {
-            return ResponseEntity.ok(balanceService.getResults(farm, crop1.get(), player));
+            return ResponseEntity.ok(balanceService.getResults(crop1.get(), player));
         } else {
             return new ResponseEntity<>("Invalid crop", HttpStatus.BAD_REQUEST);
         }

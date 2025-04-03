@@ -2,6 +2,7 @@ package uk.co.stardewcalculator.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.ReproducingCrop;
 
@@ -36,14 +37,14 @@ public class BalanceCalculator {
     }
 
 
-    public int calculateMinimumBalance(boolean isTiller, int balance, Crop finalCrop, int seedCount) {
-        double minimumBalance = calculateBalanceMinusCost(balance, finalCrop, seedCount) + (revenueService.getMinimumBasicRevenue(finalCrop, seedCount) * calculateMultipliers(isTiller, finalCrop));
+    public int calculateMinimumBalance(Player player, Crop finalCrop) {
+        double minimumBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (revenueService.getMinimumBasicRevenue(finalCrop, player.getFarm().getSeedCount()) * calculateMultipliers(player.getTiller(), finalCrop));
         return (int)minimumBalance;
     }
 
-    public int calculatePotentialBalance(boolean isTiller, int balance, double farmingLevel, int fertilizerLevel, Crop finalCrop, int seedCount) {
-        double totalProfit = revenueService.getTotalProfit(farmingLevel, fertilizerLevel, finalCrop, seedCount);
-        double potentialBalance = calculateBalanceMinusCost(balance, finalCrop, seedCount) + (totalProfit * calculateMultipliers(isTiller, finalCrop));
+    public int calculatePotentialBalance(Player player, Crop finalCrop) {
+        double totalProfit = revenueService.getTotalProfit(player.getFarmingLevel(), player.getFarm().getFertilizerLevel(), finalCrop, player.getFarm().getSeedCount());
+        double potentialBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (totalProfit * calculateMultipliers(player.getTiller(), finalCrop));
         return (int)potentialBalance; //rounds down
     }
 }

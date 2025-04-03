@@ -24,7 +24,7 @@ public class BalanceCalculatorTest {
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller.getTiller(), playerWithoutTiller.getBalance(), finalCrop, farm.getSeedCount());
+        double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(205);
     }
@@ -37,7 +37,7 @@ public class BalanceCalculatorTest {
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double minimumBalance = calc.calculateMinimumBalance(playerWithTiller.getTiller(), playerWithTiller.getBalance(), finalCrop, farm.getSeedCount());
+        double minimumBalance = calc.calculateMinimumBalance(playerWithTiller, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(229);
     }
@@ -51,7 +51,7 @@ public class BalanceCalculatorTest {
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller.getTiller(), playerWithoutTiller.getBalance(), finalCrop, farm.getSeedCount());
+        double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(-2250);
     }
@@ -64,7 +64,7 @@ public class BalanceCalculatorTest {
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double minimumBalance = calc.calculateMinimumBalance(playerWithTiller.getTiller(), playerWithTiller.getBalance(), finalCrop, farm.getSeedCount());
+        double minimumBalance = calc.calculateMinimumBalance(playerWithTiller, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(-2235);
     }
@@ -78,7 +78,7 @@ public class BalanceCalculatorTest {
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller.getTiller(), playerWithoutTiller.getBalance(), playerWithoutTiller.getFarmingLevel(), farm.getFertilizerLevel(), finalCrop, farm.getSeedCount());
+        double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(285);
     }
@@ -91,7 +91,7 @@ public class BalanceCalculatorTest {
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double potentialBalance = calc.calculatePotentialBalance(playerWithTiller.getTiller(), playerWithTiller.getBalance(), playerWithTiller.getFarmingLevel(), farm.getFertilizerLevel(), finalCrop, farm.getSeedCount());
+        double potentialBalance = calc.calculatePotentialBalance(playerWithTiller, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(317);
     }
@@ -104,7 +104,7 @@ public class BalanceCalculatorTest {
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller.getTiller(), playerWithoutTiller.getBalance(), playerWithoutTiller.getFarmingLevel(), farm.getFertilizerLevel(), finalCrop, farm.getSeedCount());
+        double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(-2203);
     }
@@ -117,7 +117,7 @@ public class BalanceCalculatorTest {
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double potentialBalance = calc.calculatePotentialBalance(playerWithTiller.getTiller(), playerWithTiller.getBalance(), playerWithTiller.getFarmingLevel(), farm.getFertilizerLevel(), finalCrop, farm.getSeedCount());
+        double potentialBalance = calc.calculatePotentialBalance(playerWithTiller, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(-2183);
     }

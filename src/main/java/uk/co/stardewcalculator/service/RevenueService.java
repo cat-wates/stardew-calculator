@@ -29,7 +29,7 @@ public class RevenueService {
         return seedCount * finalCrop.getSellingPrice(BASIC);
     }
 
-// TODO: can we squash this down to one method which takes the level of profit as an argument?
+// TODO: can we squash this down to one method which takes the level of revenue as an argument?
     /* Potential profit */
     public double getPotentialBasicRevenue(double farmingLevel, int fertilizerLevel, Crop finalCrop, int seedCount) {
         return seedCount * finalCrop.getSellingPrice(BASIC) * cropQuality.getBasicProbability(farmingLevel, fertilizerLevel);
