@@ -2,53 +2,37 @@ package uk.co.stardewcalculator.domain.types;
 
 import uk.co.stardewcalculator.domain.season.Season;
 
+import java.util.Map;
+
 public abstract class Crop {
     private int costPerSeed; //from Pierre
-    private int basicSellingPrice; //base price
-    private int silverSellingPrice;
-    private int goldSellingPrice;
-    private int iridiumSellingPrice;
+    private Map<Quality, Integer> sellingPrices;
     private int timeToMaturity; //how long it takes for the plant to grow from initial planting of seed
     private Season season;
 
     public Crop() {}
 
-    public Crop(int costPerSeed, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, Season season) {
+    public Crop(int costPerSeed, Map<Quality, Integer> sellingPrices, int timeToMaturity, Season season) {
         this.costPerSeed = costPerSeed;
-        this.basicSellingPrice = basicSellingPrice;
-        this.silverSellingPrice = silverSellingPrice;
-        this.goldSellingPrice = goldSellingPrice;
-        this.iridiumSellingPrice = iridiumSellingPrice;
+        this.sellingPrices = sellingPrices;
         this.timeToMaturity = timeToMaturity;
         this.season = season;
     }
 
-    public int getHarvestsPerSeason() {
-        return 28 / timeToMaturity;
+    public int getSellingPrice(Quality quality) {
+        return sellingPrices.get(quality);
     }
 
     public int getCostPerSeed() {
         return costPerSeed;
     }
 
-    public int getBasicSellingPrice() {
-        return basicSellingPrice;
-    }
-
-    public int getSilverSellingPrice() {
-        return silverSellingPrice;
-    }
-
-    public int getGoldSellingPrice() {
-        return goldSellingPrice;
-    }
-
-    public int getIridiumSellingPrice() {
-        return iridiumSellingPrice;
-    }
-
     public int getTimeToMaturity() {
         return timeToMaturity;
+    }
+
+    public int getHarvestsPerSeason() {
+        return 28 / timeToMaturity;
     }
 
     @Override

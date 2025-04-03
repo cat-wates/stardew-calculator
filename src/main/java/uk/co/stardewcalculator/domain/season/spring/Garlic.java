@@ -3,9 +3,14 @@ package uk.co.stardewcalculator.domain.season.spring;
 import uk.co.stardewcalculator.domain.season.Season;
 import uk.co.stardewcalculator.domain.types.Crop;
 
+import java.util.Map;
+
+import static uk.co.stardewcalculator.domain.types.Quality.*;
+import static uk.co.stardewcalculator.domain.types.Quality.IRIDIUM;
+
 public class Garlic extends Crop {
     public Garlic() {
-        super(40, 60, 75, 90, 120, 4, Season.SPRING);
+        super(40, Map.of(BASIC, 60, SILVER, 75, GOLD, 90, IRIDIUM, 120), 4, Season.SPRING);
     }
 
     @Override
