@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.Crop;
+import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.domain.types.ReproducingCrop;
+
+import static uk.co.stardewcalculator.domain.types.Quality.BASIC;
 
 @Component
 public class BalanceCalculator {
@@ -17,13 +20,13 @@ public class BalanceCalculator {
         this.revenueService = revenueService;
     }
 
-    private int calculateBalanceMinusCost(int balance, Crop finalCrop, int seedCount) {
+    private int calculateBalanceMinusCost(int balance, PlantedCrop finalCrop, int seedCount) {
         int balanceMinusCost;
-        if (finalCrop instanceof ReproducingCrop) {
-            balanceMinusCost = balance - revenueService.getCost(finalCrop, seedCount);
+        if (finalCrop.getCrop() instanceof ReproducingCrop) {
+            balanceMinusCost = balance - revenueService.getCost(finalCrop.getCrop(), seedCount);
         }
         else {
-            balanceMinusCost = balance - (revenueService.getCost(finalCrop, seedCount) * finalCrop.getHarvestsPerSeason());
+            balanceMinusCost = balance - (revenueService.getCost(finalCrop.getCrop(), seedCount) * finalCrop.getCrop().getHarvestsPerSeason());
         }
         return balanceMinusCost;
     }
@@ -37,14 +40,14 @@ public class BalanceCalculator {
     }
 
 
-    public int calculateMinimumBalance(Player player, Crop finalCrop) {
-        double minimumBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (revenueService.getMinimumBasicRevenue(finalCrop, player.getFarm().getSeedCount()) * calculateMultipliers(player.getTiller(), finalCrop));
+    public int calculateMinimumBalance(Player player, PlantedCrop finalCrop) {
+        double minimumBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (finalCrop.getSellingPrice(BASIC) * calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
         return (int)minimumBalance;
     }
 
-    public int calculatePotentialBalance(Player player, Crop finalCrop) {
-        double totalProfit = revenueService.getTotalProfit(player.getFarmingLevel(), player.getFarm().getFertilizerLevel(), finalCrop, player.getFarm().getSeedCount());
-        double potentialBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (totalProfit * calculateMultipliers(player.getTiller(), finalCrop));
+    public int calculatePotentialBalance(Player player, PlantedCrop finalCrop) {
+        double totalProfit = revenueService.getTotalRevenue(player.getFarmingLevel(), finalCrop);
+        double potentialBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (totalProfit * calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
         return (int)potentialBalance; //rounds down
     }
 }

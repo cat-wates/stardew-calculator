@@ -6,6 +6,7 @@ import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.season.spring.CoffeeBean;
 import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.Player;
+import uk.co.stardewcalculator.domain.types.PlantedCrop;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -19,7 +20,8 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceForNonReproducingPlant() {
 //        Given
-        Crop finalCrop = new Parsnip(); //growth rate = 4
+        Crop crop = new Parsnip(); //growth rate = 4
+        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
@@ -32,7 +34,8 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceIncludingTillerVariableForNonReproducingPlant() {
 //        Given
-        Crop finalCrop = new Parsnip(); //growth rate = 4
+        Crop crop = new Parsnip(); //growth rate = 4
+        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
@@ -46,7 +49,8 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceForReproducingPlant() {
 //        Given
-        Crop finalCrop = new CoffeeBean();
+        Crop crop = new CoffeeBean();
+        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
@@ -59,7 +63,8 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceIncludingTillerVariableForReproducingPlant() {
 //        Given
-        Crop finalCrop = new CoffeeBean(); //growth rate = 4
+        Crop crop = new CoffeeBean();
+        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
@@ -73,7 +78,8 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnPotentialBalanceForNonReproducingPlant() {
 //        Given
-        Crop finalCrop = new Parsnip(); //growth rate = 4
+        Crop crop = new Parsnip(); //growth rate = 4
+        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
@@ -86,7 +92,8 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariableForNonReproducingPlant() {
 //        Given
-        Crop finalCrop = new Parsnip(); //growth rate = 4
+        Crop crop = new Parsnip(); //growth rate = 4
+        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
@@ -99,7 +106,8 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnPotentialBalanceForReproducingPlant() {
 //        Given
-        Crop finalCrop = new CoffeeBean(); //growth rate = 4
+        Crop crop = new CoffeeBean();
+        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When
@@ -112,7 +120,8 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariableForReproducingPlant() {
 //        Given
-        Crop finalCrop = new CoffeeBean(); //growth rate = 4
+        Crop crop = new CoffeeBean();
+        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
         RevenueService revenueService = new RevenueService(cropQuality);
 //        When

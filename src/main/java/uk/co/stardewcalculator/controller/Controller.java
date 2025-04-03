@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.service.BalanceService;
 import uk.co.stardewcalculator.service.CropFactory;
 import uk.co.stardewcalculator.domain.types.Crop;
@@ -37,9 +38,9 @@ public class Controller {
         String crop = cropSummaryRequest.crop();
         Optional<Crop> crop1 = CropFactory.assignCrop(crop);
         Player player = cropSummaryRequest.player();
-        Farm farm = cropSummaryRequest.farm();
         if (crop1.isPresent()) {
-            return ResponseEntity.ok(balanceService.getResults(crop1.get(), player));
+            PlantedCrop plantedCrop = new PlantedCrop(crop1.get(), player.getFarm().getSeedCount(), player.getFarm().getFertilizerLevel());
+            return ResponseEntity.ok(balanceService.getResults(plantedCrop, player));
         } else {
             return new ResponseEntity<>("Invalid crop", HttpStatus.BAD_REQUEST);
         }
