@@ -1,31 +1,32 @@
 package uk.co.stardewcalculator.service;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
+import uk.co.stardewcalculator.service.revenue.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+@SpringBootTest
 class RevenueServiceTest {
 
+    @Autowired
+    private RevenueService revenueService;
+
     @Test
-    public void shouldCalculatePotentialProfitFromQualityAndSeedCountForAGivenCrop() {
+    public void shouldCalculatePotentialTotalProfitFromQualityAndSeedCountForAGivenCrop() {
 //        Given
         Crop crop = new Parsnip();
         int farmingLevel = 0;
         int fertilizerLevel = 1;
         int seedCount = 1;
         PlantedCrop finalCrop = new PlantedCrop(crop, seedCount, fertilizerLevel);
-        CropQuality cq = new CropQuality();
 //        When
-        RevenueService cp = new RevenueService(cq);
 //        Then
-        assertThat(cp.getPotentialBasicRevenue(farmingLevel, finalCrop)).isEqualTo(29.69166666666667);
-        assertThat(cp.getPotentialSilverRevenue(farmingLevel, finalCrop)).isEqualTo(3.7266666666666666);
-        assertThat(cp.getPotentialGoldRevenue(farmingLevel, finalCrop)).isEqualTo(2.2533333333333334);
-        assertThat(cp.getPotentialIridiumRevenue(farmingLevel, finalCrop)).isEqualTo(1.51666666666666663);
+        assertThat(revenueService.getTotalRevenue(farmingLevel, finalCrop)).isEqualTo(37.18833333333334);
     }
 
 }
