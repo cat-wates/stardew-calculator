@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator.service;
+package uk.co.stardewcalculator.service.balance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -6,6 +6,7 @@ import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.domain.types.ReproducingCrop;
+import uk.co.stardewcalculator.service.revenue.RevenueService;
 
 import static uk.co.stardewcalculator.domain.types.Quality.BASIC;
 

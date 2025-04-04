@@ -7,6 +7,12 @@ import uk.co.stardewcalculator.domain.season.spring.CoffeeBean;
 import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
+import uk.co.stardewcalculator.service.balance.BalanceCalculator;
+import uk.co.stardewcalculator.service.revenue.RevenueCalculator;
+import uk.co.stardewcalculator.service.revenue.RevenueService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -23,7 +29,8 @@ public class BalanceCalculatorTest {
         Crop crop = new Parsnip(); //growth rate = 4
         PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
-        RevenueService revenueService = new RevenueService(cropQuality);
+        List<RevenueCalculator> revenueCalculators = new ArrayList<>();
+        RevenueService revenueService = new RevenueService(cropQuality, revenueCalculators);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller, finalCrop);
@@ -37,7 +44,8 @@ public class BalanceCalculatorTest {
         Crop crop = new Parsnip(); //growth rate = 4
         PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
-        RevenueService revenueService = new RevenueService(cropQuality);
+        List<RevenueCalculator> revenueCalculators = new ArrayList<>();
+        RevenueService revenueService = new RevenueService(cropQuality, revenueCalculators);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double minimumBalance = calc.calculateMinimumBalance(playerWithTiller, finalCrop);
@@ -52,7 +60,8 @@ public class BalanceCalculatorTest {
         Crop crop = new CoffeeBean();
         PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
-        RevenueService revenueService = new RevenueService(cropQuality);
+        List<RevenueCalculator> revenueCalculators = new ArrayList<>();
+        RevenueService revenueService = new RevenueService(cropQuality, revenueCalculators);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller, finalCrop);
@@ -66,7 +75,8 @@ public class BalanceCalculatorTest {
         Crop crop = new CoffeeBean();
         PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
-        RevenueService revenueService = new RevenueService(cropQuality);
+        List<RevenueCalculator> revenueCalculators = new ArrayList<>();
+        RevenueService revenueService = new RevenueService(cropQuality, revenueCalculators);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double minimumBalance = calc.calculateMinimumBalance(playerWithTiller, finalCrop);
@@ -81,7 +91,8 @@ public class BalanceCalculatorTest {
         Crop crop = new Parsnip(); //growth rate = 4
         PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
-        RevenueService revenueService = new RevenueService(cropQuality);
+        List<RevenueCalculator> revenueCalculators = new ArrayList<>();
+        RevenueService revenueService = new RevenueService(cropQuality, revenueCalculators);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller, finalCrop);
@@ -95,7 +106,8 @@ public class BalanceCalculatorTest {
         Crop crop = new Parsnip(); //growth rate = 4
         PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
-        RevenueService revenueService = new RevenueService(cropQuality);
+        List<RevenueCalculator> revenueCalculators = new ArrayList<>();
+        RevenueService revenueService = new RevenueService(cropQuality, revenueCalculators);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double potentialBalance = calc.calculatePotentialBalance(playerWithTiller, finalCrop);
@@ -109,7 +121,8 @@ public class BalanceCalculatorTest {
         Crop crop = new CoffeeBean();
         PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
-        RevenueService revenueService = new RevenueService(cropQuality);
+        List<RevenueCalculator> revenueCalculators = new ArrayList<>();
+        RevenueService revenueService = new RevenueService(cropQuality, revenueCalculators);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller, finalCrop);
@@ -123,7 +136,8 @@ public class BalanceCalculatorTest {
         Crop crop = new CoffeeBean();
         PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
         CropQuality cropQuality = new CropQuality();
-        RevenueService revenueService = new RevenueService(cropQuality);
+        List<RevenueCalculator> revenueCalculators = new ArrayList<>();
+        RevenueService revenueService = new RevenueService(cropQuality, revenueCalculators);
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double potentialBalance = calc.calculatePotentialBalance(playerWithTiller, finalCrop);

@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator.service;
+package uk.co.stardewcalculator.service.balance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
