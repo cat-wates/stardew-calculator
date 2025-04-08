@@ -27,7 +27,7 @@ dependencies {
     testImplementation("org.mockito:mockito-core:5.12.0")
 
     //Spring-Web
-    implementation("org.springframework.boot:spring-boot-starter-web:3.4.2")
+    implementation("org.springframework.boot:spring-boot-starter-web:3.4.3")
 
     //Spring-Data
     implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.4.2")
