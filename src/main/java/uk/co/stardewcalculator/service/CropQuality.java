@@ -11,15 +11,13 @@ public class CropQuality {
     }
 
     public double getBasicProbability(double farmingLevel, int fertilizerLevel) {
-        double goldProbability = getGoldProbability(farmingLevel, fertilizerLevel);
-        double silverProbability = getSilverProbability(farmingLevel, fertilizerLevel);
-        double iridiumProbability = getIridiumProbability(farmingLevel, fertilizerLevel);
-        return 1 - (silverProbability + goldProbability + iridiumProbability);
+        return 1 - (getSilverProbability(farmingLevel, fertilizerLevel)
+                + getGoldProbability(farmingLevel, fertilizerLevel)
+                + getIridiumProbability(farmingLevel, fertilizerLevel));
     }
 
     public double getSilverProbability(double farmingLevel, int fertilizerLevel) {
-        double goldProbability = getGoldProbability(farmingLevel, fertilizerLevel);
-        double silverProbability = 2 * goldProbability;
+        double silverProbability = 2 * getGoldProbability(farmingLevel, fertilizerLevel);
         if (silverProbability > SILVER_PROBABILITY_LIMIT) {
             silverProbability = SILVER_PROBABILITY_LIMIT;
         }
@@ -31,8 +29,7 @@ public class CropQuality {
     }
 
     public double getIridiumProbability(double farmingLevel, int fertilizerLevel) {
-        double goldProbability = getGoldProbability(farmingLevel, fertilizerLevel);
-        return goldProbability / 2;
+        return getGoldProbability(farmingLevel, fertilizerLevel) / 2;
     }
 
 
