@@ -2,7 +2,6 @@ package uk.co.stardewcalculator.service.revenue;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.service.CropQuality;
 
@@ -26,10 +25,5 @@ public class RevenueService {
             totalRevenue += revenueCalculator.calculateRevenue(farmingLevel, finalCrop, cropQuality);
         }
         return totalRevenue;
-    }
-
-    //TODO move this to balance service for now
-    public int getCost(Crop finalCrop, int seedCount) {
-        return seedCount * finalCrop.getCostPerSeed();
     }
 }

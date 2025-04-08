@@ -21,13 +21,17 @@ public class BalanceCalculator {
         this.revenueService = revenueService;
     }
 
+    private int calculateCost(Crop finalCrop, int seedCount) {
+        return seedCount * finalCrop.getCostPerSeed();
+    }
+
     private int calculateBalanceMinusCost(int balance, PlantedCrop finalCrop, int seedCount) {
         int balanceMinusCost;
         if (finalCrop.getCrop() instanceof ReproducingCrop) {
-            balanceMinusCost = balance - revenueService.getCost(finalCrop.getCrop(), seedCount);
+            balanceMinusCost = balance - calculateCost(finalCrop.getCrop(), seedCount);
         }
         else {
-            balanceMinusCost = balance - (revenueService.getCost(finalCrop.getCrop(), seedCount) * finalCrop.getCrop().getHarvestsPerSeason());
+            balanceMinusCost = balance - (calculateCost(finalCrop.getCrop(), seedCount) * finalCrop.getCrop().getHarvestsPerSeason());
         }
         return balanceMinusCost;
     }
@@ -41,13 +45,15 @@ public class BalanceCalculator {
     }
 
     public int calculateMinimumBalance(Player player, PlantedCrop finalCrop) {
-        double minimumBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (finalCrop.getSellingPrice(BASIC) * calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
+        double minimumBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount())
+                + (finalCrop.getSellingPrice(BASIC) * calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
         return (int)minimumBalance;
     }
 
     public int calculatePotentialBalance(Player player, PlantedCrop finalCrop) {
         double totalProfit = revenueService.getTotalRevenue(player.getFarmingLevel(), finalCrop);
-        double potentialBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (totalProfit * calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
+        double potentialBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount())
+                + (totalProfit * calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
         return (int)potentialBalance; //rounds down
     }
 }
