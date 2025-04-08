@@ -23,13 +23,14 @@ public class BalanceCalculatorTest {
     Farm farm = new Farm(1, 1);
     Player playerWithoutTiller = new Player("tangykitkat", 5, 100, false, false, farm);
     Player playerWithTiller = new Player("tangykitkat", 5, 100, true, false, farm);
+    Crop nonReproducingCrop = new Parsnip();
+    Crop reproducingCrop = new CoffeeBean();
 
     //min balance non-reproducing
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceForNonReproducingPlant() {
 //        Given
-        Crop crop = new Parsnip(); //growth rate = 4
-        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
+        PlantedCrop finalCrop = new PlantedCrop(nonReproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller, finalCrop);
@@ -40,8 +41,7 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceIncludingTillerVariableForNonReproducingPlant() {
 //        Given
-        Crop crop = new Parsnip(); //growth rate = 4
-        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
+        PlantedCrop finalCrop = new PlantedCrop(nonReproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double minimumBalance = calc.calculateMinimumBalance(playerWithTiller, finalCrop);
@@ -53,8 +53,7 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceForReproducingPlant() {
 //        Given
-        Crop crop = new CoffeeBean();
-        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
+        PlantedCrop finalCrop = new PlantedCrop(reproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller, finalCrop);
@@ -65,8 +64,7 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnMinimumBalanceIncludingTillerVariableForReproducingPlant() {
 //        Given
-        Crop crop = new CoffeeBean();
-        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
+        PlantedCrop finalCrop = new PlantedCrop(reproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double minimumBalance = calc.calculateMinimumBalance(playerWithTiller, finalCrop);
@@ -78,8 +76,7 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnPotentialBalanceForNonReproducingPlant() {
 //        Given
-        Crop crop = new Parsnip(); //growth rate = 4
-        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
+        PlantedCrop finalCrop = new PlantedCrop(nonReproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller, finalCrop);
@@ -90,8 +87,7 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariableForNonReproducingPlant() {
 //        Given
-        Crop crop = new Parsnip(); //growth rate = 4
-        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
+        PlantedCrop finalCrop = new PlantedCrop(nonReproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double potentialBalance = calc.calculatePotentialBalance(playerWithTiller, finalCrop);
@@ -102,8 +98,7 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnPotentialBalanceForReproducingPlant() {
 //        Given
-        Crop crop = new CoffeeBean();
-        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
+        PlantedCrop finalCrop = new PlantedCrop(reproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller, finalCrop);
@@ -114,8 +109,7 @@ public class BalanceCalculatorTest {
     @Test
     public void shouldTakeVariablesAndReturnPotentialBalanceIncludingTillerVariableForReproducingPlant() {
 //        Given
-        Crop crop = new CoffeeBean();
-        PlantedCrop finalCrop = new PlantedCrop(crop, farm.getSeedCount(), farm.getFertilizerLevel());
+        PlantedCrop finalCrop = new PlantedCrop(reproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
         BalanceCalculator calc = new BalanceCalculator(revenueService);
         double potentialBalance = calc.calculatePotentialBalance(playerWithTiller, finalCrop);

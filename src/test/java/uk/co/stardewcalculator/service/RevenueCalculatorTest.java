@@ -1,6 +1,8 @@
 package uk.co.stardewcalculator.service;
 
 import org.junit.jupiter.api.Test;
+import uk.co.stardewcalculator.domain.Farm;
+import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
@@ -10,63 +12,50 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RevenueCalculatorTest {
 
+    Crop crop = new Parsnip();
+    Player player = new Player("tangykitkat", 0, 0, false, false, new Farm(1, 1));
+
     @Test
     public void shouldReturnBasicRevenue() {
 //        Given
-        Crop crop = new Parsnip();
-        int farmingLevel = 0;
-        int fertilizerLevel = 1;
-        int seedCount = 1;
-        PlantedCrop finalCrop = new PlantedCrop(crop, seedCount, fertilizerLevel);
+        PlantedCrop finalCrop = new PlantedCrop(crop, player.getFarm().getSeedCount(), player.getFarm().getFertilizerLevel());
         CropQuality cq = new CropQuality();
 //        When
         RevenueCalculator basicRevenueCalculator = new BasicRevenueCalculator();
 //        Then
-        assertThat(basicRevenueCalculator.calculateRevenue(farmingLevel, finalCrop, cq)).isEqualTo(29.69166666666667);
+        assertThat(basicRevenueCalculator.calculateRevenue(player.getFarmingLevel(), finalCrop, cq)).isEqualTo(29.69166666666667);
     }
 
     @Test
     public void shouldReturnSilverRevenue() {
 //        Given
-        Crop crop = new Parsnip();
-        int farmingLevel = 0;
-        int fertilizerLevel = 1;
-        int seedCount = 1;
-        PlantedCrop finalCrop = new PlantedCrop(crop, seedCount, fertilizerLevel);
+        PlantedCrop finalCrop = new PlantedCrop(crop, player.getFarm().getSeedCount(), player.getFarm().getFertilizerLevel());
         CropQuality cq = new CropQuality();
 //        When
         RevenueCalculator silverRevenueCalculator = new SilverRevenueCalculator();
 //        Then
-        assertThat(silverRevenueCalculator.calculateRevenue(farmingLevel, finalCrop, cq)).isEqualTo(3.7266666666666666);
+        assertThat(silverRevenueCalculator.calculateRevenue(player.getFarmingLevel(), finalCrop, cq)).isEqualTo(3.7266666666666666);
     }
 
     @Test
     public void shouldReturnGoldRevenue() {
 //        Given
-        Crop crop = new Parsnip();
-        int farmingLevel = 0;
-        int fertilizerLevel = 1;
-        int seedCount = 1;
-        PlantedCrop finalCrop = new PlantedCrop(crop, seedCount, fertilizerLevel);
+        PlantedCrop finalCrop = new PlantedCrop(crop, player.getFarm().getSeedCount(), player.getFarm().getFertilizerLevel());
         CropQuality cq = new CropQuality();
 //        When
         RevenueCalculator goldRevenueCalculator = new GoldRevenueCalculator();
 //        Then
-        assertThat(goldRevenueCalculator.calculateRevenue(farmingLevel, finalCrop, cq)).isEqualTo(2.2533333333333334);
+        assertThat(goldRevenueCalculator.calculateRevenue(player.getFarmingLevel(), finalCrop, cq)).isEqualTo(2.2533333333333334);
     }
 
     @Test
     public void shouldReturnIridiumRevenue() {
 //        Given
-        Crop crop = new Parsnip();
-        int farmingLevel = 0;
-        int fertilizerLevel = 1;
-        int seedCount = 1;
-        PlantedCrop finalCrop = new PlantedCrop(crop, seedCount, fertilizerLevel);
+        PlantedCrop finalCrop = new PlantedCrop(crop, player.getFarm().getSeedCount(), player.getFarm().getFertilizerLevel());
         CropQuality cq = new CropQuality();
 //        When
         RevenueCalculator iridiumRevenueCalculator = new IridiumRevenueCalculator();
 //        Then
-        assertThat(iridiumRevenueCalculator.calculateRevenue(farmingLevel, finalCrop, cq)).isEqualTo(1.51666666666666663);
+        assertThat(iridiumRevenueCalculator.calculateRevenue(player.getFarmingLevel(), finalCrop, cq)).isEqualTo(1.51666666666666663);
     }
 }

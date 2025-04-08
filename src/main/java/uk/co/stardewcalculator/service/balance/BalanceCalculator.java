@@ -40,7 +40,6 @@ public class BalanceCalculator {
         return finalCrop.getHarvestsPerSeason() * professionMultiplier;
     }
 
-
     public int calculateMinimumBalance(Player player, PlantedCrop finalCrop) {
         double minimumBalance = calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount()) + (finalCrop.getSellingPrice(BASIC) * calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
         return (int)minimumBalance;
