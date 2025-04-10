@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator.service.balance;
+package uk.co.stardewcalculator.service.calculator;
 
 import org.springframework.stereotype.Component;
 import uk.co.stardewcalculator.domain.types.Crop;

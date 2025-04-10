@@ -1,10 +1,12 @@
-package uk.co.stardewcalculator.service.balance;
+package uk.co.stardewcalculator.service.calculator.balance;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
-import uk.co.stardewcalculator.service.revenue.RevenueService;
+import uk.co.stardewcalculator.service.calculator.CostCalculator;
+import uk.co.stardewcalculator.service.calculator.MultiplierCalculator;
+import uk.co.stardewcalculator.service.RevenueService;
 
 @Component
 public class PotentialBalanceCalculator  implements BalanceCalculator {

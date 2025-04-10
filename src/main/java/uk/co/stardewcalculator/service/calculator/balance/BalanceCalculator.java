@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator.service.balance;
+package uk.co.stardewcalculator.service.calculator.balance;
 
 import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;

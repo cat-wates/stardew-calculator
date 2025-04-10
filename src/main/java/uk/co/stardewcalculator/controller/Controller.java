@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
-import uk.co.stardewcalculator.service.balance.BalanceService;
+import uk.co.stardewcalculator.service.BalanceService;
 import uk.co.stardewcalculator.service.CropFactory;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.Farm;

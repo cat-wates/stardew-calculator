@@ -9,7 +9,8 @@ import uk.co.stardewcalculator.domain.season.spring.CoffeeBean;
 import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
-import uk.co.stardewcalculator.service.balance.*;
+import uk.co.stardewcalculator.service.calculator.balance.MinimumBalanceCalculator;
+import uk.co.stardewcalculator.service.calculator.balance.PotentialBalanceCalculator;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator.service.revenue;
+package uk.co.stardewcalculator.service.calculator.revenue;
 
 import org.springframework.stereotype.Component;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;

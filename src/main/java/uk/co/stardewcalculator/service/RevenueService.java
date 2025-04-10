@@ -1,9 +1,9 @@
-package uk.co.stardewcalculator.service.revenue;
+package uk.co.stardewcalculator.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
-import uk.co.stardewcalculator.service.CropQuality;
+import uk.co.stardewcalculator.service.calculator.revenue.RevenueCalculator;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package uk.co.stardewcalculator.service.revenue;
+package uk.co.stardewcalculator.service.calculator.revenue;
 
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.service.CropQuality;

@@ -6,7 +6,7 @@ import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
-import uk.co.stardewcalculator.service.revenue.*;
+import uk.co.stardewcalculator.service.calculator.revenue.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
