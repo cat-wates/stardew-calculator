@@ -6,19 +6,21 @@ import uk.co.stardewcalculator.controller.BalanceSummaryResponse;
 import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 
+import java.util.List;
+
 @Service
 public class BalanceService {
 
-    private final BalanceCalculator balanceCalculator;
+    List<BalanceCalculator> balanceCalculations;
 
     @Autowired
-    public BalanceService(BalanceCalculator balanceCalculator) {
-        this.balanceCalculator = balanceCalculator;
+    public BalanceService(List<BalanceCalculator> balanceCalculations) {
+        this.balanceCalculations = balanceCalculations;
     }
 
     public BalanceSummaryResponse getResults(PlantedCrop finalCrop, Player player) {
-        int minimumBalance = balanceCalculator.calculateMinimumBalance(player, finalCrop);
-        int potentialBalance = balanceCalculator.calculatePotentialBalance(player, finalCrop);
+        int minimumBalance = balanceCalculations.get(0).calculateBalance(player, finalCrop);
+        int potentialBalance = balanceCalculations.get(1).calculateBalance(player, finalCrop);
         return new BalanceSummaryResponse(player, finalCrop.getCrop(), minimumBalance, potentialBalance);
     }
 }

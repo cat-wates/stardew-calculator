@@ -9,8 +9,7 @@ import uk.co.stardewcalculator.domain.season.spring.CoffeeBean;
 import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
-import uk.co.stardewcalculator.service.balance.BalanceCalculator;
-import uk.co.stardewcalculator.service.revenue.RevenueService;
+import uk.co.stardewcalculator.service.balance.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,7 +17,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class BalanceCalculatorTest {
 
     @Autowired
-    private RevenueService revenueService;
+    PotentialBalanceCalculator potentialBalanceCalculator;
+    @Autowired
+    MinimumBalanceCalculator minimumBalanceCalculator;
 
     Farm farm = new Farm(1, 1);
     Player playerWithoutTiller = new Player("tangykitkat", 5, 100, false, false, farm);
@@ -32,8 +33,7 @@ public class BalanceCalculatorTest {
 //        Given
         PlantedCrop finalCrop = new PlantedCrop(nonReproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
-        BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller, finalCrop);
+        double minimumBalance = minimumBalanceCalculator.calculateBalance(playerWithoutTiller, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(205);
     }
@@ -43,8 +43,7 @@ public class BalanceCalculatorTest {
 //        Given
         PlantedCrop finalCrop = new PlantedCrop(nonReproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
-        BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double minimumBalance = calc.calculateMinimumBalance(playerWithTiller, finalCrop);
+        double minimumBalance = minimumBalanceCalculator.calculateBalance(playerWithTiller, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(229);
     }
@@ -55,8 +54,7 @@ public class BalanceCalculatorTest {
 //        Given
         PlantedCrop finalCrop = new PlantedCrop(reproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
-        BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double minimumBalance = calc.calculateMinimumBalance(playerWithoutTiller, finalCrop);
+        double minimumBalance = minimumBalanceCalculator.calculateBalance(playerWithoutTiller, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(-2250);
     }
@@ -66,8 +64,7 @@ public class BalanceCalculatorTest {
 //        Given
         PlantedCrop finalCrop = new PlantedCrop(reproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
-        BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double minimumBalance = calc.calculateMinimumBalance(playerWithTiller, finalCrop);
+        double minimumBalance = minimumBalanceCalculator.calculateBalance(playerWithTiller, finalCrop);
 //        Then
         assertThat(minimumBalance).isEqualTo(-2235);
     }
@@ -78,8 +75,7 @@ public class BalanceCalculatorTest {
 //        Given
         PlantedCrop finalCrop = new PlantedCrop(nonReproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
-        BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller, finalCrop);
+        double potentialBalance = potentialBalanceCalculator.calculateBalance(playerWithoutTiller, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(285);
     }
@@ -89,8 +85,7 @@ public class BalanceCalculatorTest {
 //        Given
         PlantedCrop finalCrop = new PlantedCrop(nonReproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
-        BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double potentialBalance = calc.calculatePotentialBalance(playerWithTiller, finalCrop);
+        double potentialBalance = potentialBalanceCalculator.calculateBalance(playerWithTiller, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(317);
     }
@@ -100,8 +95,7 @@ public class BalanceCalculatorTest {
 //        Given
         PlantedCrop finalCrop = new PlantedCrop(reproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
-        BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double potentialBalance = calc.calculatePotentialBalance(playerWithoutTiller, finalCrop);
+        double potentialBalance = potentialBalanceCalculator.calculateBalance(playerWithoutTiller, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(-2203);
     }
@@ -111,8 +105,7 @@ public class BalanceCalculatorTest {
 //        Given
         PlantedCrop finalCrop = new PlantedCrop(reproducingCrop, farm.getSeedCount(), farm.getFertilizerLevel());
 //        When
-        BalanceCalculator calc = new BalanceCalculator(revenueService);
-        double potentialBalance = calc.calculatePotentialBalance(playerWithTiller, finalCrop);
+        double potentialBalance = potentialBalanceCalculator.calculateBalance(playerWithTiller, finalCrop);
 //        Then
         assertThat(potentialBalance).isEqualTo(-2183);
     }
