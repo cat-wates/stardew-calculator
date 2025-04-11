@@ -20,10 +20,9 @@ public class RevenueService {
     }
 
     public double getTotalRevenue(double farmingLevel, PlantedCrop finalCrop) {
-        double totalRevenue = 0;
-        for (RevenueCalculator revenueCalculator : revenueCalculations) {
-            totalRevenue += revenueCalculator.calculateRevenue(farmingLevel, finalCrop, cropQuality);
-        }
-        return totalRevenue;
+        return revenueCalculations
+                .stream()
+                .mapToDouble(revenueCalculator -> revenueCalculator.calculateRevenue(farmingLevel, finalCrop, cropQuality))
+                .sum();
     }
 }
