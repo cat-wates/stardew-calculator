@@ -1,10 +1,12 @@
 plugins {
     id("java")
+    id("org.springframework.boot") version "3.4.3" //sets the Spring Boot version
+    id("io.spring.dependency-management") version "1.1.7"
 }
 
 tasks.named<Jar>("jar") {
     manifest {
-        attributes["Main-Class"] = "uk.co.stardewcalculator.Main"
+        attributes["Main-Class"] = "uk.co.stardewcalculator.Application"
     }
 }
 
@@ -27,19 +29,22 @@ dependencies {
     testImplementation("org.mockito:mockito-core:5.12.0")
 
     //Spring-Web
-    implementation("org.springframework.boot:spring-boot-starter-web:3.4.3")
+    implementation("org.springframework.boot:spring-boot-starter-web")
 
     //Spring-Actuator
-    implementation("org.springframework.boot:spring-boot-starter-actuator:3.4.3")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
 
     //Spring-Data
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.4.2")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
     //DataJPATest
-    implementation("org.springframework.boot:spring-boot-starter-test:3.4.2")
+    implementation("org.springframework.boot:spring-boot-starter-test")
 
     //PostgreSQL
     implementation("org.postgresql:postgresql:42.7.5")
+
+    //H2 Database
+    implementation("com.h2database:h2:2.3.232")
 }
 
 tasks.test {

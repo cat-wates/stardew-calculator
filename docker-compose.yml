@@ -1,7 +1,7 @@
 services:
   app:
     image: "stardew-calculator"
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
     build:
       context: .
+    ports:
+    - "8080:8080"
