@@ -1,4 +1,5 @@
-FROM openjdk:17-oracle
+# slim version, has utility packages
+FROM openjdk:17-slim
 LABEL authors="Catherine.Wates"
 
 COPY ./gradle/wrapper ./gradle/wrapper
