@@ -3,5 +3,19 @@ services:
     image: "stardew-calculator"
     build:
       context: .
+    environment:
+      SPRING_PROFILES_ACTIVE: local
     ports:
-    - "8080:8080"
+      - "8080:8080"
+    depends_on:
+      - postgres
+  postgres:
+    image: "postgres:latest"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: stardewcalc
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
