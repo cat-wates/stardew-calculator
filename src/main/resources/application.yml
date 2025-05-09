@@ -3,7 +3,7 @@ spring:
     url: jdbc:h2:mem:stardew-calc
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: update #updates database schema instead of creating a new one
     show-sql: true
     properties:
       hibernate:
@@ -15,7 +15,7 @@ spring:
     activate:
       on-profile: local
   datasource:
-    url: jdbc:postgresql://postgres:5432/stardewcalc
+    url: jdbc:postgresql://postgres:5432/stardewcalc #connects to a postgres database using JDBC driver
     username: postgres
     password: password
 
