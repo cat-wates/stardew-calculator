@@ -1,9 +1,8 @@
-
 plugins {
     id("java")
     id("org.springframework.boot") version "3.4.3" //sets the Spring Boot version
     id("io.spring.dependency-management") version "1.1.7"
-    id("org.flywaydb.flyway") version "11.8.2"
+    id("org.flywaydb.flyway") version "9.0.0"
 }
 
 tasks.named<Jar>("jar") {
@@ -43,17 +42,18 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-test")
 
     //PostgreSQL
-    implementation("org.postgresql:postgresql:42.7.5")
+    implementation("org.postgresql:postgresql:42.7.2")
 
     //H2 Database
     implementation("com.h2database:h2:2.3.232")
 
     //Flyaway
-    implementation("org.flywaydb:flyway-core:11.8.2")
+    implementation("org.flywaydb:flyway-core")
+    implementation("org.flywaydb:flyway-database-postgresql")
 }
 
 flyway {
-    url = "jdbc:h2:mem:stardew-calc"
+    url = "jdbc:postgresql://postgres:5432/stardewcalc"
     user = "postgres"
     password = "password"
 }

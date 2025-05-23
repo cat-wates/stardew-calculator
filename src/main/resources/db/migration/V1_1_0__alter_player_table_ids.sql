@@ -1,0 +1,5 @@
+ALTER TABLE player
+    ADD CONSTRAINT uc_player_farm UNIQUE (farm_id);
+
+ALTER TABLE player
+    ADD CONSTRAINT FK_PLAYER_ON_FARM FOREIGN KEY (farm_id) REFERENCES farm (id);
