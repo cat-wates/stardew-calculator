@@ -34,3 +34,15 @@ This program is to help a Stardew Valley player understand how much profit they 
   🥬 Minimum new balance (based on basic selling price and no fertiliser)
   
   🥔 Potential new balance (based on farmer level, professions & probability of each quality type)
+
+# **How to run**
+
+#####
+
+Running with Docker
+
+`docker compose up --build`
+
+Running with Gradle
+
+`./gradlew bootRun`- starts the Spring app on port `8080`
