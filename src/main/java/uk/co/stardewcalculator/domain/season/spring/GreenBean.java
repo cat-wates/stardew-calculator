@@ -6,7 +6,6 @@ import uk.co.stardewcalculator.domain.types.ReproducingCrop;
 import java.util.Map;
 
 import static uk.co.stardewcalculator.domain.types.Quality.*;
-import static uk.co.stardewcalculator.domain.types.Quality.IRIDIUM;
 
 public class GreenBean extends ReproducingCrop {
     public GreenBean() {

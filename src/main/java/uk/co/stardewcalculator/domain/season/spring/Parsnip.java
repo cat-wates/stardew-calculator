@@ -6,7 +6,6 @@ import uk.co.stardewcalculator.domain.types.Crop;
 import java.util.Map;
 
 import static uk.co.stardewcalculator.domain.types.Quality.*;
-import static uk.co.stardewcalculator.domain.types.Quality.IRIDIUM;
 
 public class Parsnip extends Crop {
     public Parsnip() {
