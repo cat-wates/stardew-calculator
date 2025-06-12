@@ -23,3 +23,13 @@ spring:
     url: jdbc:postgresql://postgres:5432/stardewcalc #connects to a postgres database using JDBC driver
     username: postgres
     password: password
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+
