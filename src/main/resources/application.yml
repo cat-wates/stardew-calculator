@@ -29,7 +29,7 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    url: ${DATABASE_URL}
+    url: jdbc:${DATABASE_URL}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
 
