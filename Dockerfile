@@ -1,5 +1,5 @@
 # slim version, has utility packages
-FROM openjdk:17-slim
+FROM openjdk:17-jdk
 LABEL authors="Catherine.Wates"
 
 #copies Gradle files to the image
