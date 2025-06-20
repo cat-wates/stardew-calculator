@@ -10,14 +10,12 @@ CREATE TABLE crop (
     time_to_maturity       INTEGER                      NOT NULL,
     time_to_regrow         INTEGER,
     season                 VARCHAR(255)
-    CONSTRAINT pk_crop PRIMARY KEY (crop)
-)
+);
 
-INSERT INTO crop (crop, cost_per_seed_pierre, cost_per_seed_jojo, basic_selling_price,
-                  silver_selling_price, gold_selling_price, iridium_selling_price,
-                  time_to_maturity, time_to_regrow, season) VALUES
+INSERT INTO crop
+VALUES
 ('Blue Jazz',    30, 37,   50,  62,  75, 100,  7,  NULL, 'Spring'),
-('Carrot',        0,  0,   35,  43,  52,  70,  3,  NULL, 'Spring');
+('Carrot',        0,  0,   35,  43,  52,  70,  3,  NULL, 'Spring'),
 ('Cauliflower',  80,100,  175, 218, 262, 350, 12,  NULL, 'Spring'),
 ('Coffee Bean',2500,2500,  15,  18,  22,  30, 10,     2, 'Spring'),
 ('Garlic',       40, 40,   60,  75,  90, 120,  4,  NULL, 'Spring'),
@@ -56,7 +54,7 @@ INSERT INTO crop (crop, cost_per_seed_pierre, cost_per_seed_jojo, basic_selling_
 ('Grape',           60,  75,  80, 100, 120, 160, 10,     3, 'Fall'),
 ('Pumpkin',        100, 125, 320, 400, 480, 640, 13,  NULL, 'Fall'),
 ('Sunflower',      200, 250,  80, 100, 120, 160,  8,  NULL, 'Fall'),
-('Sweet Gem Berry',1000,NULL,3000,3750,4500,6000,24,  NULL, 'Fall'),
+('Sweet Gem Berry',1000,  0,3000,3750,4500,6000,24,  NULL, 'Fall'),
 ('Wheat',           10,  12,  25,  31,  37,  50,  4,  NULL, 'Fall'),
 ('Yam',             60,  75, 160, 200, 240, 320, 10,  NULL, 'Fall'),
 
