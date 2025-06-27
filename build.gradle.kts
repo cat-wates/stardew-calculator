@@ -50,6 +50,10 @@ dependencies {
     //Flyaway
     implementation("org.flywaydb:flyway-core")
     implementation("org.flywaydb:flyway-database-postgresql")
+
+    //JDBI
+    implementation("org.jdbi:jdbi3-core:3.48.0")
+    implementation("org.jdbi:jdbi3-sqlobject:3.48.0")
 }
 
 flyway {
