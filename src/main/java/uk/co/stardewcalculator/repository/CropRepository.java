@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import uk.co.stardewcalculator.domain.types.CropV2;
 
 @Repository
-public interface CropRepository extends JpaRepository<CropV2, String > {
+public interface CropRepository extends JpaRepository<CropV2, String> {
 
     @NonNull
     CropV2 getReferenceById(@NonNull String crop);
