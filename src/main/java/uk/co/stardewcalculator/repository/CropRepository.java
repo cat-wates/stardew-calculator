@@ -34,18 +34,13 @@ public class CropRepository {
     }
 
     public Crop findCropAndReturnNewPopulatedCrop(String crop) {
-        return jdbi.withHandle(handle -> handle.createUpdate(SELECT_CROP_DETAILS_SQL)
+        return jdbi.withHandle(handle -> handle.createQuery(SELECT_CROP_DETAILS_SQL)
                 .define("tableName", CROP_TABLE_NAME)
                 .bind("crop", crop)
-                .executeAndReturnGeneratedKeys("sale_id")
-                .mapTo(Crop.class);
-                }
-        );
-
+                .mapTo(Crop.class)
+                .one());
     }
-
-
-}
+    }
 
 
 
