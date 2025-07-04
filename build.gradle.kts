@@ -53,7 +53,7 @@ dependencies {
 }
 
 flyway {
-    url = "jdbc:postgresql://postgres:5432/stardewcalc"
+    url = "jdbc-url:postgresql://postgres:5432/stardewcalc"
     user = "postgres"
     password = "password"
 }

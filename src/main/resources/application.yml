@@ -20,7 +20,7 @@ spring:
     activate:
       on-profile: local
   datasource:
-    url: jdbc:postgresql://postgres:5432/stardewcalc #connects to a postgres database using JDBC driver
+    url: jdbc-url:postgresql://postgres:5432/stardewcalc #connects to a postgres database using jdbc-url driver
     username: postgres
     password: password
 ---
@@ -29,7 +29,7 @@ spring:
     activate:
       on-profile: prod
   datasource:
-    url: jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
+    url: jdbc-url:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
 
