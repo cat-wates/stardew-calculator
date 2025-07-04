@@ -1,5 +1,5 @@
 # slim version, has utility packages
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:21-jdk
 LABEL authors="Catherine.Wates"
 
 #copies Gradle files to the image

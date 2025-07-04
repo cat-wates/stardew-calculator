@@ -2,7 +2,7 @@ plugins {
     id("java")
     id("org.springframework.boot") version "3.4.3" //sets the Spring Boot version
     id("io.spring.dependency-management") version "1.1.7"
-    id("org.flywaydb.flyway") version "9.0.0"
+    id("org.flywaydb.flyway") version "10.0.0"
 }
 
 tasks.named<Jar>("jar") {
@@ -53,7 +53,7 @@ dependencies {
 }
 
 flyway {
-    url = "jdbc-url:postgresql://postgres:5432/stardewcalc"
+    url = "jdbc:postgresql://postgres:5432/stardewcalc"
     user = "postgres"
     password = "password"
 }
