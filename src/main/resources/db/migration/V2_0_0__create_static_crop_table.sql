@@ -10,7 +10,7 @@ CREATE TABLE crop (
     time_to_maturity       INTEGER                      NOT NULL,
     time_to_regrow         INTEGER,
     season                 VARCHAR(255),
-    CONSTRAINT pk_crop PRIMARY KEY (crop)
+    CONSTRAINT pk_crop PRIMARY KEY (crop, season)
 );
 
 INSERT INTO crop
@@ -48,15 +48,15 @@ VALUES
 ('Beet',            20,  20, 100, 125, 150, 200,  6,  NULL, 'Fall'),
 ('Bok Choy',        50,  62,  80, 100, 120, 160,  4,  NULL, 'Fall'),
 ('Broccoli',         0,   0,  70,  87, 105, 140,  8,     4, 'Fall'),
---('Corn',           150, 187,  50,  62,  75, 100, 14,     4, 'Fall'),
+('Corn',           150, 187,  50,  62,  75, 100, 14,     4, 'Fall'),
 ('Cranberries',    240, 300,  75,  93, 112, 150,  7,     5, 'Fall'),
 ('Eggplant',        20,  25,  60,  75,  90, 120,  5,     5, 'Fall'),
 ('Fairy Rose',     200, 250, 290, 362, 435, 580, 12,  NULL, 'Fall'),
 ('Grape',           60,  75,  80, 100, 120, 160, 10,     3, 'Fall'),
 ('Pumpkin',        100, 125, 320, 400, 480, 640, 13,  NULL, 'Fall'),
---('Sunflower',      200, 250,  80, 100, 120, 160,  8,  NULL, 'Fall'),
+('Sunflower',      200, 250,  80, 100, 120, 160,  8,  NULL, 'Fall'),
 ('Sweet Gem Berry',1000,  0,3000,3750,4500,6000,24,  NULL, 'Fall'),
--- ('Wheat',           10,  12,  25,  31,  37,  50,  4,  NULL, 'Fall'),
+('Wheat',           10,  12,  25,  31,  37,  50,  4,  NULL, 'Fall'),
 ('Yam',             60,  75, 160, 200, 240, 320, 10,  NULL, 'Fall'),
 
 ('Powdermelon',      0,   0,  60,  75,  90, 120,  7,  NULL, 'Winter');

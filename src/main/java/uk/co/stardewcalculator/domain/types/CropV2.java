@@ -3,13 +3,15 @@ package uk.co.stardewcalculator.domain.types;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 import uk.co.stardewcalculator.domain.season.Season;
 
 import java.io.Serializable;
 
 @Entity
-@Table
+@Table(name = "crop")
+@IdClass(CropID.class)
 public class CropV2 implements Serializable {
 
     @Id String crop;
@@ -21,6 +23,7 @@ public class CropV2 implements Serializable {
     int iridiumSellingPrice;
     int timeToMaturity;
     @Nullable Integer timeToRegrow;
+    @Id
     Season season;
 
     public CropV2() {}
