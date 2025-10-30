@@ -18,7 +18,4 @@ services:
     ports:
       - "5432:5432" #uses port 5432 on the host machine
     volumes:
-      - stardew-postgres-data:/var/lib/postgresql/data #uses named volume for persistent data storage
-
-volumes:
-  stardew-postgres-data:
+      - ./stardew-postgres-data:/var/lib/postgresql/data #uses named volume for persistent data storage

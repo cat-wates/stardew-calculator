@@ -1,6 +1,6 @@
 CREATE TABLE crop (
 
-    crop                   VARCHAR(255)                 NOT NULL,
+    crop                   VARCHAR(255)                 NULL,
     cost_per_seed_pierre   INTEGER                      NOT NULL,
     cost_per_seed_jojo     INTEGER                      NOT NULL,
     basic_selling_price    INTEGER                      NOT NULL,
