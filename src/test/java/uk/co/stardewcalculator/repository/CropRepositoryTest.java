@@ -47,11 +47,12 @@ public class CropRepositoryTest {
         cropRepository.deleteAll();
     }
 
-//    @Test
-//    void givenCropString_whenFindCrop_thenReturnCrop() {
-//        CropV2 selectedCrop = cropRepository.getReferenceById(testCropID);
-//        assertNotNull(selectedCrop);
-//        assertEquals(testCrop.getBasicSellingPrice(), selectedCrop.getBasicSellingPrice());
-//    }
+    @Test
+    void givenCropString_whenFindCrop_thenReturnCrop() {
+        CropV2 selectedCrop = cropRepository.findByCropAndSeason("Parsnip", Season.SPRING);
+        assertNotNull(selectedCrop);
+        assertEquals(testCrop.getBasicSellingPrice(), selectedCrop.getBasicSellingPrice());
+        assertEquals(testCrop.getCostPerSeedPierre(), selectedCrop.getCostPerSeedPierre());
+    }
 
 }

@@ -1,10 +1,7 @@
 package uk.co.stardewcalculator.domain.types;
 
 import jakarta.annotation.Nullable;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import uk.co.stardewcalculator.domain.season.Season;
 
 import java.io.Serializable;
@@ -24,6 +21,7 @@ public class CropV2 implements Serializable {
     int timeToMaturity;
     @Nullable Integer timeToRegrow;
     @Id
+    @Enumerated(EnumType.STRING)
     Season season;
 
     public CropV2() {}
