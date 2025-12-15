@@ -2,7 +2,7 @@ CREATE TABLE crop_season_ids
 (
     crop                  VARCHAR(255)                            NOT NULL,
     season_id             VARCHAR(255)                            NOT NULL,
-    CONSTRAINT pk_crop_season_ids PRIMARY KEY (crop, season_id), FOREIGN KEY (season_id) REFERENCES seasonName (id), FOREIGN KEY (crop) REFERENCES crop (crop)
+    CONSTRAINT pk_crop_season_ids PRIMARY KEY (crop, season_id), FOREIGN KEY (season_id) REFERENCES season (id), FOREIGN KEY (crop) REFERENCES crop (crop)
 );
 
 INSERT INTO crop_season_ids

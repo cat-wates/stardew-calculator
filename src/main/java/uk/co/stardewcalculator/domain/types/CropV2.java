@@ -2,13 +2,13 @@ package uk.co.stardewcalculator.domain.types;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import uk.co.stardewcalculator.domain.season.SeasonName;
+import uk.co.stardewcalculator.domain.season.Season;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "crop")
-@IdClass(CropID.class)
 public class CropV2 implements Serializable {
 
     @Id String crop;
@@ -20,14 +20,17 @@ public class CropV2 implements Serializable {
     int iridiumSellingPrice;
     int timeToMaturity;
     @Nullable Integer timeToRegrow;
-    @Id
-    @Enumerated(EnumType.STRING)
-    SeasonName seasonName;
+    @ManyToMany
+    @JoinTable(
+            name = "crop_season_ids",
+            joinColumns = @JoinColumn(name = "crop"),
+            inverseJoinColumns = @JoinColumn(name = "season_id"))
+    List<Season> seasons;
 
     public CropV2() {}
 
     //TODO simplify constructor
-    public CropV2(String crop, int costPerSeedPierre, int costPerSeedJojo, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, @Nullable Integer timeToRegrow, SeasonName seasonName) {
+    public CropV2(String crop, int costPerSeedPierre, int costPerSeedJojo, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, @Nullable Integer timeToRegrow, List<Season> seasons) {
         this.crop = crop;
         this.costPerSeedPierre = costPerSeedPierre;
         this.costPerSeedJojo = costPerSeedJojo;
@@ -37,7 +40,7 @@ public class CropV2 implements Serializable {
         this.iridiumSellingPrice = iridiumSellingPrice;
         this.timeToMaturity = timeToMaturity;
         this.timeToRegrow = timeToRegrow;
-        this.seasonName = seasonName;
+        this.seasons = seasons;
     }
 
     public int getIridiumSellingPrice() {
@@ -113,11 +116,11 @@ public class CropV2 implements Serializable {
         this.timeToRegrow = timeToRegrow;
     }
 
-    public SeasonName getSeason() {
-        return seasonName;
+    public List<Season> getSeasons() {
+        return seasons;
     }
 
-    public void setSeason(SeasonName seasonName) {
-        this.seasonName = seasonName;
+    public void setSeasons(List<Season> seasons) {
+        this.seasons = seasons;
     }
 }

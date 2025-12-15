@@ -9,6 +9,6 @@ import uk.co.stardewcalculator.domain.types.CropV2;
 @Repository
 public interface CropRepository extends JpaRepository<CropV2, String> {
 
-    @NonNull
-    CropV2 findByCropAndSeason(String crop, SeasonName seasonName);
+//    @NonNull
+//    CropV2 findByCropAndSeasons(String crop, SeasonName seasonName);
 }
