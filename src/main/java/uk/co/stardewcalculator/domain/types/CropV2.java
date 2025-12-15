@@ -2,7 +2,7 @@ package uk.co.stardewcalculator.domain.types;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import uk.co.stardewcalculator.domain.season.Season;
+import uk.co.stardewcalculator.domain.season.SeasonName;
 
 import java.io.Serializable;
 
@@ -22,12 +22,12 @@ public class CropV2 implements Serializable {
     @Nullable Integer timeToRegrow;
     @Id
     @Enumerated(EnumType.STRING)
-    Season season;
+    SeasonName seasonName;
 
     public CropV2() {}
 
     //TODO simplify constructor
-    public CropV2(String crop, int costPerSeedPierre, int costPerSeedJojo, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, @Nullable Integer timeToRegrow, Season season) {
+    public CropV2(String crop, int costPerSeedPierre, int costPerSeedJojo, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, @Nullable Integer timeToRegrow, SeasonName seasonName) {
         this.crop = crop;
         this.costPerSeedPierre = costPerSeedPierre;
         this.costPerSeedJojo = costPerSeedJojo;
@@ -37,7 +37,7 @@ public class CropV2 implements Serializable {
         this.iridiumSellingPrice = iridiumSellingPrice;
         this.timeToMaturity = timeToMaturity;
         this.timeToRegrow = timeToRegrow;
-        this.season = season;
+        this.seasonName = seasonName;
     }
 
     public int getIridiumSellingPrice() {
@@ -113,11 +113,11 @@ public class CropV2 implements Serializable {
         this.timeToRegrow = timeToRegrow;
     }
 
-    public Season getSeason() {
-        return season;
+    public SeasonName getSeason() {
+        return seasonName;
     }
 
-    public void setSeason(Season season) {
-        this.season = season;
+    public void setSeason(SeasonName seasonName) {
+        this.seasonName = seasonName;
     }
 }

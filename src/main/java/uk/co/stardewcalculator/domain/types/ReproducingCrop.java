@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.domain.types;
 
-import uk.co.stardewcalculator.domain.season.Season;
+import uk.co.stardewcalculator.domain.season.SeasonName;
 
 import java.util.Map;
 
@@ -8,8 +8,8 @@ public class ReproducingCrop extends Crop {
 
     private final int timeToRegrow;
 
-    public ReproducingCrop(int costPerSeed,Map<Quality, Integer> sellingPrices, int timeToMaturity, Season season, int timeToRegrow) {
-        super(costPerSeed, sellingPrices, timeToMaturity, season);
+    public ReproducingCrop(int costPerSeed, Map<Quality, Integer> sellingPrices, int timeToMaturity, SeasonName seasonName, int timeToRegrow) {
+        super(costPerSeed, sellingPrices, timeToMaturity, seasonName);
         this.timeToRegrow = timeToRegrow;
     }
 

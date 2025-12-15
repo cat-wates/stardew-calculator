@@ -3,12 +3,12 @@ package uk.co.stardewcalculator.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Repository;
-import uk.co.stardewcalculator.domain.season.Season;
+import uk.co.stardewcalculator.domain.season.SeasonName;
 import uk.co.stardewcalculator.domain.types.CropV2;
 
 @Repository
 public interface CropRepository extends JpaRepository<CropV2, String> {
 
     @NonNull
-    CropV2 findByCropAndSeason(String crop, Season season);
+    CropV2 findByCropAndSeason(String crop, SeasonName seasonName);
 }

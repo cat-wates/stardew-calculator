@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.domain.types;
 
-import uk.co.stardewcalculator.domain.season.Season;
+import uk.co.stardewcalculator.domain.season.SeasonName;
 
 import java.util.Map;
 
@@ -8,15 +8,15 @@ public abstract class Crop {
     private int costPerSeed; //from Pierre
     private Map<Quality, Integer> sellingPrices;
     private int timeToMaturity; //how long it takes for the plant to grow from initial planting of seed
-    private Season season;
+    private SeasonName seasonName;
 
     public Crop() {}
 
-    public Crop(int costPerSeed, Map<Quality, Integer> sellingPrices, int timeToMaturity, Season season) {
+    public Crop(int costPerSeed, Map<Quality, Integer> sellingPrices, int timeToMaturity, SeasonName seasonName) {
         this.costPerSeed = costPerSeed;
         this.sellingPrices = sellingPrices;
         this.timeToMaturity = timeToMaturity;
-        this.season = season;
+        this.seasonName = seasonName;
     }
 
     public int getSellingPrice(Quality quality) {

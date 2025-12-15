@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import uk.co.stardewcalculator.domain.season.Season;
+import uk.co.stardewcalculator.domain.season.SeasonName;
 import uk.co.stardewcalculator.domain.types.CropID;
 import uk.co.stardewcalculator.domain.types.CropV2;
 
@@ -38,7 +38,7 @@ public class CropRepositoryTest {
         testCrop.setIridiumSellingPrice(70);
         testCrop.setTimeToMaturity(4);
         testCrop.setTimeToRegrow(null);
-        testCrop.setSeason(Season.SPRING);
+        testCrop.setSeason(SeasonName.SPRING);
     }
 
     @AfterEach
@@ -49,7 +49,7 @@ public class CropRepositoryTest {
 
     @Test
     void givenCropString_whenFindCrop_thenReturnCrop() {
-        CropV2 selectedCrop = cropRepository.findByCropAndSeason("Parsnip", Season.SPRING);
+        CropV2 selectedCrop = cropRepository.findByCropAndSeason("Parsnip", SeasonName.SPRING);
         assertNotNull(selectedCrop);
         assertEquals(testCrop.getBasicSellingPrice(), selectedCrop.getBasicSellingPrice());
         assertEquals(testCrop.getCostPerSeedPierre(), selectedCrop.getCostPerSeedPierre());

@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.domain.season.spring;
 
-import uk.co.stardewcalculator.domain.season.Season;
+import uk.co.stardewcalculator.domain.season.SeasonName;
 import uk.co.stardewcalculator.domain.types.Crop;
 
 import java.util.Map;
@@ -9,7 +9,7 @@ import static uk.co.stardewcalculator.domain.types.Quality.*;
 
 public class Potato extends Crop {
     public Potato() {
-        super(50, Map.of(BASIC, 80, SILVER, 100, GOLD, 120, IRIDIUM, 160), 6, Season.SPRING);
+        super(50, Map.of(BASIC, 80, SILVER, 100, GOLD, 120, IRIDIUM, 160), 6, SeasonName.SPRING);
     }
 
     @Override

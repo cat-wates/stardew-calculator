@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/main/resources/db/migration/V2_1_2__create_season_crop_bridging_table.sql" value="7dbe4f6c-3ed3-4271-8475-a5297354716f" />
+  </component>
+</project>
