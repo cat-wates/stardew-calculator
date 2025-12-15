@@ -16,6 +16,10 @@ public class Season {
     @ManyToMany(mappedBy = "seasons")
     private List<CropV2> crops;
 
+    public Season() {
+
+    }
+
     public List<CropV2> getCrops() {
         return crops;
     }
