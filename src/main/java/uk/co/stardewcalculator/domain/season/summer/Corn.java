@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.domain.season.summer;
 
-import uk.co.stardewcalculator.domain.season.SeasonName;
+import uk.co.stardewcalculator.domain.season.SeasonType;
 import uk.co.stardewcalculator.domain.types.ReproducingCrop;
 
 import java.util.Map;
@@ -10,7 +10,7 @@ import static uk.co.stardewcalculator.domain.types.Quality.*;
 public class Corn extends ReproducingCrop {
 
     public Corn() {
-        super(150, Map.of(BASIC, 50, SILVER, 62, GOLD, 75, IRIDIUM, 100), 14, SeasonName.SUMMER, 4);
+        super(150, Map.of(BASIC, 50, SILVER, 62, GOLD, 75, IRIDIUM, 100), 14, SeasonType.SUMMER, 4);
     }
 
     @Override

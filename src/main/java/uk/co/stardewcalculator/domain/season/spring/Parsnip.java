@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.domain.season.spring;
 
-import uk.co.stardewcalculator.domain.season.SeasonName;
+import uk.co.stardewcalculator.domain.season.SeasonType;
 import uk.co.stardewcalculator.domain.types.Crop;
 
 import java.util.Map;
@@ -9,7 +9,7 @@ import static uk.co.stardewcalculator.domain.types.Quality.*;
 
 public class Parsnip extends Crop {
     public Parsnip() {
-        super(20, Map.of(BASIC, 35, SILVER, 43, GOLD, 52, IRIDIUM, 70), 4, SeasonName.SPRING);
+        super(20, Map.of(BASIC, 35, SILVER, 43, GOLD, 52, IRIDIUM, 70), 4, SeasonType.SPRING);
     }
 
     @Override

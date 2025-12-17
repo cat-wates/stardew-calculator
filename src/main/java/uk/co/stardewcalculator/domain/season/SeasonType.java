@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.domain.season;
 
-public enum SeasonName {
+public enum SeasonType {
     SPRING,
     SUMMER,
     FALL,

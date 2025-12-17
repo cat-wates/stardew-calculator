@@ -1,6 +1,6 @@
 package uk.co.stardewcalculator.domain.season.winter;
 
-import uk.co.stardewcalculator.domain.season.SeasonName;
+import uk.co.stardewcalculator.domain.season.SeasonType;
 import uk.co.stardewcalculator.domain.types.Crop;
 
 import java.util.Map;
@@ -10,7 +10,7 @@ import static uk.co.stardewcalculator.domain.types.Quality.*;
 public class Powdermelon extends Crop {
 
     public Powdermelon() {
-        super(0, Map.of(BASIC, 60, SILVER, 75, GOLD, 90, IRIDIUM, 105), 7, SeasonName.WINTER);
+        super(0, Map.of(BASIC, 60, SILVER, 75, GOLD, 90, IRIDIUM, 105), 7, SeasonType.WINTER);
     }
 
     @Override

@@ -16,7 +16,7 @@ This program is to help a Stardew Valley player understand how much profit they 
   
   🥬 Whether they use a fertiliser (and the quality of it)
   
-  🥔 Which seasonName they're wanting to check
+  🥔 Which seasonType they're wanting to check
 
 
 ## **Outputs in the console**
