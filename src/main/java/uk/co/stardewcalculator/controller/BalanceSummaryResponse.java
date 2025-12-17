@@ -1,42 +1,40 @@
 package uk.co.stardewcalculator.controller;
 
 import uk.co.stardewcalculator.domain.Player;
-import uk.co.stardewcalculator.domain.types.Crop;
-
-import static uk.co.stardewcalculator.domain.types.Quality.*;
+import uk.co.stardewcalculator.domain.types.CropV2;
 
 public class BalanceSummaryResponse {
 
     Player player;
-    Crop finalCrop;
+    CropV2 finalCrop;
     int minimumBalance;
     int potentialBalance;
 
-    public BalanceSummaryResponse(Player player, Crop finalCrop, int minimumBalance, int potentialBalance) {
+    public BalanceSummaryResponse(Player player, CropV2 finalCrop, int minimumBalance, int potentialBalance) {
         this.finalCrop = finalCrop;
         this.player = player;
         this.minimumBalance = minimumBalance;
         this.potentialBalance = potentialBalance;
     }
 
-    public void printResults(Crop finalCrop, Player player) {
+    public void printResults(CropV2 finalCrop, Player player) {
         System.out.println("Crop: " + finalCrop);
         System.out.println("Seed amount: " + player.getFarm().getSeedCount());
         System.out.println("Buying price: " + finalCrop.getCostPerSeed() + "g");
-        System.out.println("Basic selling price: " + finalCrop.getSellingPrice(BASIC) + "g");
-        System.out.println("Silver selling price: " + finalCrop.getSellingPrice(SILVER) + "g");
-        System.out.println("Gold selling price: " + finalCrop.getSellingPrice(GOLD) + "g");
-        System.out.println("Iridium selling price: " + finalCrop.getSellingPrice(IRIDIUM) + "g");
+        System.out.println("Basic selling price: " + finalCrop.getBasicSellingPrice() + "g");
+        System.out.println("Silver selling price: " + finalCrop.getSilverSellingPrice() + "g");
+        System.out.println("Gold selling price: " + finalCrop.getGoldSellingPrice() + "g");
+        System.out.println("Iridium selling price: " + finalCrop.getIridiumSellingPrice() + "g");
         System.out.println("Old balance: " + player.getBalance() + "g");
         System.out.println("Minimum new balance: " + minimumBalance + "g");
         System.out.println("Potential new balance (based on crop quality probability): " + potentialBalance + "g");
     }
 
-    public Crop getFinalCrop() {
+    public CropV2 getFinalCrop() {
         return finalCrop;
     }
 
-    public void setFinalCrop(Crop finalCrop) {
+    public void setFinalCrop(CropV2 finalCrop) {
         this.finalCrop = finalCrop;
     }
 

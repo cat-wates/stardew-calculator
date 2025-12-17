@@ -7,8 +7,6 @@ import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.service.calculator.CostCalculator;
 import uk.co.stardewcalculator.service.calculator.MultiplierCalculator;
 
-import static uk.co.stardewcalculator.domain.types.Quality.BASIC;
-
 @Component
 public class MinimumBalanceCalculator  implements BalanceCalculator {
 
@@ -24,7 +22,7 @@ public class MinimumBalanceCalculator  implements BalanceCalculator {
     @Override
     public int calculateBalance(Player player, PlantedCrop finalCrop) {
         double minimumBalance = costCalculator.calculateBalanceMinusCost(player.getBalance(), finalCrop, player.getFarm().getSeedCount())
-                + (finalCrop.getSellingPrice(BASIC) * multiplierCalculator.calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
+                + (finalCrop.getBasicSellingPrice() * multiplierCalculator.calculateMultipliers(player.getTiller(), finalCrop.getCrop()));
         return (int)minimumBalance;
     }
 }

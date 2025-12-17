@@ -43,6 +43,10 @@ public class CropV2 implements Serializable {
         this.seasons = seasons;
     }
 
+    public int getHarvestsPerSeason() {
+        return 28 / timeToMaturity;
+    }
+
     public int getIridiumSellingPrice() {
         return iridiumSellingPrice;
     }
@@ -122,5 +126,9 @@ public class CropV2 implements Serializable {
 
     public void setSeasons(List<Season> seasons) {
         this.seasons = seasons;
+    }
+
+    public int getCostPerSeed() {
+        return costPerSeedPierre;
     }
 }
