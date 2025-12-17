@@ -2,17 +2,17 @@ package uk.co.stardewcalculator.domain.types;
 
 public class PlantedCrop {
 
-    CropV2 crop;
+    Crop crop;
     private final int seedCount;
     private final int fertilizerLevel;
 
-    public PlantedCrop(CropV2 crop, int seedCount, int fertilizerLevel) {
+    public PlantedCrop(Crop crop, int seedCount, int fertilizerLevel) {
         this.crop = crop;
         this.seedCount = seedCount;
         this.fertilizerLevel = fertilizerLevel;
     }
 
-    public CropV2 getCrop() {
+    public Crop getCrop() {
         return crop;
     }
 

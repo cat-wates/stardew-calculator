@@ -8,7 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import uk.co.stardewcalculator.domain.Farm;
 import uk.co.stardewcalculator.domain.Player;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.repository.CropRepository;
 import uk.co.stardewcalculator.service.calculator.revenue.*;
@@ -23,7 +23,7 @@ public class RevenueCalculatorTest {
     @Autowired
     CropRepository cropRepository;
 
-    CropV2 crop = cropRepository.findByCrop("parsnip");
+    Crop crop = cropRepository.findByCrop("parsnip");
     Player player = new Player("tangykitkat", 0, 0, false, false, new Farm(1, 1));
 
     @Test

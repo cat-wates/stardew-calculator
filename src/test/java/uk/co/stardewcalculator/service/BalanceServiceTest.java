@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import uk.co.stardewcalculator.controller.BalanceSummaryResponse;
 import uk.co.stardewcalculator.domain.Farm;
 import uk.co.stardewcalculator.domain.Player;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.repository.CropRepository;
 
@@ -20,7 +20,7 @@ public class BalanceServiceTest {
     CropRepository cropRepository;
 
     Player player = new Player("tangykitkat", 5, 100, false, false, new Farm(1, 1));
-    CropV2 crop = cropRepository.findByCrop("parsnip");
+    Crop crop = cropRepository.findByCrop("parsnip");
 
     @Test
     void shouldReturnMinimumBalanceFromBalanceSummaryResponse() {

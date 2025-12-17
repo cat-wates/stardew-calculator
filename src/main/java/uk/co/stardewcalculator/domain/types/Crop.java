@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "crop")
-public class CropV2 implements Serializable {
+public class Crop implements Serializable {
 
     @Id String crop;
     int costPerSeedPierre;
@@ -27,10 +27,10 @@ public class CropV2 implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "season_id"))
     List<Season> seasons;
 
-    public CropV2() {}
+    public Crop() {}
 
     //TODO simplify constructor
-    public CropV2(String crop, int costPerSeedPierre, int costPerSeedJojo, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, @Nullable Integer timeToRegrow, List<Season> seasons) {
+    public Crop(String crop, int costPerSeedPierre, int costPerSeedJojo, int basicSellingPrice, int silverSellingPrice, int goldSellingPrice, int iridiumSellingPrice, int timeToMaturity, @Nullable Integer timeToRegrow, List<Season> seasons) {
         this.crop = crop;
         this.costPerSeedPierre = costPerSeedPierre;
         this.costPerSeedJojo = costPerSeedJojo;

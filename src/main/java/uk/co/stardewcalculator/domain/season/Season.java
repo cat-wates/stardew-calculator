@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 
 import java.util.List;
 
@@ -14,17 +14,17 @@ public class Season {
     @Id
     private String id;
     @ManyToMany(mappedBy = "seasons")
-    private List<CropV2> crops;
+    private List<Crop> crops;
 
     public Season() {
 
     }
 
-    public List<CropV2> getCrops() {
+    public List<Crop> getCrops() {
         return crops;
     }
 
-    public void setCrops(List<CropV2> crops) {
+    public void setCrops(List<Crop> crops) {
         this.crops = crops;
     }
 

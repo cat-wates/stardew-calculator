@@ -1,13 +1,13 @@
 package uk.co.stardewcalculator.service.calculator;
 
 import org.springframework.stereotype.Component;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 
 @Component
 public class CostCalculator {
 
-    private int calculateCost(CropV2 finalCrop, int seedCount) {
+    private int calculateCost(Crop finalCrop, int seedCount) {
         return seedCount * finalCrop.getCostPerSeed();
     }
 

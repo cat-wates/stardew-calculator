@@ -1,23 +1,23 @@
 package uk.co.stardewcalculator.controller;
 
 import uk.co.stardewcalculator.domain.Player;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 
 public class BalanceSummaryResponse {
 
     Player player;
-    CropV2 finalCrop;
+    Crop finalCrop;
     int minimumBalance;
     int potentialBalance;
 
-    public BalanceSummaryResponse(Player player, CropV2 finalCrop, int minimumBalance, int potentialBalance) {
+    public BalanceSummaryResponse(Player player, Crop finalCrop, int minimumBalance, int potentialBalance) {
         this.finalCrop = finalCrop;
         this.player = player;
         this.minimumBalance = minimumBalance;
         this.potentialBalance = potentialBalance;
     }
 
-    public void printResults(CropV2 finalCrop, Player player) {
+    public void printResults(Crop finalCrop, Player player) {
         System.out.println("Crop: " + finalCrop);
         System.out.println("Seed amount: " + player.getFarm().getSeedCount());
         System.out.println("Buying price: " + finalCrop.getCostPerSeed() + "g");
@@ -30,11 +30,11 @@ public class BalanceSummaryResponse {
         System.out.println("Potential new balance (based on crop quality probability): " + potentialBalance + "g");
     }
 
-    public CropV2 getFinalCrop() {
+    public Crop getFinalCrop() {
         return finalCrop;
     }
 
-    public void setFinalCrop(CropV2 finalCrop) {
+    public void setFinalCrop(Crop finalCrop) {
         this.finalCrop = finalCrop;
     }
 

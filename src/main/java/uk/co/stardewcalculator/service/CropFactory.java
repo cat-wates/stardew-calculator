@@ -2,7 +2,7 @@ package uk.co.stardewcalculator.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.repository.CropRepository;
 
 import java.util.Optional;
@@ -13,8 +13,8 @@ public class CropFactory {
     @Autowired
     CropRepository cropRepository;
 
-    public Optional<CropV2> assignCrop(String cropType) {
-        CropV2 crop = null;
+    public Optional<Crop> assignCrop(String cropType) {
+        Crop crop = null;
             switch (cropType) {
 //            spring
                 case "blue jazz", "bluejazz" -> crop = cropRepository.findByCrop("blue jazz");

@@ -3,7 +3,7 @@ package uk.co.stardewcalculator.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 
 import java.util.Optional;
 
@@ -20,7 +20,7 @@ public class CropFactoryTest {
 //        Given
         String cropType = "parsnip";
 //        When
-        Optional<CropV2> finalCrop = cropFactory.assignCrop(cropType);
+        Optional<Crop> finalCrop = cropFactory.assignCrop(cropType);
 //        Then
         assertThat(finalCrop.get().getCrop()).isEqualTo(cropType);
     }
@@ -30,7 +30,7 @@ public class CropFactoryTest {
 //        Given
         String cropType = "cat";
 //        When
-        Optional<CropV2> finalCrop = cropFactory.assignCrop(cropType);
+        Optional<Crop> finalCrop = cropFactory.assignCrop(cropType);
 //        Then
         assertThat(finalCrop.isEmpty()).isTrue();
     }

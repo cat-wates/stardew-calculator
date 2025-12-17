@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.service.BalanceService;
 import uk.co.stardewcalculator.service.CropFactory;
@@ -38,7 +38,7 @@ public class Controller {
     @GetMapping(value = "/")
     public ResponseEntity test(@RequestBody CropSummaryRequest cropSummaryRequest) {
         String crop = cropSummaryRequest.crop();
-        Optional<CropV2> crop1 = cropFactory.assignCrop(crop);
+        Optional<Crop> crop1 = cropFactory.assignCrop(crop);
         Player player = cropSummaryRequest.player();
         if (crop1.isPresent()) {
             PlantedCrop plantedCrop = new PlantedCrop(crop1.get(), player.getFarm().getSeedCount(), player.getFarm().getFertilizerLevel());
@@ -69,7 +69,7 @@ public class Controller {
     }
 
     @PostMapping(value = "/crop")
-    public void cropRequest(@RequestBody CropV2 crop) {
+    public void cropRequest(@RequestBody Crop crop) {
 
     }
 

@@ -9,7 +9,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import uk.co.stardewcalculator.domain.season.Season;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 
 import java.util.List;
 
@@ -23,12 +23,12 @@ public class CropRepositoryTest {
     @Autowired
     private CropRepository cropRepository;
 
-    private CropV2 testCrop;
+    private Crop testCrop;
 
     @BeforeEach
     public void setUp() {
         // Initialize test data before each test method
-        testCrop = new CropV2();
+        testCrop = new Crop();
         testCrop.setCrop("Parsnip");
         testCrop.setCostPerSeedPierre(20);
         testCrop.setCostPerSeedJojo(25);
@@ -49,7 +49,7 @@ public class CropRepositoryTest {
 
     @Test
     void givenCropString_whenFindCrop_thenReturnCrop() {
-        CropV2 selectedCrop = cropRepository.findByCrop("Parsnip");
+        Crop selectedCrop = cropRepository.findByCrop("Parsnip");
         assertNotNull(selectedCrop);
         assertEquals(testCrop.getBasicSellingPrice(), selectedCrop.getBasicSellingPrice());
         assertEquals(testCrop.getCostPerSeedPierre(), selectedCrop.getCostPerSeedPierre());

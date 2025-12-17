@@ -3,7 +3,7 @@ package uk.co.stardewcalculator.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import uk.co.stardewcalculator.domain.types.CropV2;
+import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
 import uk.co.stardewcalculator.repository.CropRepository;
 
@@ -19,7 +19,7 @@ class RevenueServiceTest {
     @Test
     public void shouldCalculatePotentialTotalProfitFromQualityAndSeedCountForAGivenCrop() {
 //        Given
-        CropV2 crop = cropRepository.findByCrop("parsnip");
+        Crop crop = cropRepository.findByCrop("parsnip");
         int farmingLevel = 0;
         int fertilizerLevel = 1;
         int seedCount = 1;
