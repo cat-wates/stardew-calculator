@@ -1,18 +1,29 @@
 package uk.co.stardewcalculator.service;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import uk.co.stardewcalculator.domain.Farm;
 import uk.co.stardewcalculator.domain.Player;
-import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
+import uk.co.stardewcalculator.repository.CropRepository;
 import uk.co.stardewcalculator.service.calculator.revenue.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@ExtendWith(SpringExtension.class)
+@DataJpaTest
+@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
 public class RevenueCalculatorTest {
 
-    Crop crop = new Parsnip();
+    @Autowired
+    CropRepository cropRepository;
+
+    Crop crop = cropRepository.findByCrop("parsnip");
     Player player = new Player("tangykitkat", 0, 0, false, false, new Farm(1, 1));
 
     @Test

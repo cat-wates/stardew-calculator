@@ -3,8 +3,6 @@ package uk.co.stardewcalculator.controller;
 import uk.co.stardewcalculator.domain.Player;
 import uk.co.stardewcalculator.domain.types.Crop;
 
-import static uk.co.stardewcalculator.domain.types.Quality.*;
-
 public class BalanceSummaryResponse {
 
     Player player;
@@ -23,10 +21,10 @@ public class BalanceSummaryResponse {
         System.out.println("Crop: " + finalCrop);
         System.out.println("Seed amount: " + player.getFarm().getSeedCount());
         System.out.println("Buying price: " + finalCrop.getCostPerSeed() + "g");
-        System.out.println("Basic selling price: " + finalCrop.getSellingPrice(BASIC) + "g");
-        System.out.println("Silver selling price: " + finalCrop.getSellingPrice(SILVER) + "g");
-        System.out.println("Gold selling price: " + finalCrop.getSellingPrice(GOLD) + "g");
-        System.out.println("Iridium selling price: " + finalCrop.getSellingPrice(IRIDIUM) + "g");
+        System.out.println("Basic selling price: " + finalCrop.getBasicSellingPrice() + "g");
+        System.out.println("Silver selling price: " + finalCrop.getSilverSellingPrice() + "g");
+        System.out.println("Gold selling price: " + finalCrop.getGoldSellingPrice() + "g");
+        System.out.println("Iridium selling price: " + finalCrop.getIridiumSellingPrice() + "g");
         System.out.println("Old balance: " + player.getBalance() + "g");
         System.out.println("Minimum new balance: " + minimumBalance + "g");
         System.out.println("Potential new balance (based on crop quality probability): " + potentialBalance + "g");

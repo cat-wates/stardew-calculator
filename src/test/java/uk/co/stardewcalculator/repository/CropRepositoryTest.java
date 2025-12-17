@@ -1,0 +1,58 @@
+package uk.co.stardewcalculator.repository;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import uk.co.stardewcalculator.domain.season.Season;
+import uk.co.stardewcalculator.domain.types.Crop;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+@ExtendWith(SpringExtension.class)
+@DataJpaTest
+@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
+public class CropRepositoryTest {
+
+    @Autowired
+    private CropRepository cropRepository;
+
+    private Crop testCrop;
+
+    @BeforeEach
+    public void setUp() {
+        // Initialize test data before each test method
+        testCrop = new Crop();
+        testCrop.setCrop("Parsnip");
+        testCrop.setCostPerSeedPierre(20);
+        testCrop.setCostPerSeedJojo(25);
+        testCrop.setBasicSellingPrice(35);
+        testCrop.setSilverSellingPrice(43);
+        testCrop.setGoldSellingPrice(52);
+        testCrop.setIridiumSellingPrice(70);
+        testCrop.setTimeToMaturity(4);
+        testCrop.setTimeToRegrow(null);
+        testCrop.setSeasons(List.of(new Season()));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        // Release test data after each test method
+        cropRepository.deleteAll();
+    }
+
+    @Test
+    void givenCropString_whenFindCrop_thenReturnCrop() {
+        Crop selectedCrop = cropRepository.findByCrop("Parsnip");
+        assertNotNull(selectedCrop);
+        assertEquals(testCrop.getBasicSellingPrice(), selectedCrop.getBasicSellingPrice());
+        assertEquals(testCrop.getCostPerSeedPierre(), selectedCrop.getCostPerSeedPierre());
+    }
+
+}

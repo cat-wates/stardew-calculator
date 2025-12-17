@@ -6,9 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import uk.co.stardewcalculator.controller.BalanceSummaryResponse;
 import uk.co.stardewcalculator.domain.Farm;
 import uk.co.stardewcalculator.domain.Player;
-import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
+import uk.co.stardewcalculator.repository.CropRepository;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -17,9 +17,10 @@ public class BalanceServiceTest {
 
     @Autowired
     BalanceService balanceService;
+    CropRepository cropRepository;
 
     Player player = new Player("tangykitkat", 5, 100, false, false, new Farm(1, 1));
-    Crop crop = new Parsnip();
+    Crop crop = cropRepository.findByCrop("parsnip");
 
     @Test
     void shouldReturnMinimumBalanceFromBalanceSummaryResponse() {

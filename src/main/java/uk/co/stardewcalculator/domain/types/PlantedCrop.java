@@ -24,7 +24,19 @@ public class PlantedCrop {
         return fertilizerLevel;
     }
 
-    public int getSellingPrice(Quality quality) {
-        return crop.getSellingPrice(quality) * seedCount;
+    public int getBasicSellingPrice() {
+        return crop.getBasicSellingPrice() * seedCount;
+    }
+
+    public int getSilverSellingPrice() {
+        return crop.getSilverSellingPrice() * seedCount;
+    }
+
+    public int getGoldSellingPrice() {
+        return crop.getGoldSellingPrice() * seedCount;
+    }
+
+    public int getIridiumSellingPrice() {
+        return crop.getIridiumSellingPrice() * seedCount;
     }
 }

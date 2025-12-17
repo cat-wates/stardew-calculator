@@ -4,11 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import uk.co.stardewcalculator.domain.Farm;
-import uk.co.stardewcalculator.domain.types.Crop;
-import uk.co.stardewcalculator.domain.season.spring.CoffeeBean;
-import uk.co.stardewcalculator.domain.season.spring.Parsnip;
 import uk.co.stardewcalculator.domain.Player;
+import uk.co.stardewcalculator.domain.types.Crop;
 import uk.co.stardewcalculator.domain.types.PlantedCrop;
+import uk.co.stardewcalculator.repository.CropRepository;
 import uk.co.stardewcalculator.service.calculator.balance.MinimumBalanceCalculator;
 import uk.co.stardewcalculator.service.calculator.balance.PotentialBalanceCalculator;
 
@@ -19,14 +18,14 @@ public class BalanceCalculatorTest {
 
     @Autowired
     PotentialBalanceCalculator potentialBalanceCalculator;
-    @Autowired
     MinimumBalanceCalculator minimumBalanceCalculator;
+    CropRepository cropRepository;
 
     Farm farm = new Farm(1, 1);
     Player playerWithoutTiller = new Player("tangykitkat", 5, 100, false, false, farm);
     Player playerWithTiller = new Player("tangykitkat", 5, 100, true, false, farm);
-    Crop nonReproducingCrop = new Parsnip();
-    Crop reproducingCrop = new CoffeeBean();
+    Crop nonReproducingCrop = cropRepository.findByCrop("parsnip");
+    Crop reproducingCrop = cropRepository.findByCrop("coffee bean");
 
     //min balance non-reproducing
     @Test
